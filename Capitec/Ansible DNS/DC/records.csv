@@ -1,0 +1,3 @@
+RecordName,RecordType
+mydummyhost.bank.local,A
+dummyalias.int.bank,CNAME

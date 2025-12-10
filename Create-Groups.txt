@@ -1,0 +1,1242 @@
+New-ADGroup -Name G_ICAPITEC_##EbenFabricius_RW -SamAccountName G_ICAPITEC_##EbenFabricius_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_##EbenFabricius_RW -ManagedBy CP350357
+Add-ADGroupMember -Identity G_ICAPITEC_##EbenFabricius_RW -Members CP370083,CP370083_DEV,CP350357,CP350870_QA,CP368339,CP350870
+
+New-ADGroup -Name G_ICAPITEC_#BusBank_BB01_RW -SamAccountName G_ICAPITEC_#BusBank_BB01_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_#BusBank_BB01_RW -ManagedBy CP303494
+Add-ADGroupMember -Identity G_ICAPITEC_#BusBank_BB01_RW -Members CP303494,CP360910,CP352140,CT300743,CP352308,CP352195,CP363614,CP361963,CP364921,CP346497,CP308074,CP308044
+
+New-ADGroup -Name G_ICAPITEC_#Elvice_RW -SamAccountName G_ICAPITEC_#Elvice_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_#Elvice_RW -ManagedBy CT302959
+Add-ADGroupMember -Identity G_ICAPITEC_#Elvice_RW -Members CT302959_ESIG_DEV,CT302959,CT302959_ESIG_QA,CT302959_ESIG_INT
+
+New-ADGroup -Name G_ICAPITEC_#KurtW_RW -SamAccountName G_ICAPITEC_#KurtW_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_#KurtW_RW -ManagedBy CP007838
+Add-ADGroupMember -Identity G_ICAPITEC_#KurtW_RW -Members CP007838,CP360963,CT301988,CP317094
+
+New-ADGroup -Name G_ICAPITEC_#shaunjonker_RW -SamAccountName G_ICAPITEC_#shaunjonker_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_#shaunjonker_RW -ManagedBy CT301842
+Add-ADGroupMember -Identity G_ICAPITEC_#shaunjonker_RW -Members S_OWPAPWEB_DEV,CT301842,CP347812
+
+New-ADGroup -Name G_ICAPITEC_20_Handover-HermannLawn_RW -SamAccountName G_ICAPITEC_20_Handover-HermannLawn_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_20_Handover-HermannLawn_RW -ManagedBy CP362280
+Add-ADGroupMember -Identity G_ICAPITEC_20_Handover-HermannLawn_RW -Members CP333513
+
+New-ADGroup -Name G_ICAPITEC_A2P_RW -SamAccountName G_ICAPITEC_A2P_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_A2P_RW -ManagedBy CP342820
+Add-ADGroupMember -Identity G_ICAPITEC_A2P_RW -Members CP362006,CP363951,CT303068,CT301520,CP311730,CP343105
+
+New-ADGroup -Name G_ICAPITEC_ABSA11002500_RW -SamAccountName G_ICAPITEC_ABSA11002500_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ABSA11002500_RW -ManagedBy CP352459
+Add-ADGroupMember -Identity G_ICAPITEC_ABSA11002500_RW -Members CP352459
+
+New-ADGroup -Name G_ICAPITEC_AdielVanDerSchyff_RW -SamAccountName G_ICAPITEC_AdielVanDerSchyff_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AdielVanDerSchyff_RW -ManagedBy CP304785
+Add-ADGroupMember -Identity G_ICAPITEC_AdielVanDerSchyff_RW -Members CP360272,CP338417,CP369327,CP304785,CP302765,CP367893,CP347812,S_AWS_EC2_PDM_DEV
+
+New-ADGroup -Name G_ICAPITEC_Afonso_RW -SamAccountName G_ICAPITEC_Afonso_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Afonso_RW -ManagedBy CP318067
+Add-ADGroupMember -Identity G_ICAPITEC_Afonso_RW -Members CP349621,CP360967,CP329625,CP321380
+
+New-ADGroup -Name G_ICAPITEC_AgilePracticeOffice_RW -SamAccountName G_ICAPITEC_AgilePracticeOffice_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AgilePracticeOffice_RW -ManagedBy CP332922
+Add-ADGroupMember -Identity G_ICAPITEC_AgilePracticeOffice_RW -Members CP341151,CP360909,CP366167,CP323479,CP368295,CP329360,S_Jira_SWAppPRD
+
+New-ADGroup -Name G_ICAPITEC_AgilePointTreasury_RW -SamAccountName G_ICAPITEC_AgilePointTreasury_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AgilePointTreasury_RW -ManagedBy CP364269
+Add-ADGroupMember -Identity G_ICAPITEC_AgilePointTreasury_RW -Members CP364269,S_OWPAPWEB_DEV,S_OWPAPWEB,S_OWPAPWEB_QA
+
+New-ADGroup -Name G_ICAPITEC_AhlisRoux_RW -SamAccountName G_ICAPITEC_AhlisRoux_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AhlisRoux_RW -ManagedBy CP325860
+Add-ADGroupMember -Identity G_ICAPITEC_AhlisRoux_RW -Members CP361444,CP325860,CP360272,CP339789,CP360493_PRD,CP360493,CP313647
+
+New-ADGroup -Name G_ICAPITEC_AlexSmit_RW -SamAccountName G_ICAPITEC_AlexSmit_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AlexSmit_RW -ManagedBy CT303285
+Add-ADGroupMember -Identity G_ICAPITEC_AlexSmit_RW -Members CT303285,CP350235
+
+New-ADGroup -Name G_ICAPITEC_AmandaNzimande_RW -SamAccountName G_ICAPITEC_AmandaNzimande_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AmandaNzimande_RW -ManagedBy CP328759
+Add-ADGroupMember -Identity G_ICAPITEC_AmandaNzimande_RW -Members CP328759,QA328759,QA346737
+
+New-ADGroup -Name G_ICAPITEC_AmandaVanHeerden_RW -SamAccountName G_ICAPITEC_AmandaVanHeerden_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AmandaVanHeerden_RW -ManagedBy CP368867
+Add-ADGroupMember -Identity G_ICAPITEC_AmandaVanHeerden_RW -Members CP368867,CP368043,CP361932,QA368867,QA368043
+
+New-ADGroup -Name G_ICAPITEC_Andie_RW -SamAccountName G_ICAPITEC_Andie_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Andie_RW -ManagedBy CP325722
+Add-ADGroupMember -Identity G_ICAPITEC_Andie_RW -Members CP325722
+
+New-ADGroup -Name G_ICAPITEC_AndreFerreira_RW -SamAccountName G_ICAPITEC_AndreFerreira_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AndreFerreira_RW -ManagedBy CP351407
+Add-ADGroupMember -Identity G_ICAPITEC_AndreFerreira_RW -Members CP351407,CP345544
+
+New-ADGroup -Name G_ICAPITEC_AndreaSwart_RW -SamAccountName G_ICAPITEC_AndreaSwart_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AndreaSwart_RW -ManagedBy CP362914
+Add-ADGroupMember -Identity G_ICAPITEC_AndreaSwart_RW -Members CP362914
+
+New-ADGroup -Name G_ICAPITEC_AndyHeugh_RW -SamAccountName G_ICAPITEC_AndyHeugh_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AndyHeugh_RW -ManagedBy CP324994
+Add-ADGroupMember -Identity G_ICAPITEC_AndyHeugh_RW -Members CP311766,CP311730,CP324994
+
+New-ADGroup -Name G_ICAPITEC_AnnelinePaulse_RW -SamAccountName G_ICAPITEC_AnnelinePaulse_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AnnelinePaulse_RW -ManagedBy CP318067
+Add-ADGroupMember -Identity G_ICAPITEC_AnnelinePaulse_RW -Members CP318067,CP323865
+
+New-ADGroup -Name G_ICAPITEC_AntonvanWyk_RW -SamAccountName G_ICAPITEC_AntonvanWyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AntonvanWyk_RW -ManagedBy CP368463
+Add-ADGroupMember -Identity G_ICAPITEC_AntonvanWyk_RW -Members CP368463,CP345544,CP307974
+
+New-ADGroup -Name G_ICAPITEC_AODcaselistGL6920099_RW -SamAccountName G_ICAPITEC_AODcaselistGL6920099_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AODcaselistGL6920099_RW -ManagedBy CP338688
+Add-ADGroupMember -Identity G_ICAPITEC_AODcaselistGL6920099_RW -Members CP307096
+
+New-ADGroup -Name G_ICAPITEC_aplatform_RW -SamAccountName G_ICAPITEC_aplatform_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_aplatform_RW -ManagedBy CP364412
+Add-ADGroupMember -Identity G_ICAPITEC_aplatform_RW -Members CP364412
+
+New-ADGroup -Name G_ICAPITEC_APS_AZR_TestRequests_RW -SamAccountName G_ICAPITEC_APS_AZR_TestRequests_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_APS_AZR_TestRequests_RW -ManagedBy CP342820
+Add-ADGroupMember -Identity G_ICAPITEC_APS_AZR_TestRequests_RW -Members CT302364,CT303315,CT303264,CT303316,CT303317
+
+New-ADGroup -Name G_ICAPITEC_AriaNiksch_RW -SamAccountName G_ICAPITEC_AriaNiksch_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AriaNiksch_RW -ManagedBy CP333748
+Add-ADGroupMember -Identity G_ICAPITEC_AriaNiksch_RW -Members CP333748,CP362393
+
+New-ADGroup -Name G_ICAPITEC_ATMClaims_RW -SamAccountName G_ICAPITEC_ATMClaims_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ATMClaims_RW -ManagedBy CP311337
+Add-ADGroupMember -Identity G_ICAPITEC_ATMClaims_RW -Members CP311337,CP305167,CP334512,CP341490,CP318501,CP312221,CP309619,CP300505,CP324355,CP303105,CP330279,CP324354,CP351175,CP334534,CP324436
+
+New-ADGroup -Name G_ICAPITEC_Auditcalls_RW -SamAccountName G_ICAPITEC_Auditcalls_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Auditcalls_RW -ManagedBy CP313931
+Add-ADGroupMember -Identity G_ICAPITEC_Auditcalls_RW -Members CP313931,CP337311
+
+New-ADGroup -Name G_ICAPITEC_AuthenticatedCollections_RW -SamAccountName G_ICAPITEC_AuthenticatedCollections_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_AuthenticatedCollections_RW -ManagedBy CP307483
+Add-ADGroupMember -Identity G_ICAPITEC_AuthenticatedCollections_RW -Members CP343402,CP322160,CP302155,CP307483,CP346914,CP360466,CP311770,CP362120,CP320707,CP304789,CP329082,CP349613,CP341275,CP305228,CP348339,CP313479,CP302536,CP307992,CP302706,CP319924,CP341749,CP308313,CP316859,CP351617,CP348648,CT303306,CP340390,CP331000,QI318543,CP329081,CP351225
+
+New-ADGroup -Name G_ICAPITEC_Authenticated_Collections_Reports_RW -SamAccountName G_ICAPITEC_Authenticated_Collections_Reports_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Authenticated_Collections_Reports_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_Authenticated_Collections_Reports_RW -Members S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV
+
+New-ADGroup -Name G_ICAPITEC_Avaya_RW -SamAccountName G_ICAPITEC_Avaya_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Avaya_RW -ManagedBy CP351084
+Add-ADGroupMember -Identity G_ICAPITEC_Avaya_RW -Members CP309188,CP351084,CP309188_PRD,CP313818,CP361265,CP328131,CP360008,CP329965,CP366315,CP327589,CP330248_PRD,CP330248,CP362062,CP342077,CP313818_PRD,CP314221,CP335095,CP361692,CP363543,CP331753,,CP352611
+
+New-ADGroup -Name G_ICAPITEC_Babalwa_RW -SamAccountName G_ICAPITEC_Babalwa_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Babalwa_RW -ManagedBy CP363686
+Add-ADGroupMember -Identity G_ICAPITEC_Babalwa_RW -Members CP363686
+
+New-ADGroup -Name G_ICAPITEC_BackOffice_RW -SamAccountName G_ICAPITEC_BackOffice_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BackOffice_RW -ManagedBy CP319533
+Add-ADGroupMember -Identity G_ICAPITEC_BackOffice_RW -Members CP341447,CP360170,CP339081_PRD,CP322794,CP315816,CP333913,CP361879,CP319958,CP339530,CP338402,CP363521,CP361996,CP050418,CP318543,CP361977,CP327589,CP363434,CP327729,CP342197,CP305182
+
+New-ADGroup -Name G_ICAPITEC_BancsDailyQueries_RW -SamAccountName G_ICAPITEC_BancsDailyQueries_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BancsDailyQueries_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_BancsDailyQueries_RW -Members CP308074,CP343491,CP349272,CP311035,CP303373,CP344968,S_DNA_REPORTING_PRD
+
+New-ADGroup -Name G_ICAPITEC_BancsSystemsSAMOSReports_RW -SamAccountName G_ICAPITEC_BancsSystemsSAMOSReports_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BancsSystemsSAMOSReports_RW -ManagedBy CP308074
+Add-ADGroupMember -Identity G_ICAPITEC_BancsSystemsSAMOSReports_RW -Members CP308950,CP330675,CP331094,CP047158,CP310051,CP350087,CP323060,CP326840,CP341059,CP305685,CP346496,CP328630,CP303373,CP045361,CP366457
+
+New-ADGroup -Name G_ICAPITEC_Barry_RW -SamAccountName G_ICAPITEC_Barry_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Barry_RW -ManagedBy CP309654
+Add-ADGroupMember -Identity G_ICAPITEC_Barry_RW -Members CP309654
+
+New-ADGroup -Name G_ICAPITEC_BBAML-IFTR_RW -SamAccountName G_ICAPITEC_BBAML-IFTR_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BBAML-IFTR_RW -ManagedBy CT302844
+Add-ADGroupMember -Identity G_ICAPITEC_BBAML-IFTR_RW -Members CT302844,S_CapFicDEV
+
+New-ADGroup -Name G_ICAPITEC_BDT_RW -SamAccountName G_ICAPITEC_BDT_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BDT_RW -ManagedBy CP362280
+Add-ADGroupMember -Identity G_ICAPITEC_BDT_RW -Members CP329793,CP312088,CP321383,CP316393
+
+New-ADGroup -Name G_ICAPITEC_Bean_GeraldineDeAbreu_RW -SamAccountName G_ICAPITEC_Bean_GeraldineDeAbreu_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Bean_GeraldineDeAbreu_RW -ManagedBy CP363830
+Add-ADGroupMember -Identity G_ICAPITEC_Bean_GeraldineDeAbreu_RW -Members CP363830
+
+New-ADGroup -Name G_ICAPITEC_BelindaEngelbrecht_RW -SamAccountName G_ICAPITEC_BelindaEngelbrecht_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BelindaEngelbrecht_RW -ManagedBy CP301949
+Add-ADGroupMember -Identity G_ICAPITEC_BelindaEngelbrecht_RW -Members CP301949,CP310048,CP340010,CP338017,CP319873,CP310192,CP319156,CP367683,CP343108,CP339532,CP305330,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP335783,CP342050,CP323190
+
+New-ADGroup -Name G_ICAPITEC_BennieHickman_RW -SamAccountName G_ICAPITEC_BennieHickman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BennieHickman_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_BennieHickman_RW -Members CP322312,AP313360,CP364379,CP348570,CP339532,CP335095,CP337317
+
+New-ADGroup -Name G_ICAPITEC_BerninI_RW -SamAccountName G_ICAPITEC_BerninI_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BerninI_RW -ManagedBy CP310859
+Add-ADGroupMember -Identity G_ICAPITEC_BerninI_RW -Members CP351357_PRD,CP310859_PRD,CP339974_PRD,CP310859,CP339974,CP337913_PRD,CP337340,CP318722_PRD,CP339081,CT302597
+
+New-ADGroup -Name G_ICAPITEC_BessieBrand_RW -SamAccountName G_ICAPITEC_BessieBrand_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BessieBrand_RW -ManagedBy CT302678
+Add-ADGroupMember -Identity G_ICAPITEC_BessieBrand_RW -Members CP329321,CP346171
+
+New-ADGroup -Name G_ICAPITEC_BestNyambe_RW -SamAccountName G_ICAPITEC_BestNyambe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BestNyambe_RW -ManagedBy CP339081
+Add-ADGroupMember -Identity G_ICAPITEC_BestNyambe_RW -Members CP339081_PRD,CP334380,CP339081,CP339081_INT,CP321832,S_MC_SIM_USER,CP341447_PRD
+
+New-ADGroup -Name G_ICAPITEC_Bevan_RW -SamAccountName G_ICAPITEC_Bevan_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Bevan_RW -ManagedBy CP319156
+Add-ADGroupMember -Identity G_ICAPITEC_Bevan_RW -Members CP313948,,CP310048,CP313849,CP304055,CP360028,CP334679
+
+New-ADGroup -Name G_ICAPITEC_BevanCoetzee_RW -SamAccountName G_ICAPITEC_BevanCoetzee_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BevanCoetzee_RW -ManagedBy CP336132
+Add-ADGroupMember -Identity G_ICAPITEC_BevanCoetzee_RW -Members CP336132,S_CentlCollDEV,CP343926,CP312274,CP334679
+
+New-ADGroup -Name G_ICAPITEC_BevinSchuurman_RW -SamAccountName G_ICAPITEC_BevinSchuurman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BevinSchuurman_RW -ManagedBy CP317090
+Add-ADGroupMember -Identity G_ICAPITEC_BevinSchuurman_RW -Members CP317911
+
+New-ADGroup -Name G_ICAPITEC_BIGranting_RW -SamAccountName G_ICAPITEC_BIGranting_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BIGranting_RW -ManagedBy CP349207
+Add-ADGroupMember -Identity G_ICAPITEC_BIGranting_RW -Members CP363503,CP367767,CP370755
+
+New-ADGroup -Name G_ICAPITEC_BIRecoveriesReports_RW -SamAccountName G_ICAPITEC_BIRecoveriesReports_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BIRecoveriesReports_RW -ManagedBy CP347772
+Add-ADGroupMember -Identity G_ICAPITEC_BIRecoveriesReports_RW -Members CP335783,S_DNA_REPORTING_PRD
+
+New-ADGroup -Name G_ICAPITEC_BIReports_RW -SamAccountName G_ICAPITEC_BIReports_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BIReports_RW -ManagedBy CP324105
+Add-ADGroupMember -Identity G_ICAPITEC_BIReports_RW -Members CP324105,CP329556,CT303285,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP344968,CP350235,PRDSQLServ,CP322312,CP339286
+
+New-ADGroup -Name G_ICAPITEC_BirkeLeRoux_RW -SamAccountName G_ICAPITEC_BirkeLeRoux_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BirkeLeRoux_RW -ManagedBy CP319924
+Add-ADGroupMember -Identity G_ICAPITEC_BirkeLeRoux_RW -Members CP329081,CP329081_PRD,CP319924,CP302706,CP329082,CP318501
+
+New-ADGroup -Name G_ICAPITEC_BoitumeloMekgwe_RW -SamAccountName G_ICAPITEC_BoitumeloMekgwe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BoitumeloMekgwe_RW -ManagedBy CP370477
+Add-ADGroupMember -Identity G_ICAPITEC_BoitumeloMekgwe_RW -Members CP342671,CP361951,CP312923
+
+New-ADGroup -Name G_ICAPITEC_Bophelo_RW -SamAccountName G_ICAPITEC_Bophelo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Bophelo_RW -ManagedBy CP363222
+Add-ADGroupMember -Identity G_ICAPITEC_Bophelo_RW -Members CP306160,CP360648,CP344777
+
+New-ADGroup -Name G_ICAPITEC_BoWExtracts_RW -SamAccountName G_ICAPITEC_BoWExtracts_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BoWExtracts_RW -ManagedBy CP329360
+Add-ADGroupMember -Identity G_ICAPITEC_BoWExtracts_RW -Members S_Jira_SWAppPRD
+
+New-ADGroup -Name G_ICAPITEC_BradeighNolan_RW -SamAccountName G_ICAPITEC_BradeighNolan_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BradeighNolan_RW -ManagedBy CP312274
+Add-ADGroupMember -Identity G_ICAPITEC_BradeighNolan_RW -Members CP312274,CP306910,CP346914,CP339823,CP324755,CP336835,CP336132,CP308997,CP310192,CP310048,CP323757
+
+New-ADGroup -Name G_ICAPITEC_BranchAdminSupport-Uniformfiledrop_RW -SamAccountName G_ICAPITEC_BranchAdminSupport-Uniformfiledrop_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BranchAdminSupport-Uniformfiledrop_RW -ManagedBy CP312249
+Add-ADGroupMember -Identity G_ICAPITEC_BranchAdminSupport-Uniformfiledrop_RW -Members CP310241,S_MFTW_SP_PRD,S_MFTW_SP_DEV,S_MFTW_SP_QA
+
+New-ADGroup -Name G_ICAPITEC_BranchExcelReports_RW -SamAccountName G_ICAPITEC_BranchExcelReports_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BranchExcelReports_RW -ManagedBy CP312088
+Add-ADGroupMember -Identity G_ICAPITEC_BranchExcelReports_RW -Members CP016337
+
+New-ADGroup -Name G_ICAPITEC_BrandonLeRoux_RW -SamAccountName G_ICAPITEC_BrandonLeRoux_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BrandonLeRoux_RW -ManagedBy CP337724
+Add-ADGroupMember -Identity G_ICAPITEC_BrandonLeRoux_RW -Members CP337724,CP362277
+
+New-ADGroup -Name G_ICAPITEC_BrendenB_RW -SamAccountName G_ICAPITEC_BrendenB_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BrendenB_RW -ManagedBy CP342050
+Add-ADGroupMember -Identity G_ICAPITEC_BrendenB_RW -Members CP343354,CP301949,CP342050,CP350609,CP329359,CP340010
+
+New-ADGroup -Name G_ICAPITEC_BrendonJ_RW -SamAccountName G_ICAPITEC_BrendonJ_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BrendonJ_RW -ManagedBy CP323865
+Add-ADGroupMember -Identity G_ICAPITEC_BrendonJ_RW -Members CP323865
+
+New-ADGroup -Name G_ICAPITEC_BrettPietersen_RW -SamAccountName G_ICAPITEC_BrettPietersen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BrettPietersen_RW -ManagedBy CP346591
+Add-ADGroupMember -Identity G_ICAPITEC_BrettPietersen_RW -Members CP346591,CP300347_DEV,CP352271,CP335598,CP324941_PRD,CP352271_DEV,CP361488,CP300347,CP346591_DEV,CP362222,CP352271_SEC
+
+New-ADGroup -Name G_ICAPITEC_BrianMasipa_RW -SamAccountName G_ICAPITEC_BrianMasipa_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BrianMasipa_RW -ManagedBy CP352666
+Add-ADGroupMember -Identity G_ICAPITEC_BrianMasipa_RW -Members CP339081,CP352666,CP352611,AP352666
+
+New-ADGroup -Name G_ICAPITEC_Bruce_Masenya_RW -SamAccountName G_ICAPITEC_Bruce_Masenya_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Bruce_Masenya_RW -ManagedBy CP350301
+Add-ADGroupMember -Identity G_ICAPITEC_Bruce_Masenya_RW -Members CT303449,CP350301
+
+New-ADGroup -Name G_ICAPITEC_BulkAffordibility_RW -SamAccountName G_ICAPITEC_BulkAffordibility_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BulkAffordibility_RW -ManagedBy CP306389
+Add-ADGroupMember -Identity G_ICAPITEC_BulkAffordibility_RW -Members CP362211,CP306389,CP339286,CP344710
+
+New-ADGroup -Name G_ICAPITEC_Buntu_RW -SamAccountName G_ICAPITEC_Buntu_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Buntu_RW -ManagedBy CP362752
+Add-ADGroupMember -Identity G_ICAPITEC_Buntu_RW -Members CP362006,CP305717
+
+New-ADGroup -Name G_ICAPITEC_BusinessSupportCentre_RW -SamAccountName G_ICAPITEC_BusinessSupportCentre_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_BusinessSupportCentre_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_BusinessSupportCentre_RW -Members CP305330,CP312088,CP338417,CP310356,CT303210,PRDSQLServ,CP351455,S_SynapseSqlServ01
+
+New-ADGroup -Name G_ICAPITEC_CacheLoadReport_RW -SamAccountName G_ICAPITEC_CacheLoadReport_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CacheLoadReport_RW -ManagedBy CP323618
+Add-ADGroupMember -Identity G_ICAPITEC_CacheLoadReport_RW -Members S_CTM_CentralSys_DEV
+
+New-ADGroup -Name G_ICAPITEC_CaitlinSingh_RW -SamAccountName G_ICAPITEC_CaitlinSingh_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CaitlinSingh_RW -ManagedBy CP367405
+Add-ADGroupMember -Identity G_ICAPITEC_CaitlinSingh_RW -Members CP367405,CP369689,CP324458,CP362645
+
+New-ADGroup -Name G_ICAPITEC_CalvinStrauch_RW -SamAccountName G_ICAPITEC_CalvinStrauch_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CalvinStrauch_RW -ManagedBy CP339205
+Add-ADGroupMember -Identity G_ICAPITEC_CalvinStrauch_RW -Members CP339205,CP362765,CP308461
+
+New-ADGroup -Name G_ICAPITEC_CalvinQ_RW -SamAccountName G_ICAPITEC_CalvinQ_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CalvinQ_RW -ManagedBy CP329561
+Add-ADGroupMember -Identity G_ICAPITEC_CalvinQ_RW -Members CP329561,CP329561_PRD
+
+New-ADGroup -Name G_ICAPITEC_CamorenMoller_RW -SamAccountName G_ICAPITEC_CamorenMoller_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CamorenMoller_RW -ManagedBy CP343108
+Add-ADGroupMember -Identity G_ICAPITEC_CamorenMoller_RW -Members CP343108,CP339823,CP329759,CP329124,CP351801,CP349648
+
+New-ADGroup -Name G_ICAPITEC_CapitecClientAccountManagement_RW -SamAccountName G_ICAPITEC_CapitecClientAccountManagement_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CapitecClientAccountManagement_RW -ManagedBy CP344368
+Add-ADGroupMember -Identity G_ICAPITEC_CapitecClientAccountManagement_RW -Members CP350234,CP344368,CT303394
+
+New-ADGroup -Name G_ICAPITEC_CapitecConnectD&A_RW -SamAccountName G_ICAPITEC_CapitecConnectD&A_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CapitecConnectD&A_RW -ManagedBy CP338758
+Add-ADGroupMember -Identity G_ICAPITEC_CapitecConnectD&A_RW -Members CP338758,CP360814,CP363474,CP367963,CP363655
+
+New-ADGroup -Name G_ICAPITEC_CapitecDirectProductTeam_RW -SamAccountName G_ICAPITEC_CapitecDirectProductTeam_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CapitecDirectProductTeam_RW -ManagedBy CP351371
+Add-ADGroupMember -Identity G_ICAPITEC_CapitecDirectProductTeam_RW -Members CP364522,CP337093,CP364111,CP361870,CP351371,CP363841,CP361933,CP360632
+
+New-ADGroup -Name G_ICAPITEC_CapitecLifeClaimsTeam_RW -SamAccountName G_ICAPITEC_CapitecLifeClaimsTeam_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CapitecLifeClaimsTeam_RW -ManagedBy CP364658
+Add-ADGroupMember -Identity G_ICAPITEC_CapitecLifeClaimsTeam_RW -Members CP364658,CP366503
+
+New-ADGroup -Name G_ICAPITEC_CapitecWBC_RW -SamAccountName G_ICAPITEC_CapitecWBC_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CapitecWBC_RW -ManagedBy CP300675
+Add-ADGroupMember -Identity G_ICAPITEC_CapitecWBC_RW -Members CP361932
+
+New-ADGroup -Name G_ICAPITEC_CardCompliance_RW -SamAccountName G_ICAPITEC_CardCompliance_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CardCompliance_RW -ManagedBy CP331970
+Add-ADGroupMember -Identity G_ICAPITEC_CardCompliance_RW -Members CP309841,CP321833,S_SSCCMCVBBOT_QA,S_SSCCMCVBBOT,CP365895
+
+New-ADGroup -Name G_ICAPITEC_CASHDISPUTES_RW -SamAccountName G_ICAPITEC_CASHDISPUTES_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CASHDISPUTES_RW -ManagedBy CP015690
+Add-ADGroupMember -Identity G_ICAPITEC_CASHDISPUTES_RW -Members CP318096,CP311337,CP333982,CP347219,CP327501,CP346761,CP326007
+
+New-ADGroup -Name G_ICAPITEC_CC_Bridge_RW -SamAccountName G_ICAPITEC_CC_Bridge_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CC_Bridge_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_CC_Bridge_RW -Members CP312274,CP322312,CP361647,CP335095,CP304829,CP325444,CP324309,CP364379,CP040981,CP002570,CP330073,CP304785,CP313931,CP361701,CP361692,CP339286,CP338783,CP368669,CP325751,CP363495,CP364647,CP330255,CP308957,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP329906,CP312687,CP310934,CP340677,CP331408,CP322131,CP340084,S_MFTW_DEV,CP362278,S_CentlCollPRD,S_CTM_CollSys_PRD,CP337311,CP320810,CWALLBOARDUSER077,CWALLBOARDUSER186,CWALLBOARDUSER185,CP314468,CP333290
+
+New-ADGroup -Name G_ICAPITEC_CCS-Meetings_RW -SamAccountName G_ICAPITEC_CCS-Meetings_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CCS-Meetings_RW -ManagedBy CP323017
+Add-ADGroupMember -Identity G_ICAPITEC_CCS-Meetings_RW -Members CP306154,CP345488,CP301949,CP309242,CP334368,CP313849,CP335783,CT303285,CP316889,CP312990,CP312178,CP307648,CP319873,CP301400,CP311052,CP325722,CP317797,CP315319,CP318502,CP312468,CP305330,CP314198,CP338783,CP350052,CP319433,CP335879,CP334969,CP345892,CP324305,CP003473,CP361272,CP318745,CP313528,CP303431,CP000503,CP320366,CP339286,CP332972,CP341435,CP307235,CP361607,CP321800,CP332362,CP327969,CP350883,CP337317,CP327408
+
+New-ADGroup -Name G_ICAPITEC_CCSDOCUMENTREQUEST_RW -SamAccountName G_ICAPITEC_CCSDOCUMENTREQUEST_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CCSDOCUMENTREQUEST_RW -ManagedBy CP335581
+Add-ADGroupMember -Identity G_ICAPITEC_CCSDOCUMENTREQUEST_RW -Members CP316576,CP337320,CP337313,CP335581
+
+New-ADGroup -Name G_ICAPITEC_CedricBackup_RW -SamAccountName G_ICAPITEC_CedricBackup_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CedricBackup_RW -ManagedBy CP363534
+Add-ADGroupMember -Identity G_ICAPITEC_CedricBackup_RW -Members CP363534
+
+New-ADGroup -Name G_ICAPITEC_CedricMatloga_RW -SamAccountName G_ICAPITEC_CedricMatloga_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CedricMatloga_RW -ManagedBy CP364841
+Add-ADGroupMember -Identity G_ICAPITEC_CedricMatloga_RW -Members CP364841,S_MC_SIM_USER,CP350784_INT,ITOPS_PRD,CP362291,CP350784_QA,ITOPS_Visa_PRD,CP364841_PRD,S_CTM_POST_DEV,CP338784,CP338784_PRD
+
+New-ADGroup -Name G_ICAPITEC_CentralisedCollections_RW -SamAccountName G_ICAPITEC_CentralisedCollections_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CentralisedCollections_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_CentralisedCollections_RW -Members CP366447,CP325734,CP337311,CP330161,CP322312,CP339286,CP313931,CP329906,CP325445,CP331146,CP060461,CP331741,CP335095,CP325444,CP040981
+
+New-ADGroup -Name G_ICAPITEC_CentralisedCollectionsReporting_RW -SamAccountName G_ICAPITEC_CentralisedCollectionsReporting_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CentralisedCollectionsReporting_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_CentralisedCollectionsReporting_RW -Members CP371061,CP335095,CP314221,CP361692,CP361701,CP322312,CP002570,CP361542,CP325444,CP329109
+
+New-ADGroup -Name G_ICAPITEC_CentralisedSystems_RW -SamAccountName G_ICAPITEC_CentralisedSystems_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CentralisedSystems_RW -ManagedBy CP361937
+Add-ADGroupMember -Identity G_ICAPITEC_CentralisedSystems_RW -Members CP362813,CP344368,CP305717,CP349652,CP365573,CP319247,CP368319,CP369011,CP323618,CP362108,CP318745,CT301267,CP362016
+
+New-ADGroup -Name G_ICAPITEC_ChadPetterson_RW -SamAccountName G_ICAPITEC_ChadPetterson_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ChadPetterson_RW -ManagedBy QI051583
+Add-ADGroupMember -Identity G_ICAPITEC_ChadPetterson_RW -Members QA051583,QI051583,CP321308,CP368867
+
+New-ADGroup -Name G_ICAPITEC_ChanchalKumar_RW -SamAccountName G_ICAPITEC_ChanchalKumar_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ChanchalKumar_RW -ManagedBy CT302970
+Add-ADGroupMember -Identity G_ICAPITEC_ChanchalKumar_RW -Members CT302970
+
+New-ADGroup -Name G_ICAPITEC_Chantel_RW -SamAccountName G_ICAPITEC_Chantel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Chantel_RW -ManagedBy CP349648
+Add-ADGroupMember -Identity G_ICAPITEC_Chantel_RW -Members CP349648
+
+New-ADGroup -Name G_ICAPITEC_CharlesDaniels_RW -SamAccountName G_ICAPITEC_CharlesDaniels_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CharlesDaniels_RW -ManagedBy CT301708
+Add-ADGroupMember -Identity G_ICAPITEC_CharlesDaniels_RW -Members CT301708
+
+New-ADGroup -Name G_ICAPITEC_Chilliboy_RW -SamAccountName G_ICAPITEC_Chilliboy_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Chilliboy_RW -ManagedBy CP348918
+Add-ADGroupMember -Identity G_ICAPITEC_Chilliboy_RW -Members ITOPS_Visa_PRD,ITOPS_PRD,CP348918,CP348918_PRD,S_MC_SIM_USER,CP370645,CP344949,CP350784,CP365229,ITOPS_Visa_QA,CP348918_DEV
+
+New-ADGroup -Name G_ICAPITEC_ChrisvanDyk_RW -SamAccountName G_ICAPITEC_ChrisvanDyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ChrisvanDyk_RW -ManagedBy CP343490
+Add-ADGroupMember -Identity G_ICAPITEC_ChrisvanDyk_RW -Members CP343490,CP361213,CP321755,CP341749,CP361734,CP346171,CP367743
+
+New-ADGroup -Name G_ICAPITEC_ChristoffFoord_RW -SamAccountName G_ICAPITEC_ChristoffFoord_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ChristoffFoord_RW -ManagedBy CP329030
+Add-ADGroupMember -Identity G_ICAPITEC_ChristoffFoord_RW -Members CP329030,CP329030_PRD,CP329030_DEV,CP312589_PRD
+
+New-ADGroup -Name G_ICAPITEC_ChristopherG_RW -SamAccountName G_ICAPITEC_ChristopherG_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ChristopherG_RW -ManagedBy CP361160
+Add-ADGroupMember -Identity G_ICAPITEC_ChristopherG_RW -Members CP343491,CT303081,CP348339,CP344968,CP310051
+
+New-ADGroup -Name G_ICAPITEC_CJ_RW -SamAccountName G_ICAPITEC_CJ_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CJ_RW -ManagedBy CP312630
+Add-ADGroupMember -Identity G_ICAPITEC_CJ_RW -Members CP312630,CWALLBOARDUSER151
+
+New-ADGroup -Name G_ICAPITEC_ClaudellPinto_RW -SamAccountName G_ICAPITEC_ClaudellPinto_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ClaudellPinto_RW -ManagedBy CP012945
+Add-ADGroupMember -Identity G_ICAPITEC_ClaudellPinto_RW -Members CP361764,CP012945,CP304116
+
+New-ADGroup -Name G_ICAPITEC_Clement_RW -SamAccountName G_ICAPITEC_Clement_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Clement_RW -ManagedBy CP344949
+Add-ADGroupMember -Identity G_ICAPITEC_Clement_RW -Members CP344949,CP344949_DEV,CP344949_QA,CP344949_PRD,CP344949_INT,ITOPS_Visa_PRD,ITOPS_Visa_DEV,CP362765,ITOPS_PRD,ITOPS_DR,ITOPS_Visa_QA,CP324354
+
+New-ADGroup -Name G_ICAPITEC_ClientAccountManagement_RW -SamAccountName G_ICAPITEC_ClientAccountManagement_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ClientAccountManagement_RW -ManagedBy CP360327
+Add-ADGroupMember -Identity G_ICAPITEC_ClientAccountManagement_RW -Members CP344368
+
+New-ADGroup -Name G_ICAPITEC_ClientEngagement_RW -SamAccountName G_ICAPITEC_ClientEngagement_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ClientEngagement_RW -ManagedBy CP364469
+Add-ADGroupMember -Identity G_ICAPITEC_ClientEngagement_RW -Members CP305110,CP040981,CP364400
+
+New-ADGroup -Name G_ICAPITEC_ClientValueAnalytics_RW -SamAccountName G_ICAPITEC_ClientValueAnalytics_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ClientValueAnalytics_RW -ManagedBy CP338758
+Add-ADGroupMember -Identity G_ICAPITEC_ClientValueAnalytics_RW -Members CP363474
+
+New-ADGroup -Name G_ICAPITEC_ClintonTheron_RW -SamAccountName G_ICAPITEC_ClintonTheron_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ClintonTheron_RW -ManagedBy CP318315
+Add-ADGroupMember -Identity G_ICAPITEC_ClintonTheron_RW -Members CP318315,CP334380_QA,CP334380,CP323136_PRD,CP316898,CT302597,CP314360,CP334380_PRD,CP318315_PRD,CP321832_PRD,CP321832,CP339974,CP339974_PRD,CP327382,CP327382_PRD,CP323869_PRD,CP337340,CP337340_PRD,CP350802,CP323869,CP302536,CP323136
+
+New-ADGroup -Name G_ICAPITEC_Cloudcordstesting_IBP_RW -SamAccountName G_ICAPITEC_Cloudcordstesting_IBP_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Cloudcordstesting_IBP_RW -ManagedBy CP322794
+Add-ADGroupMember -Identity G_ICAPITEC_Cloudcordstesting_IBP_RW -Members CP313761
+
+New-ADGroup -Name G_ICAPITEC_Collections_RW -SamAccountName G_ICAPITEC_Collections_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Collections_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Collections_RW -Members CP361701,CP330073,CP315816,CP361647,CP326188
+
+New-ADGroup -Name G_ICAPITEC_Collectionsscripts_RW -SamAccountName G_ICAPITEC_Collectionsscripts_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Collectionsscripts_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Collectionsscripts_RW -Members CP325444
+
+New-ADGroup -Name G_ICAPITEC_Collectionstreatmentscalls_RW -SamAccountName G_ICAPITEC_Collectionstreatmentscalls_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Collectionstreatmentscalls_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Collectionstreatmentscalls_RW -Members CP313931
+
+New-ADGroup -Name G_ICAPITEC_COLLEN_RW -SamAccountName G_ICAPITEC_COLLEN_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_COLLEN_RW -ManagedBy CP050418
+Add-ADGroupMember -Identity G_ICAPITEC_COLLEN_RW -Members CP050418
+
+New-ADGroup -Name G_ICAPITEC_CollinWillemse_RW -SamAccountName G_ICAPITEC_CollinWillemse_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CollinWillemse_RW -ManagedBy CP361488
+Add-ADGroupMember -Identity G_ICAPITEC_CollinWillemse_RW -Members CP361488_SEC,CP361488,CP_ISA_SH_DA,CP346591,S_ITISec_Esig_PRD_sh
+
+New-ADGroup -Name G_ICAPITEC_ConversationalBanking_RW -SamAccountName G_ICAPITEC_ConversationalBanking_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ConversationalBanking_RW -ManagedBy CP344436
+Add-ADGroupMember -Identity G_ICAPITEC_ConversationalBanking_RW -Members CP363185,CP341880,CP360841,CP332644
+
+New-ADGroup -Name G_ICAPITEC_Corn?Brand_RW -SamAccountName G_ICAPITEC_Corn?Brand_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Corn?Brand_RW -ManagedBy CP005686
+Add-ADGroupMember -Identity G_ICAPITEC_Corn?Brand_RW -Members CP005686,CP329793,CP306190,CP309406,CP312249,CP348524,CP325558,CP322330,CP361063,CP308461,CP321995
+
+New-ADGroup -Name G_ICAPITEC_Corvin_RW -SamAccountName G_ICAPITEC_Corvin_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Corvin_RW -ManagedBy CP324941
+Add-ADGroupMember -Identity G_ICAPITEC_Corvin_RW -Members CP324941,CP362864,CP328131,AP345921,S_SSCCMCVBBOT_DEV
+
+New-ADGroup -Name G_ICAPITEC_CourtneyScully_RW -SamAccountName G_ICAPITEC_CourtneyScully_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CourtneyScully_RW -ManagedBy CP362013
+Add-ADGroupMember -Identity G_ICAPITEC_CourtneyScully_RW -Members CP362013,CP342077,CP343490,CP361734
+
+New-ADGroup -Name G_ICAPITEC_CraigBurns_RW -SamAccountName G_ICAPITEC_CraigBurns_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CraigBurns_RW -ManagedBy CP320367
+Add-ADGroupMember -Identity G_ICAPITEC_CraigBurns_RW -Members CP363784,CP320367
+
+New-ADGroup -Name G_ICAPITEC_CreditcardgrantedinDecember_RW -SamAccountName G_ICAPITEC_CreditcardgrantedinDecember_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CreditcardgrantedinDecember_RW -ManagedBy CP325444
+Add-ADGroupMember -Identity G_ICAPITEC_CreditcardgrantedinDecember_RW -Members CP329906
+
+New-ADGroup -Name G_ICAPITEC_CreditProductsMISProductionA&MvsCollectionBankingDetailsDifferReport_RW -SamAccountName G_ICAPITEC_CreditProductsMISProductionA&MvsCollectionBankingDetailsDifferReport_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CreditProductsMISProductionA&MvsCollectionBankingDetailsDifferReport_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_CreditProductsMISProductionA&MvsCollectionBankingDetailsDifferReport_RW -Members S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV
+
+New-ADGroup -Name G_ICAPITEC_CreditProductsMISProductionLoanIntegrityReport_RW -SamAccountName G_ICAPITEC_CreditProductsMISProductionLoanIntegrityReport_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CreditProductsMISProductionLoanIntegrityReport_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_CreditProductsMISProductionLoanIntegrityReport_RW -Members S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV
+
+New-ADGroup -Name G_ICAPITEC_Crowdstrike_RW -SamAccountName G_ICAPITEC_Crowdstrike_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Crowdstrike_RW -ManagedBy CP346589
+Add-ADGroupMember -Identity G_ICAPITEC_Crowdstrike_RW -Members CP313427
+
+New-ADGroup -Name G_ICAPITEC_CT303370_RW -SamAccountName G_ICAPITEC_CT303370_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CT303370_RW -ManagedBy CT303370
+Add-ADGroupMember -Identity G_ICAPITEC_CT303370_RW -Members CT303370,CT303370_ESIG_DEV,CP366215
+
+New-ADGroup -Name G_ICAPITEC_CWALLBOARD021_RW -SamAccountName G_ICAPITEC_CWALLBOARD021_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CWALLBOARD021_RW -ManagedBy CP342820
+Add-ADGroupMember -Identity G_ICAPITEC_CWALLBOARD021_RW -Members CP344710
+
+New-ADGroup -Name G_ICAPITEC_CynthiaKanyenze_RW -SamAccountName G_ICAPITEC_CynthiaKanyenze_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_CynthiaKanyenze_RW -ManagedBy CP363031
+Add-ADGroupMember -Identity G_ICAPITEC_CynthiaKanyenze_RW -Members CP363031
+
+New-ADGroup -Name G_ICAPITEC_D&APDMMigration_RW -SamAccountName G_ICAPITEC_D&APDMMigration_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_D&APDMMigration_RW -ManagedBy CP360272
+Add-ADGroupMember -Identity G_ICAPITEC_D&APDMMigration_RW -Members CP369327,CP338417,CP341881,CP362483,CP360272,CP362478,CT302335
+
+New-ADGroup -Name G_ICAPITEC_DanielSikor_RW -SamAccountName G_ICAPITEC_DanielSikor_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DanielSikor_RW -ManagedBy CP318315
+Add-ADGroupMember -Identity G_ICAPITEC_DanielSikor_RW -Members CP323869,CP364078
+
+New-ADGroup -Name G_ICAPITEC_DanielW_RW -SamAccountName G_ICAPITEC_DanielW_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DanielW_RW -ManagedBy CP335597
+Add-ADGroupMember -Identity G_ICAPITEC_DanielW_RW -Members CP335597,CP365411_QA
+
+New-ADGroup -Name G_ICAPITEC_DarrenSmith_RW -SamAccountName G_ICAPITEC_DarrenSmith_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DarrenSmith_RW -ManagedBy CP367723
+Add-ADGroupMember -Identity G_ICAPITEC_DarrenSmith_RW -Members CP351407_DEV,CP338438,AP335598,CP367723,CP346591,CP334380_DEV,CP361488,CP367723_SEC
+
+New-ADGroup -Name G_ICAPITEC_DarrenWildschut_RW -SamAccountName G_ICAPITEC_DarrenWildschut_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DarrenWildschut_RW -ManagedBy CP363727
+Add-ADGroupMember -Identity G_ICAPITEC_DarrenWildschut_RW -Members CP363727
+
+New-ADGroup -Name G_ICAPITEC_DarrynDuToit_RW -SamAccountName G_ICAPITEC_DarrynDuToit_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DarrynDuToit_RW -ManagedBy CP362000
+Add-ADGroupMember -Identity G_ICAPITEC_DarrynDuToit_RW -Members CP362000,CP338019
+
+New-ADGroup -Name G_ICAPITEC_DataServices_RW -SamAccountName G_ICAPITEC_DataServices_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DataServices_RW -ManagedBy CP342820
+Add-ADGroupMember -Identity G_ICAPITEC_DataServices_RW -Members CP363281
+
+New-ADGroup -Name G_ICAPITEC_DavidGouvias_RW -SamAccountName G_ICAPITEC_DavidGouvias_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DavidGouvias_RW -ManagedBy CP362075
+Add-ADGroupMember -Identity G_ICAPITEC_DavidGouvias_RW -Members CP362075,CP363277
+
+New-ADGroup -Name G_ICAPITEC_DavidGouws_RW -SamAccountName G_ICAPITEC_DavidGouws_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DavidGouws_RW -ManagedBy CT300743
+Add-ADGroupMember -Identity G_ICAPITEC_DavidGouws_RW -Members CP305228,CT300743,CP361450
+
+New-ADGroup -Name G_ICAPITEC_DavidN_RW -SamAccountName G_ICAPITEC_DavidN_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DavidN_RW -ManagedBy CP363145
+Add-ADGroupMember -Identity G_ICAPITEC_DavidN_RW -Members CP363145
+
+New-ADGroup -Name G_ICAPITEC_DawieNel_RW -SamAccountName G_ICAPITEC_DawieNel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DawieNel_RW -ManagedBy CP331970
+Add-ADGroupMember -Identity G_ICAPITEC_DawieNel_RW -Members CP331970,CP324941,CP324941_PRD,CT303390,CP331753,CT302928,CP331970_DEV,CP324941_DEV,CP324941_QA,S_AMLBAUABOT_QA
+
+New-ADGroup -Name G_ICAPITEC_Deano_RW -SamAccountName G_ICAPITEC_Deano_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Deano_RW -ManagedBy CP326845
+Add-ADGroupMember -Identity G_ICAPITEC_Deano_RW -Members CP326845,cmswallboard,CT301962
+
+New-ADGroup -Name G_ICAPITEC_DECEASEDESTATE_RW -SamAccountName G_ICAPITEC_DECEASEDESTATE_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DECEASEDESTATE_RW -ManagedBy CP309242
+Add-ADGroupMember -Identity G_ICAPITEC_DECEASEDESTATE_RW -Members CP309242
+
+New-ADGroup -Name G_ICAPITEC_DedreFisher_RW -SamAccountName G_ICAPITEC_DedreFisher_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DedreFisher_RW -ManagedBy CP015602
+Add-ADGroupMember -Identity G_ICAPITEC_DedreFisher_RW -Members CP015602
+
+New-ADGroup -Name G_ICAPITEC_Den?Linde_RW -SamAccountName G_ICAPITEC_Den?Linde_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Den?Linde_RW -ManagedBy CP343405
+Add-ADGroupMember -Identity G_ICAPITEC_Den?Linde_RW -Members CP346489,CP319873
+
+New-ADGroup -Name G_ICAPITEC_Denise_RW -SamAccountName G_ICAPITEC_Denise_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Denise_RW -ManagedBy CP303932
+Add-ADGroupMember -Identity G_ICAPITEC_Denise_RW -Members CP303932,CP336664,CP301731,CP313647,CP350683,CP329958,CP337417,CP360963,CP309851
+
+New-ADGroup -Name G_ICAPITEC_DenverAbrahams_RW -SamAccountName G_ICAPITEC_DenverAbrahams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DenverAbrahams_RW -ManagedBy CP313849
+Add-ADGroupMember -Identity G_ICAPITEC_DenverAbrahams_RW -Members CP313849,CP314792,CP318502,CP334679,CP307235,CP363031
+
+New-ADGroup -Name G_ICAPITEC_DeonS_RW -SamAccountName G_ICAPITEC_DeonS_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DeonS_RW -ManagedBy CP308451
+Add-ADGroupMember -Identity G_ICAPITEC_DeonS_RW -Members CP308451,CP308451_DEV,CT302865,S_CTM_CollSys_DEV,S_CTM_CollSys_QA
+
+New-ADGroup -Name G_ICAPITEC_DevandeBod_RW -SamAccountName G_ICAPITEC_DevandeBod_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DevandeBod_RW -ManagedBy CP314983
+Add-ADGroupMember -Identity G_ICAPITEC_DevandeBod_RW -Members CP314983,CP314983_DEV,CP314983_PRD
+
+New-ADGroup -Name G_ICAPITEC_DMitri_RW -SamAccountName G_ICAPITEC_DMitri_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DMitri_RW -ManagedBy CP341447
+Add-ADGroupMember -Identity G_ICAPITEC_DMitri_RW -Members ,CP348061,CP348061_DEV,CP347094_PRD,CP348061_INT,CP337913_PRD
+
+New-ADGroup -Name G_ICAPITEC_DominiquevanSchalkwyk_RW -SamAccountName G_ICAPITEC_DominiquevanSchalkwyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DominiquevanSchalkwyk_RW -ManagedBy CP361920
+Add-ADGroupMember -Identity G_ICAPITEC_DominiquevanSchalkwyk_RW -Members CP361920
+
+New-ADGroup -Name G_ICAPITEC_DonovanCochrane_RW -SamAccountName G_ICAPITEC_DonovanCochrane_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DonovanCochrane_RW -ManagedBy CP313181
+Add-ADGroupMember -Identity G_ICAPITEC_DonovanCochrane_RW -Members CP313181,CP313181_PRD,CP360965_QA,CP350870,CP313181_QA,CP362204,CP305403,CP344949,CP338784,CP339205_PRD,CP313181_INT,CP350784_QA
+
+New-ADGroup -Name G_ICAPITEC_DS_Reporting_RW -SamAccountName G_ICAPITEC_DS_Reporting_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DS_Reporting_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_DS_Reporting_RW -Members CP338418,CP302934,CP306154,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP003473,CP307235
+
+New-ADGroup -Name G_ICAPITEC_DylanErens_RW -SamAccountName G_ICAPITEC_DylanErens_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DylanErens_RW -ManagedBy CP360681
+Add-ADGroupMember -Identity G_ICAPITEC_DylanErens_RW -Members CP360681,CP362224,CP364229,CP327062,CP330051,CP341178
+
+New-ADGroup -Name G_ICAPITEC_DylanWilliams_RW -SamAccountName G_ICAPITEC_DylanWilliams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_DylanWilliams_RW -ManagedBy CP369707
+Add-ADGroupMember -Identity G_ICAPITEC_DylanWilliams_RW -Members CP369707,CP363993
+
+New-ADGroup -Name G_ICAPITEC_EdwardFordham_RW -SamAccountName G_ICAPITEC_EdwardFordham_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EdwardFordham_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_EdwardFordham_RW -Members CP341691,CP318874,CP307994,CP306160,CP311991,CP329557,CP313647,CP324756,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP318980,CT303276,CP314131
+
+New-ADGroup -Name G_ICAPITEC_ElizeGerber_RW -SamAccountName G_ICAPITEC_ElizeGerber_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ElizeGerber_RW -ManagedBy CP333554
+Add-ADGroupMember -Identity G_ICAPITEC_ElizeGerber_RW -Members CP333554,CP362747
+
+New-ADGroup -Name G_ICAPITEC_EmmaSinne_RW -SamAccountName G_ICAPITEC_EmmaSinne_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EmmaSinne_RW -ManagedBy CP362214
+Add-ADGroupMember -Identity G_ICAPITEC_EmmaSinne_RW -Members CP368553,CP362214
+
+New-ADGroup -Name G_ICAPITEC_ErnieVivier_RW -SamAccountName G_ICAPITEC_ErnieVivier_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ErnieVivier_RW -ManagedBy CP312589
+Add-ADGroupMember -Identity G_ICAPITEC_ErnieVivier_RW -Members CP312589_PRD,CP312589,CP310126,CP312589_DEV
+
+New-ADGroup -Name G_ICAPITEC_EsmariClausen_RW -SamAccountName G_ICAPITEC_EsmariClausen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EsmariClausen_RW -ManagedBy CP306154
+Add-ADGroupMember -Identity G_ICAPITEC_EsmariClausen_RW -Members CP307235,CP315655,CP341598,CP335783,CP304619,CP306154,CP303056,CP361607,CP318745,CP304055
+
+New-ADGroup -Name G_ICAPITEC_EtienneGreeff_RW -SamAccountName G_ICAPITEC_EtienneGreeff_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EtienneGreeff_RW -ManagedBy CP363277
+Add-ADGroupMember -Identity G_ICAPITEC_EtienneGreeff_RW -Members CP342671,CP329360,CP312923,CP363277,CP369689,CP365103
+
+New-ADGroup -Name G_ICAPITEC_Eugene_RW -SamAccountName G_ICAPITEC_Eugene_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Eugene_RW -ManagedBy CP317629
+Add-ADGroupMember -Identity G_ICAPITEC_Eugene_RW -Members CP317629_PRD,CP317629,CP317629_QA,CP305205
+
+New-ADGroup -Name G_ICAPITEC_EugenedeVilliers_RW -SamAccountName G_ICAPITEC_EugenedeVilliers_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EugenedeVilliers_RW -ManagedBy CP350802
+Add-ADGroupMember -Identity G_ICAPITEC_EugenedeVilliers_RW -Members CP350802,CP350802_PRD,CP338402,CP339974,CP361629
+
+New-ADGroup -Name G_ICAPITEC_EverestReporting_RW -SamAccountName G_ICAPITEC_EverestReporting_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_EverestReporting_RW -ManagedBy CP340973
+Add-ADGroupMember -Identity G_ICAPITEC_EverestReporting_RW -Members CT300742,CP364791,CT301175,CT301227,CP364400,CP320715,CP305717,CT300958,CP341880,CP361084,CP348797,CP366773
+
+New-ADGroup -Name G_ICAPITEC_Fadel_RW -SamAccountName G_ICAPITEC_Fadel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Fadel_RW -ManagedBy CP304512
+Add-ADGroupMember -Identity G_ICAPITEC_Fadel_RW -Members CP304512
+
+New-ADGroup -Name G_ICAPITEC_Fernando_RW -SamAccountName G_ICAPITEC_Fernando_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Fernando_RW -ManagedBy CP351670
+Add-ADGroupMember -Identity G_ICAPITEC_Fernando_RW -Members CP351670
+
+New-ADGroup -Name G_ICAPITEC_FerzanahEssack_RW -SamAccountName G_ICAPITEC_FerzanahEssack_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FerzanahEssack_RW -ManagedBy CP362211
+Add-ADGroupMember -Identity G_ICAPITEC_FerzanahEssack_RW -Members CP306389,CP362211
+
+New-ADGroup -Name G_ICAPITEC_FinCredSharefile_RW -SamAccountName G_ICAPITEC_FinCredSharefile_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FinCredSharefile_RW -ManagedBy CP322406
+Add-ADGroupMember -Identity G_ICAPITEC_FinCredSharefile_RW -Members CP320452,CP348797,CP348490,CP364233,CP348790,CP349118
+
+New-ADGroup -Name G_ICAPITEC_FinODS_RW -SamAccountName G_ICAPITEC_FinODS_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FinODS_RW -ManagedBy CP362254
+Add-ADGroupMember -Identity G_ICAPITEC_FinODS_RW -Members 
+
+New-ADGroup -Name G_ICAPITEC_FinODS_RW -SamAccountName G_ICAPITEC_FinODS_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FinODS_RW -ManagedBy CP307992
+Add-ADGroupMember -Identity G_ICAPITEC_FinODS_RW -Members CT300701,CP366773,CP361441,CP362254,CT300743,CP361450,CP360910,CT302146,CT300299,CP361084,CP363767,CP362186,CT301348,CT302678,CT303115,CT303314,CP360841,CP350319,CP344437,CT302185,CT303244,CT303181,CT301647,CT301929,CT302677,CP344712,CP361917,CP336347,CT300742,CP338417,CP344748,CP364791,CP323136,CP326001,CP363268,CP308074,CP303494,CT301227,CP329518,CT302337,CP363001,CP349207,CP362853,CP348339,CP307233
+
+New-ADGroup -Name G_ICAPITEC_Franco_RW -SamAccountName G_ICAPITEC_Franco_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Franco_RW -ManagedBy CP314359
+Add-ADGroupMember -Identity G_ICAPITEC_Franco_RW -Members CP314359_PRD,CP314359,S_ASTREX_SIM_USER,CP334380,CP313181_PRD,ITOPS_PRD,CP329561,CP362204,ITOPS_DR,CP314360,ITOPS_Visa_PRD,CP350784,ITOPS_Visa_QA,CP314359_INT,CP362277,CP314359_QA,ITOPS_Visa_DEV,CP360965,MCARDDEV
+
+New-ADGroup -Name G_ICAPITEC_FrancoisGericke_RW -SamAccountName G_ICAPITEC_FrancoisGericke_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FrancoisGericke_RW -ManagedBy CP325996
+Add-ADGroupMember -Identity G_ICAPITEC_FrancoisGericke_RW -Members CP325996,CP329707,CP333554,CP362291,CP324755,CP329561,CP306554
+
+New-ADGroup -Name G_ICAPITEC_FrancoisLamont_RW -SamAccountName G_ICAPITEC_FrancoisLamont_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FrancoisLamont_RW -ManagedBy CP365361
+Add-ADGroupMember -Identity G_ICAPITEC_FrancoisLamont_RW -Members CP365361
+
+New-ADGroup -Name G_ICAPITEC_FrontEndApps_RW -SamAccountName G_ICAPITEC_FrontEndApps_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FrontEndApps_RW -ManagedBy CP307992
+Add-ADGroupMember -Identity G_ICAPITEC_FrontEndApps_RW -Members CP300161,CP322330,CP307992,CP317637
+
+New-ADGroup -Name G_ICAPITEC_FTIBusinessCases_RW -SamAccountName G_ICAPITEC_FTIBusinessCases_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_FTIBusinessCases_RW -ManagedBy CP305228
+Add-ADGroupMember -Identity G_ICAPITEC_FTIBusinessCases_RW -Members CP326840
+
+New-ADGroup -Name G_ICAPITEC_GarthvanWyk_RW -SamAccountName G_ICAPITEC_GarthvanWyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GarthvanWyk_RW -ManagedBy CP310048
+Add-ADGroupMember -Identity G_ICAPITEC_GarthvanWyk_RW -Members CP306910,CP310048,CP361931,CP312468,CP301949,CP338017,CP334678
+
+New-ADGroup -Name G_ICAPITEC_GavinLutchman_RW -SamAccountName G_ICAPITEC_GavinLutchman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GavinLutchman_RW -ManagedBy CP317527
+Add-ADGroupMember -Identity G_ICAPITEC_GavinLutchman_RW -Members CP301949,CP301400,CP338418,CP324105,CP317797,CT303285,CP314221,CP318745,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV
+
+New-ADGroup -Name G_ICAPITEC_GeorgevanBiljon_RW -SamAccountName G_ICAPITEC_GeorgevanBiljon_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GeorgevanBiljon_RW -ManagedBy CP338783
+Add-ADGroupMember -Identity G_ICAPITEC_GeorgevanBiljon_RW -Members CP338783,CP307648,CP306154,CP317797,CP318502,CP321800,CP308892,CP336741
+
+New-ADGroup -Name G_ICAPITEC_GerhardHayespresentations_RW -SamAccountName G_ICAPITEC_GerhardHayespresentations_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GerhardHayespresentations_RW -ManagedBy CP362706
+Add-ADGroupMember -Identity G_ICAPITEC_GerhardHayespresentations_RW -Members CP362706,CP363583,CP348458
+
+New-ADGroup -Name G_ICAPITEC_GerhardTheron_RW -SamAccountName G_ICAPITEC_GerhardTheron_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GerhardTheron_RW -ManagedBy CP022828
+Add-ADGroupMember -Identity G_ICAPITEC_GerhardTheron_RW -Members QA022828,CP022828,QI022828
+
+New-ADGroup -Name G_ICAPITEC_GhadeejahMajiet_RW -SamAccountName G_ICAPITEC_GhadeejahMajiet_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GhadeejahMajiet_RW -ManagedBy CP329022
+Add-ADGroupMember -Identity G_ICAPITEC_GhadeejahMajiet_RW -Members CP341749,CP346171,CP346496,CP329022,CP308950,CP360257,CP367009,CP305685
+
+New-ADGroup -Name G_ICAPITEC_GINAHART_RW -SamAccountName G_ICAPITEC_GINAHART_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GINAHART_RW -ManagedBy CP344436
+Add-ADGroupMember -Identity G_ICAPITEC_GINAHART_RW -Members CP344436,CP341880,CP367871
+
+New-ADGroup -Name G_ICAPITEC_GinoAdriaans_RW -SamAccountName G_ICAPITEC_GinoAdriaans_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GinoAdriaans_RW -ManagedBy CP361228
+Add-ADGroupMember -Identity G_ICAPITEC_GinoAdriaans_RW -Members CP361228,CP361228_PRD,CP361228_DEV,CP318315
+
+New-ADGroup -Name G_ICAPITEC_GrantKing_RW -SamAccountName G_ICAPITEC_GrantKing_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GrantKing_RW -ManagedBy CP304055
+Add-ADGroupMember -Identity G_ICAPITEC_GrantKing_RW -Members CP329124,CP304055,CP301949,CP313849,CP363031
+
+New-ADGroup -Name G_ICAPITEC_GrantE_RW -SamAccountName G_ICAPITEC_GrantE_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_GrantE_RW -ManagedBy CP362170
+Add-ADGroupMember -Identity G_ICAPITEC_GrantE_RW -Members CP362170
+
+New-ADGroup -Name G_ICAPITEC_Group3_RW -SamAccountName G_ICAPITEC_Group3_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Group3_RW -ManagedBy CP317911
+Add-ADGroupMember -Identity G_ICAPITEC_Group3_RW -Members CP317911
+
+New-ADGroup -Name G_ICAPITEC_Hadrian_RW -SamAccountName G_ICAPITEC_Hadrian_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Hadrian_RW -ManagedBy CP362006
+Add-ADGroupMember -Identity G_ICAPITEC_Hadrian_RW -Members CP362006,CP361802
+
+New-ADGroup -Name G_ICAPITEC_HarryY_RW -SamAccountName G_ICAPITEC_HarryY_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_HarryY_RW -ManagedBy CT302702
+Add-ADGroupMember -Identity G_ICAPITEC_HarryY_RW -Members CP327219
+
+New-ADGroup -Name G_ICAPITEC_HeinSant_RW -SamAccountName G_ICAPITEC_HeinSant_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_HeinSant_RW -ManagedBy CP365587
+Add-ADGroupMember -Identity G_ICAPITEC_HeinSant_RW -Members CP365587_DEV,CP365587_PRD,CP365587_QA,CP365587,CP364690_PRD
+
+New-ADGroup -Name G_ICAPITEC_HendrikPieters_RW -SamAccountName G_ICAPITEC_HendrikPieters_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_HendrikPieters_RW -ManagedBy CP345046
+Add-ADGroupMember -Identity G_ICAPITEC_HendrikPieters_RW -Members CP345046_PRD,CP345046,CP348681,CP345046_INT
+
+New-ADGroup -Name G_ICAPITEC_HendrikGroenewald_RW -SamAccountName G_ICAPITEC_HendrikGroenewald_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_HendrikGroenewald_RW -ManagedBy CT301267
+Add-ADGroupMember -Identity G_ICAPITEC_HendrikGroenewald_RW -Members CT301267,CP360648,CT301267_DEV,CP360294,CP360988,CP364699,CP370327,CT301246,CP346496,CP340150
+
+New-ADGroup -Name G_ICAPITEC_Henro_RW -SamAccountName G_ICAPITEC_Henro_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Henro_RW -ManagedBy CP362429
+Add-ADGroupMember -Identity G_ICAPITEC_Henro_RW -Members CP362429,CT302314
+
+New-ADGroup -Name G_ICAPITEC_Hlamulo_RW -SamAccountName G_ICAPITEC_Hlamulo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Hlamulo_RW -ManagedBy CP327772
+Add-ADGroupMember -Identity G_ICAPITEC_Hlamulo_RW -Members CP313849
+
+New-ADGroup -Name G_ICAPITEC_HVisser_RW -SamAccountName G_ICAPITEC_HVisser_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_HVisser_RW -ManagedBy CP345544
+Add-ADGroupMember -Identity G_ICAPITEC_HVisser_RW -Members CP345544_SEC,CP345544
+
+New-ADGroup -Name G_ICAPITEC_ICUCredit_RW -SamAccountName G_ICAPITEC_ICUCredit_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ICUCredit_RW -ManagedBy CP315816
+Add-ADGroupMember -Identity G_ICAPITEC_ICUCredit_RW -Members CP333550
+
+New-ADGroup -Name G_ICAPITEC_InspiredTesting_RW -SamAccountName G_ICAPITEC_InspiredTesting_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_InspiredTesting_RW -ManagedBy CP363761
+Add-ADGroupMember -Identity G_ICAPITEC_InspiredTesting_RW -Members CP351801,CT301279,CT302196,CT301278,CP364684,CP308988,CP348526,AP322982,CP315710,CP365427,CP360189,CP338019,CP362809,CP370531,CP367635,CP351670,CT302308,CP318297,CP361697,CP345873,CP362092,CP334617
+
+New-ADGroup -Name G_ICAPITEC_InsuranceProgramme_RW -SamAccountName G_ICAPITEC_InsuranceProgramme_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_InsuranceProgramme_RW -ManagedBy CP322794
+Add-ADGroupMember -Identity G_ICAPITEC_InsuranceProgramme_RW -Members CP331977,CP361833,CP327219,CP320204
+
+New-ADGroup -Name G_ICAPITEC_InsuranceTestingTeam_RW -SamAccountName G_ICAPITEC_InsuranceTestingTeam_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_InsuranceTestingTeam_RW -ManagedBy CP320204
+Add-ADGroupMember -Identity G_ICAPITEC_InsuranceTestingTeam_RW -Members CP370531,CP327219,CP367714,CP336134
+
+New-ADGroup -Name G_ICAPITEC_Interbank-PAYIRNPSD_RW -SamAccountName G_ICAPITEC_Interbank-PAYIRNPSD_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Interbank-PAYIRNPSD_RW -ManagedBy CP326001
+Add-ADGroupMember -Identity G_ICAPITEC_Interbank-PAYIRNPSD_RW -Members CP326001
+
+New-ADGroup -Name G_ICAPITEC_IntraDay_RW -SamAccountName G_ICAPITEC_IntraDay_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_IntraDay_RW -ManagedBy CP311043
+Add-ADGroupMember -Identity G_ICAPITEC_IntraDay_RW -Members CP309034
+
+New-ADGroup -Name G_ICAPITEC_JacoBotha_RW -SamAccountName G_ICAPITEC_JacoBotha_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JacoBotha_RW -ManagedBy CP301649
+Add-ADGroupMember -Identity G_ICAPITEC_JacoBotha_RW -Members CP301649
+
+New-ADGroup -Name G_ICAPITEC_JacoHorn_RW -SamAccountName G_ICAPITEC_JacoHorn_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JacoHorn_RW -ManagedBy CP329837
+Add-ADGroupMember -Identity G_ICAPITEC_JacoHorn_RW -Members CP329837,CP329837_PRD
+
+New-ADGroup -Name G_ICAPITEC_JacoStrauss_RW -SamAccountName G_ICAPITEC_JacoStrauss_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JacoStrauss_RW -ManagedBy CT301175
+Add-ADGroupMember -Identity G_ICAPITEC_JacoStrauss_RW -Members CT301175
+
+New-ADGroup -Name G_ICAPITEC_JacquesVenter_RW -SamAccountName G_ICAPITEC_JacquesVenter_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JacquesVenter_RW -ManagedBy CP361436
+Add-ADGroupMember -Identity G_ICAPITEC_JacquesVenter_RW -Members CP361436,CP369515,CP372545,CP324458
+
+New-ADGroup -Name G_ICAPITEC_JamesNel_RW -SamAccountName G_ICAPITEC_JamesNel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JamesNel_RW -ManagedBy CP362291
+Add-ADGroupMember -Identity G_ICAPITEC_JamesNel_RW -Members CP362291,CP362291_PRD,ITOPS_PRD
+
+New-ADGroup -Name G_ICAPITEC_JaquesSteyn_RW -SamAccountName G_ICAPITEC_JaquesSteyn_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JaquesSteyn_RW -ManagedBy CT302677
+Add-ADGroupMember -Identity G_ICAPITEC_JaquesSteyn_RW -Members CT302677
+
+New-ADGroup -Name G_ICAPITEC_JCMarais_RW -SamAccountName G_ICAPITEC_JCMarais_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JCMarais_RW -ManagedBy CP360466
+Add-ADGroupMember -Identity G_ICAPITEC_JCMarais_RW -Members CP360466
+
+New-ADGroup -Name G_ICAPITEC_JDU_RW -SamAccountName G_ICAPITEC_JDU_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JDU_RW -ManagedBy CP362025
+Add-ADGroupMember -Identity G_ICAPITEC_JDU_RW -Members CP362025,CP336741
+
+New-ADGroup -Name G_ICAPITEC_Jean-RaySchmidt_RW -SamAccountName G_ICAPITEC_Jean-RaySchmidt_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Jean-RaySchmidt_RW -ManagedBy CP360460
+Add-ADGroupMember -Identity G_ICAPITEC_Jean-RaySchmidt_RW -Members CP360460,CP310051
+
+New-ADGroup -Name G_ICAPITEC_JeffreyLewis_RW -SamAccountName G_ICAPITEC_JeffreyLewis_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JeffreyLewis_RW -ManagedBy CP360965
+Add-ADGroupMember -Identity G_ICAPITEC_JeffreyLewis_RW -Members CP360965_PRD,CP360965,CP360965_DEV,CP362765,CP362291,CP368103
+
+New-ADGroup -Name G_ICAPITEC_JohannKorf_RW -SamAccountName G_ICAPITEC_JohannKorf_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JohannKorf_RW -ManagedBy CP362976
+Add-ADGroupMember -Identity G_ICAPITEC_JohannKorf_RW -Members CP362976,CP362976_PRD
+
+New-ADGroup -Name G_ICAPITEC_Johnny-Lee_RW -SamAccountName G_ICAPITEC_Johnny-Lee_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Johnny-Lee_RW -ManagedBy CP342702
+Add-ADGroupMember -Identity G_ICAPITEC_Johnny-Lee_RW -Members CP342702,CP340148,CP349648
+
+New-ADGroup -Name G_ICAPITEC_JohnnyNCRlogs_RW -SamAccountName G_ICAPITEC_JohnnyNCRlogs_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JohnnyNCRlogs_RW -ManagedBy CT302597
+Add-ADGroupMember -Identity G_ICAPITEC_JohnnyNCRlogs_RW -Members CP339974,CT302597_PRD,CP337913_PRD,CP342089_PRD,CP310859_PRD,,CP362555,CT302597,CP337340_PRD
+
+New-ADGroup -Name G_ICAPITEC_JonathanBooysenSTA_RW -SamAccountName G_ICAPITEC_JonathanBooysenSTA_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JonathanBooysenSTA_RW -ManagedBy CP363872
+Add-ADGroupMember -Identity G_ICAPITEC_JonathanBooysenSTA_RW -Members CP308988,CP363730
+
+New-ADGroup -Name G_ICAPITEC_JonathanUys_RW -SamAccountName G_ICAPITEC_JonathanUys_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JonathanUys_RW -ManagedBy CP321308
+Add-ADGroupMember -Identity G_ICAPITEC_JonathanUys_RW -Members CP321308,CP333748,CP364198,CP341029,QA051583,QA317911,CP314370,QA022828,CP321998,CP315816,CP369223,QA321308,QI321308,QI306504,CB321308,CP362505,QI022828,CP308988,CP368867,CP325256
+
+New-ADGroup -Name G_ICAPITEC_JonathanHendricks_RW -SamAccountName G_ICAPITEC_JonathanHendricks_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JonathanHendricks_RW -ManagedBy CP308177
+Add-ADGroupMember -Identity G_ICAPITEC_JonathanHendricks_RW -Members CP360272,CP371717
+
+New-ADGroup -Name G_ICAPITEC_Jon?_RW -SamAccountName G_ICAPITEC_Jon?_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Jon?_RW -ManagedBy CP341435
+Add-ADGroupMember -Identity G_ICAPITEC_Jon?_RW -Members CP341435
+
+New-ADGroup -Name G_ICAPITEC_JosephLephoto_RW -SamAccountName G_ICAPITEC_JosephLephoto_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JosephLephoto_RW -ManagedBy CP361841
+Add-ADGroupMember -Identity G_ICAPITEC_JosephLephoto_RW -Members CP361841,CP333748
+
+New-ADGroup -Name G_ICAPITEC_JuanDiesel_RW -SamAccountName G_ICAPITEC_JuanDiesel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JuanDiesel_RW -ManagedBy CP318543
+Add-ADGroupMember -Identity G_ICAPITEC_JuanDiesel_RW -Members QI318543,CP318543,CP318543_DEV,QI306504
+
+New-ADGroup -Name G_ICAPITEC_JulianCairns_RW -SamAccountName G_ICAPITEC_JulianCairns_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_JulianCairns_RW -ManagedBy CP360328
+Add-ADGroupMember -Identity G_ICAPITEC_JulianCairns_RW -Members CP347772,CP335783,CP314221,CP337518,CP361701,CP336741,CP307648,CP335095
+
+New-ADGroup -Name G_ICAPITEC_Justin_Brennand_RW -SamAccountName G_ICAPITEC_Justin_Brennand_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Justin_Brennand_RW -ManagedBy CT302512
+Add-ADGroupMember -Identity G_ICAPITEC_Justin_Brennand_RW -Members CT302512
+
+New-ADGroup -Name G_ICAPITEC_KanyisaSokoyi_RW -SamAccountName G_ICAPITEC_KanyisaSokoyi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KanyisaSokoyi_RW -ManagedBy CP309548
+Add-ADGroupMember -Identity G_ICAPITEC_KanyisaSokoyi_RW -Members CP309548,CP324549
+
+New-ADGroup -Name G_ICAPITEC_KarlPretorius_RW -SamAccountName G_ICAPITEC_KarlPretorius_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KarlPretorius_RW -ManagedBy CP305424
+Add-ADGroupMember -Identity G_ICAPITEC_KarlPretorius_RW -Members CP305424
+
+New-ADGroup -Name G_ICAPITEC_KarlSenekal_RW -SamAccountName G_ICAPITEC_KarlSenekal_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KarlSenekal_RW -ManagedBy CP312152
+Add-ADGroupMember -Identity G_ICAPITEC_KarlSenekal_RW -Members CP313761
+
+New-ADGroup -Name G_ICAPITEC_Kashen_RW -SamAccountName G_ICAPITEC_Kashen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Kashen_RW -ManagedBy CT301384
+Add-ADGroupMember -Identity G_ICAPITEC_Kashen_RW -Members CP362478
+
+New-ADGroup -Name G_ICAPITEC_KeaganLaising_RW -SamAccountName G_ICAPITEC_KeaganLaising_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KeaganLaising_RW -ManagedBy CP306389
+Add-ADGroupMember -Identity G_ICAPITEC_KeaganLaising_RW -Members CP306389,CP332193,CP330021,CP309743,CP361235
+
+New-ADGroup -Name G_ICAPITEC_KeanJohannes_RW -SamAccountName G_ICAPITEC_KeanJohannes_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KeanJohannes_RW -ManagedBy CP323757
+Add-ADGroupMember -Identity G_ICAPITEC_KeanJohannes_RW -Members CP323757
+
+New-ADGroup -Name G_ICAPITEC_Keanu_RW -SamAccountName G_ICAPITEC_Keanu_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Keanu_RW -ManagedBy CP360608
+Add-ADGroupMember -Identity G_ICAPITEC_Keanu_RW -Members CT303023,CP311039,CP365727
+
+New-ADGroup -Name G_ICAPITEC_Kego_RW -SamAccountName G_ICAPITEC_Kego_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Kego_RW -ManagedBy CP315924
+Add-ADGroupMember -Identity G_ICAPITEC_Kego_RW -Members CP304907
+
+New-ADGroup -Name G_ICAPITEC_KentD'oliveira_RW -SamAccountName G_ICAPITEC_KentD'oliveira_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KentD'oliveira_RW -ManagedBy CP331033
+Add-ADGroupMember -Identity G_ICAPITEC_KentD'oliveira_RW -Members CP331033,CP328446,CP361775,CP351493
+
+New-ADGroup -Name G_ICAPITEC_KeoagileKadiege_RW -SamAccountName G_ICAPITEC_KeoagileKadiege_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KeoagileKadiege_RW -ManagedBy CP363881
+Add-ADGroupMember -Identity G_ICAPITEC_KeoagileKadiege_RW -Members CP363881
+
+New-ADGroup -Name G_ICAPITEC_KhumoSetshedi_RW -SamAccountName G_ICAPITEC_KhumoSetshedi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KhumoSetshedi_RW -ManagedBy CP339215
+Add-ADGroupMember -Identity G_ICAPITEC_KhumoSetshedi_RW -Members CP339215
+
+New-ADGroup -Name G_ICAPITEC_KirstinPastor_RW -SamAccountName G_ICAPITEC_KirstinPastor_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KirstinPastor_RW -ManagedBy CP324355
+Add-ADGroupMember -Identity G_ICAPITEC_KirstinPastor_RW -Members CP324355,CP312221
+
+New-ADGroup -Name G_ICAPITEC_Kirwin_RW -SamAccountName G_ICAPITEC_Kirwin_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Kirwin_RW -ManagedBy CP325867
+Add-ADGroupMember -Identity G_ICAPITEC_Kirwin_RW -Members CP325867,CP360492,CP341517,,CP319958,QI325867,CP346676,QA325867,CP321383,CP340142
+
+New-ADGroup -Name G_ICAPITEC_KoenaMaela_RW -SamAccountName G_ICAPITEC_KoenaMaela_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KoenaMaela_RW -ManagedBy CP366185
+Add-ADGroupMember -Identity G_ICAPITEC_KoenaMaela_RW -Members CP366185
+
+New-ADGroup -Name G_ICAPITEC_KwaneleSibiya_RW -SamAccountName G_ICAPITEC_KwaneleSibiya_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KwaneleSibiya_RW -ManagedBy CP364690
+Add-ADGroupMember -Identity G_ICAPITEC_KwaneleSibiya_RW -Members CP364690_DEV,CP364690,CP364690_PRD,CP365587
+
+New-ADGroup -Name G_ICAPITEC_KyleDyers_RW -SamAccountName G_ICAPITEC_KyleDyers_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_KyleDyers_RW -ManagedBy CP363284
+Add-ADGroupMember -Identity G_ICAPITEC_KyleDyers_RW -Members CP363284
+
+New-ADGroup -Name G_ICAPITEC_Lcraig09_RW -SamAccountName G_ICAPITEC_Lcraig09_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lcraig09_RW -ManagedBy CP352168
+Add-ADGroupMember -Identity G_ICAPITEC_Lcraig09_RW -Members CP338536
+
+New-ADGroup -Name G_ICAPITEC_Leane-BrendonSendcash_RW -SamAccountName G_ICAPITEC_Leane-BrendonSendcash_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Leane-BrendonSendcash_RW -ManagedBy CP327382
+Add-ADGroupMember -Identity G_ICAPITEC_Leane-BrendonSendcash_RW -Members CP327382_PRD,CP327382
+
+New-ADGroup -Name G_ICAPITEC_LeaneDavids_RW -SamAccountName G_ICAPITEC_LeaneDavids_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LeaneDavids_RW -ManagedBy CP327382
+Add-ADGroupMember -Identity G_ICAPITEC_LeaneDavids_RW -Members CP327382_PRD,,CP327382,CP339974_PRD,CP350802,CP339974,CP337340_PRD,CP327382_QA
+
+New-ADGroup -Name G_ICAPITEC_LeboGiftRadebe_RW -SamAccountName G_ICAPITEC_LeboGiftRadebe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LeboGiftRadebe_RW -ManagedBy CP364069
+Add-ADGroupMember -Identity G_ICAPITEC_LeboGiftRadebe_RW -Members CP364069,CP312923,CT302808,CP342671
+
+New-ADGroup -Name G_ICAPITEC_Lee-AnnSchutters_RW -SamAccountName G_ICAPITEC_Lee-AnnSchutters_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lee-AnnSchutters_RW -ManagedBy CP308074
+Add-ADGroupMember -Identity G_ICAPITEC_Lee-AnnSchutters_RW -Members CP308074,CP352308,CP363614,CP346496,CP303494,CP308950
+
+New-ADGroup -Name G_ICAPITEC_Leendert_RW -SamAccountName G_ICAPITEC_Leendert_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Leendert_RW -ManagedBy CP349621
+Add-ADGroupMember -Identity G_ICAPITEC_Leendert_RW -Members CP349621
+
+New-ADGroup -Name G_ICAPITEC_LeonDicks_RW -SamAccountName G_ICAPITEC_LeonDicks_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LeonDicks_RW -ManagedBy CP369513
+Add-ADGroupMember -Identity G_ICAPITEC_LeonDicks_RW -Members CP369513
+
+New-ADGroup -Name G_ICAPITEC_LeonE_RW -SamAccountName G_ICAPITEC_LeonE_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LeonE_RW -ManagedBy CP302669
+Add-ADGroupMember -Identity G_ICAPITEC_LeonE_RW -Members CP335863,CP302669,CP302669_DEV,CP339778,CP360493,CP302669_PRD,CP334678,CP304917,AP302669,CP350226,CP304910,CP336491,CP324941,CP324105
+
+New-ADGroup -Name G_ICAPITEC_LeonG_RW -SamAccountName G_ICAPITEC_LeonG_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LeonG_RW -ManagedBy CT302234
+Add-ADGroupMember -Identity G_ICAPITEC_LeonG_RW -Members CT302234_PRD,CP317629
+
+New-ADGroup -Name G_ICAPITEC_LesleyCharinda_RW -SamAccountName G_ICAPITEC_LesleyCharinda_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LesleyCharinda_RW -ManagedBy CP361455
+Add-ADGroupMember -Identity G_ICAPITEC_LesleyCharinda_RW -Members CP361455,CP362435,CP347812
+
+New-ADGroup -Name G_ICAPITEC_Lientjie_RW -SamAccountName G_ICAPITEC_Lientjie_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lientjie_RW -ManagedBy CP300675
+Add-ADGroupMember -Identity G_ICAPITEC_Lientjie_RW -Members CP300675,CP321684,CP321998,CP318823,QA304519,CP306360,CP310435,CP310122,CP317911,QAUser03,CP335535,CP304519,CP319247,CP005686,CP308228,CP302536
+
+New-ADGroup -Name G_ICAPITEC_LilianNewman_RW -SamAccountName G_ICAPITEC_LilianNewman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LilianNewman_RW -ManagedBy CP343108
+Add-ADGroupMember -Identity G_ICAPITEC_LilianNewman_RW -Members CP306910,CP342285
+
+New-ADGroup -Name G_ICAPITEC_LillianBoshoff_RW -SamAccountName G_ICAPITEC_LillianBoshoff_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LillianBoshoff_RW -ManagedBy CP342285
+Add-ADGroupMember -Identity G_ICAPITEC_LillianBoshoff_RW -Members CP342285,CP364658,CP311971,CP301628,CP348873,CP366597
+
+New-ADGroup -Name G_ICAPITEC_LloydLeonard_RW -SamAccountName G_ICAPITEC_LloydLeonard_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LloydLeonard_RW -ManagedBy CP335095
+Add-ADGroupMember -Identity G_ICAPITEC_LloydLeonard_RW -Members CP335095,CP322312,CP324309,CP335783,CP306154,CP351174,CP364563,CP361701,CP361692,CP361607,CP321800,CP362278
+
+New-ADGroup -Name G_ICAPITEC_Lothar_RW -SamAccountName G_ICAPITEC_Lothar_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lothar_RW -ManagedBy CP309717
+Add-ADGroupMember -Identity G_ICAPITEC_Lothar_RW -Members CP309717_QA
+
+New-ADGroup -Name G_ICAPITEC_LouisvanGass_RW -SamAccountName G_ICAPITEC_LouisvanGass_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LouisvanGass_RW -ManagedBy CP341178
+Add-ADGroupMember -Identity G_ICAPITEC_LouisvanGass_RW -Members CP341178,CP327062,CP320204
+
+New-ADGroup -Name G_ICAPITEC_Lourens_App_RW -SamAccountName G_ICAPITEC_Lourens_App_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lourens_App_RW -ManagedBy CP364684
+Add-ADGroupMember -Identity G_ICAPITEC_Lourens_App_RW -Members CP364684
+
+New-ADGroup -Name G_ICAPITEC_Lu-AanRas_RW -SamAccountName G_ICAPITEC_Lu-AanRas_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lu-AanRas_RW -ManagedBy CP312152
+Add-ADGroupMember -Identity G_ICAPITEC_Lu-AanRas_RW -Members CP312152,CP363815,CP364509,CP364460
+
+New-ADGroup -Name G_ICAPITEC_LuckyKomani_RW -SamAccountName G_ICAPITEC_LuckyKomani_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LuckyKomani_RW -ManagedBy CP369929
+Add-ADGroupMember -Identity G_ICAPITEC_LuckyKomani_RW -Members CP369929,CP306360,QI369929,CB369929
+
+New-ADGroup -Name G_ICAPITEC_Luhle_RW -SamAccountName G_ICAPITEC_Luhle_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Luhle_RW -ManagedBy CP362227
+Add-ADGroupMember -Identity G_ICAPITEC_Luhle_RW -Members CP362227,QI362227,CP367341,CP308997,CP342702,CP306910,CP363127
+
+New-ADGroup -Name G_ICAPITEC_LungaNkambule_RW -SamAccountName G_ICAPITEC_LungaNkambule_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_LungaNkambule_RW -ManagedBy CP352757
+Add-ADGroupMember -Identity G_ICAPITEC_LungaNkambule_RW -Members CP304619,CP363784
+
+New-ADGroup -Name G_ICAPITEC_Lynn-Jay_RW -SamAccountName G_ICAPITEC_Lynn-Jay_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Lynn-Jay_RW -ManagedBy CP362185
+Add-ADGroupMember -Identity G_ICAPITEC_Lynn-Jay_RW -Members CP362185,CP304551
+
+New-ADGroup -Name G_ICAPITEC_MaghdieKherekar_RW -SamAccountName G_ICAPITEC_MaghdieKherekar_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MaghdieKherekar_RW -ManagedBy CP331049
+Add-ADGroupMember -Identity G_ICAPITEC_MaghdieKherekar_RW -Members CP350859,CP364026
+
+New-ADGroup -Name G_ICAPITEC_MahdiAdams_RW -SamAccountName G_ICAPITEC_MahdiAdams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MahdiAdams_RW -ManagedBy CP336741
+Add-ADGroupMember -Identity G_ICAPITEC_MahdiAdams_RW -Members CP336741,CP350883,CP303056
+
+New-ADGroup -Name G_ICAPITEC_MaraisvanWyk_RW -SamAccountName G_ICAPITEC_MaraisvanWyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MaraisvanWyk_RW -ManagedBy CP351870
+Add-ADGroupMember -Identity G_ICAPITEC_MaraisvanWyk_RW -Members CP351870
+
+New-ADGroup -Name G_ICAPITEC_MarilynKoopman_RW -SamAccountName G_ICAPITEC_MarilynKoopman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MarilynKoopman_RW -ManagedBy CP317797
+Add-ADGroupMember -Identity G_ICAPITEC_MarilynKoopman_RW -Members CP317797,CP361692
+
+New-ADGroup -Name G_ICAPITEC_MariusvanWyk_RW -SamAccountName G_ICAPITEC_MariusvanWyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MariusvanWyk_RW -ManagedBy CP331899
+Add-ADGroupMember -Identity G_ICAPITEC_MariusvanWyk_RW -Members CP331899
+
+New-ADGroup -Name G_ICAPITEC_Marko_RW -SamAccountName G_ICAPITEC_Marko_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Marko_RW -ManagedBy CP361908
+Add-ADGroupMember -Identity G_ICAPITEC_Marko_RW -Members CP361908,CP338402,CP012945,CP369307,CP367901,CP369217
+
+New-ADGroup -Name G_ICAPITEC_MarthaKleyn_RW -SamAccountName G_ICAPITEC_MarthaKleyn_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MarthaKleyn_RW -ManagedBy CP360327
+Add-ADGroupMember -Identity G_ICAPITEC_MarthaKleyn_RW -Members CP360327,CP363278,CP364049,CP349149
+
+New-ADGroup -Name G_ICAPITEC_Martin_Slabber_RW -SamAccountName G_ICAPITEC_Martin_Slabber_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Martin_Slabber_RW -ManagedBy CP366557
+Add-ADGroupMember -Identity G_ICAPITEC_Martin_Slabber_RW -Members CP306160
+
+New-ADGroup -Name G_ICAPITEC_MasterCardDIData-TheFraudCenter_RW -SamAccountName G_ICAPITEC_MasterCardDIData-TheFraudCenter_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MasterCardDIData-TheFraudCenter_RW -ManagedBy CP342671
+Add-ADGroupMember -Identity G_ICAPITEC_MasterCardDIData-TheFraudCenter_RW -Members CT302808,CP328422,CP339354,CP362185,CP364069,CP342671
+
+New-ADGroup -Name G_ICAPITEC_MasudH_RW -SamAccountName G_ICAPITEC_MasudH_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MasudH_RW -ManagedBy CP335863
+Add-ADGroupMember -Identity G_ICAPITEC_MasudH_RW -Members AP335863,CP335863,CP310049,CP360493,CP302669,CP325722
+
+New-ADGroup -Name G_ICAPITEC_Maxine_RW -SamAccountName G_ICAPITEC_Maxine_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Maxine_RW -ManagedBy CP330673
+Add-ADGroupMember -Identity G_ICAPITEC_Maxine_RW -Members CP330673
+
+New-ADGroup -Name G_ICAPITEC_MelissaRoss_RW -SamAccountName G_ICAPITEC_MelissaRoss_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MelissaRoss_RW -ManagedBy CP303494
+Add-ADGroupMember -Identity G_ICAPITEC_MelissaRoss_RW -Members CP303494,CP307545,CT300743,CP360841,CP363767,CT302677,CP307233
+
+New-ADGroup -Name G_ICAPITEC_Mfundo_Mangweni_RW -SamAccountName G_ICAPITEC_Mfundo_Mangweni_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Mfundo_Mangweni_RW -ManagedBy CP361524
+Add-ADGroupMember -Identity G_ICAPITEC_Mfundo_Mangweni_RW -Members CP361524,CP349005,CP366817
+
+New-ADGroup -Name G_ICAPITEC_MiaBoshoff_RW -SamAccountName G_ICAPITEC_MiaBoshoff_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MiaBoshoff_RW -ManagedBy CP344251
+Add-ADGroupMember -Identity G_ICAPITEC_MiaBoshoff_RW -Members CP344251,CP313647,CT301903,CP362686,CP368539,CT302278
+
+New-ADGroup -Name G_ICAPITEC_MichielMostert_RW -SamAccountName G_ICAPITEC_MichielMostert_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MichielMostert_RW -ManagedBy CP364614
+Add-ADGroupMember -Identity G_ICAPITEC_MichielMostert_RW -Members CP321355,CP312085,CP315977,CP364614,CP360327,CP344368
+
+New-ADGroup -Name G_ICAPITEC_MIE_RW -SamAccountName G_ICAPITEC_MIE_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MIE_RW -ManagedBy CP310872
+Add-ADGroupMember -Identity G_ICAPITEC_MIE_RW -Members CP363784,CT302863,CP307634
+
+New-ADGroup -Name G_ICAPITEC_Mig_RW -SamAccountName G_ICAPITEC_Mig_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Mig_RW -ManagedBy CP335598
+Add-ADGroupMember -Identity G_ICAPITEC_Mig_RW -Members CP335598,CP312589,CP313526,CP338536,CP320345,W10LabUser07
+
+New-ADGroup -Name G_ICAPITEC_MikaelDaniels_RW -SamAccountName G_ICAPITEC_MikaelDaniels_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MikaelDaniels_RW -ManagedBy CP363789
+Add-ADGroupMember -Identity G_ICAPITEC_MikaelDaniels_RW -Members CP363789,CP313647
+
+New-ADGroup -Name G_ICAPITEC_Moabi_RW -SamAccountName G_ICAPITEC_Moabi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Moabi_RW -ManagedBy CP361555
+Add-ADGroupMember -Identity G_ICAPITEC_Moabi_RW -Members CP361555,CP361555_DEV,CP309717,CP361555_PRD,CP361555_QA,CP361555_INT,CP309717_QA
+
+New-ADGroup -Name G_ICAPITEC_MoatisiLekena_RW -SamAccountName G_ICAPITEC_MoatisiLekena_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MoatisiLekena_RW -ManagedBy CP350784
+Add-ADGroupMember -Identity G_ICAPITEC_MoatisiLekena_RW -Members CP314359,CP338784,CP370645,CP362204,QA318543,ITOPS_DR,S_MC_SIM_USER,ITOPS_PRD,CP314359_PRD
+
+New-ADGroup -Name G_ICAPITEC_Mokgadi_RW -SamAccountName G_ICAPITEC_Mokgadi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Mokgadi_RW -ManagedBy CP366831
+Add-ADGroupMember -Identity G_ICAPITEC_Mokgadi_RW -Members CP366831,CP361841
+
+New-ADGroup -Name G_ICAPITEC_Moshabane_RW -SamAccountName G_ICAPITEC_Moshabane_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Moshabane_RW -ManagedBy CP345492
+Add-ADGroupMember -Identity G_ICAPITEC_Moshabane_RW -Members CP345492
+
+New-ADGroup -Name G_ICAPITEC_Mspecialprocessfolder_RW -SamAccountName G_ICAPITEC_Mspecialprocessfolder_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Mspecialprocessfolder_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Mspecialprocessfolder_RW -Members CP337311,CP325444,CP313931,CP329906
+
+New-ADGroup -Name G_ICAPITEC_MuneebMorkel_RW -SamAccountName G_ICAPITEC_MuneebMorkel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_MuneebMorkel_RW -ManagedBy CP317911
+Add-ADGroupMember -Identity G_ICAPITEC_MuneebMorkel_RW -Members CP317911,QA317911,CP335535,CP310776,QI317911,QAUser03,CP306360,IntegrationUser03,CP325867,CP321999,,QA301157
+
+New-ADGroup -Name G_ICAPITEC_Munei_RW -SamAccountName G_ICAPITEC_Munei_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Munei_RW -ManagedBy CP364793
+Add-ADGroupMember -Identity G_ICAPITEC_Munei_RW -Members CP313931
+
+New-ADGroup -Name G_ICAPITEC_Muofhe_RW -SamAccountName G_ICAPITEC_Muofhe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Muofhe_RW -ManagedBy CP363127
+Add-ADGroupMember -Identity G_ICAPITEC_Muofhe_RW -Members CP349648,CP363127,CP342702,CP363830,CP362222
+
+New-ADGroup -Name G_ICAPITEC_NaasVenter_RW -SamAccountName G_ICAPITEC_NaasVenter_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NaasVenter_RW -ManagedBy CP318315
+Add-ADGroupMember -Identity G_ICAPITEC_NaasVenter_RW -Members CP339530,CP334380,CP339081,CP321832,CP337340,CP334380_PRD,CP337340_PRD,CP341447,CP338438,CP341447_PRD
+
+New-ADGroup -Name G_ICAPITEC_Nadine_RW -SamAccountName G_ICAPITEC_Nadine_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Nadine_RW -ManagedBy CP324499
+Add-ADGroupMember -Identity G_ICAPITEC_Nadine_RW -Members CP324499,CP329557,CP329506,CP306160,CP312209
+
+New-ADGroup -Name G_ICAPITEC_NathanSlaverse_RW -SamAccountName G_ICAPITEC_NathanSlaverse_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NathanSlaverse_RW -ManagedBy CP316889
+Add-ADGroupMember -Identity G_ICAPITEC_NathanSlaverse_RW -Members CP335154,CP316889,CP308710,CP313849,CP301949,CP312380,CP305330,CP307235,CP322460,CP313862,CP305194
+
+New-ADGroup -Name G_ICAPITEC_NdumisoMayisela_RW -SamAccountName G_ICAPITEC_NdumisoMayisela_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NdumisoMayisela_RW -ManagedBy CP351670
+Add-ADGroupMember -Identity G_ICAPITEC_NdumisoMayisela_RW -Members CP351670,QI351670,QA351670
+
+New-ADGroup -Name G_ICAPITEC_Ndumiso60_RW -SamAccountName G_ICAPITEC_Ndumiso60_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Ndumiso60_RW -ManagedBy CP315364
+Add-ADGroupMember -Identity G_ICAPITEC_Ndumiso60_RW -Members CP313360,CP315364
+
+New-ADGroup -Name G_ICAPITEC_Newfolder(8)_RW -SamAccountName G_ICAPITEC_Newfolder(8)_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Newfolder(8)_RW -ManagedBy CP364207
+Add-ADGroupMember -Identity G_ICAPITEC_Newfolder(8)_RW -Members CP364207,CP363686
+
+New-ADGroup -Name G_ICAPITEC_NewtonHarrison_RW -SamAccountName G_ICAPITEC_NewtonHarrison_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NewtonHarrison_RW -ManagedBy CP329082
+Add-ADGroupMember -Identity G_ICAPITEC_NewtonHarrison_RW -Members CP329082,CP329081,CP329082_QA,CP341749,CP348648,CP346914
+
+New-ADGroup -Name G_ICAPITEC_Nic_RW -SamAccountName G_ICAPITEC_Nic_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Nic_RW -ManagedBy CP313427
+Add-ADGroupMember -Identity G_ICAPITEC_Nic_RW -Members CP352271,CP361488,CP313427,CP313427_DEV
+
+New-ADGroup -Name G_ICAPITEC_Niclon_Coertzen_RW -SamAccountName G_ICAPITEC_Niclon_Coertzen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Niclon_Coertzen_RW -ManagedBy CP368185
+Add-ADGroupMember -Identity G_ICAPITEC_Niclon_Coertzen_RW -Members CP345023,CP312923,CP342671
+
+New-ADGroup -Name G_ICAPITEC_NicolH_RW -SamAccountName G_ICAPITEC_NicolH_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NicolH_RW -ManagedBy CP311927
+Add-ADGroupMember -Identity G_ICAPITEC_NicolH_RW -Members CP311927,AP311927,pietpompies,CP311927_PRD,CP345921
+
+New-ADGroup -Name G_ICAPITEC_NicoleLouw_RW -SamAccountName G_ICAPITEC_NicoleLouw_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NicoleLouw_RW -ManagedBy CP362740
+Add-ADGroupMember -Identity G_ICAPITEC_NicoleLouw_RW -Members CP334380,S_MC_SIM_USER,CP362765
+
+New-ADGroup -Name G_ICAPITEC_Nielen_RW -SamAccountName G_ICAPITEC_Nielen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Nielen_RW -ManagedBy CP320529
+Add-ADGroupMember -Identity G_ICAPITEC_Nielen_RW -Members CP320529
+
+New-ADGroup -Name G_ICAPITEC_Nika_RW -SamAccountName G_ICAPITEC_Nika_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Nika_RW -ManagedBy CP364402
+Add-ADGroupMember -Identity G_ICAPITEC_Nika_RW -Members CP319924_QA
+
+New-ADGroup -Name G_ICAPITEC_NimalGajadhur_RW -SamAccountName G_ICAPITEC_NimalGajadhur_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NimalGajadhur_RW -ManagedBy CP363211
+Add-ADGroupMember -Identity G_ICAPITEC_NimalGajadhur_RW -Members CP363211
+
+New-ADGroup -Name G_ICAPITEC_NombusoNtuli_RW -SamAccountName G_ICAPITEC_NombusoNtuli_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_NombusoNtuli_RW -ManagedBy CP340720
+Add-ADGroupMember -Identity G_ICAPITEC_NombusoNtuli_RW -Members CP340720,CP331366
+
+New-ADGroup -Name G_ICAPITEC_Ntombi_RW -SamAccountName G_ICAPITEC_Ntombi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Ntombi_RW -ManagedBy CP320204
+Add-ADGroupMember -Identity G_ICAPITEC_Ntombi_RW -Members CP367714
+
+New-ADGroup -Name G_ICAPITEC_Ntuthuko_RW -SamAccountName G_ICAPITEC_Ntuthuko_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Ntuthuko_RW -ManagedBy CP363495
+Add-ADGroupMember -Identity G_ICAPITEC_Ntuthuko_RW -Members CP363495,CP325751
+
+New-ADGroup -Name G_ICAPITEC_ObakengMokgabodi_RW -SamAccountName G_ICAPITEC_ObakengMokgabodi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ObakengMokgabodi_RW -ManagedBy CP307483
+Add-ADGroupMember -Identity G_ICAPITEC_ObakengMokgabodi_RW -Members CP351225
+
+New-ADGroup -Name G_ICAPITEC_on_RW -SamAccountName G_ICAPITEC_on_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_on_RW -ManagedBy CP304619
+Add-ADGroupMember -Identity G_ICAPITEC_on_RW -Members CP307634,CP326226
+
+New-ADGroup -Name G_ICAPITEC_PaulHoughton_RW -SamAccountName G_ICAPITEC_PaulHoughton_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PaulHoughton_RW -ManagedBy CP331366
+Add-ADGroupMember -Identity G_ICAPITEC_PaulHoughton_RW -Members CP368177,CP331366
+
+New-ADGroup -Name G_ICAPITEC_PaulRoode_RW -SamAccountName G_ICAPITEC_PaulRoode_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PaulRoode_RW -ManagedBy CT301246
+Add-ADGroupMember -Identity G_ICAPITEC_PaulRoode_RW -Members CT301246,CT303467,CP351174,CP308892,CP362393
+
+New-ADGroup -Name G_ICAPITEC_PaymentsDataStrategyTeam_RW -SamAccountName G_ICAPITEC_PaymentsDataStrategyTeam_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PaymentsDataStrategyTeam_RW -ManagedBy CP342820
+Add-ADGroupMember -Identity G_ICAPITEC_PaymentsDataStrategyTeam_RW -Members CT302365,CP361802
+
+New-ADGroup -Name G_ICAPITEC_Payments_RiskManagement_RW -SamAccountName G_ICAPITEC_Payments_RiskManagement_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Payments_RiskManagement_RW -ManagedBy CP361783
+Add-ADGroupMember -Identity G_ICAPITEC_Payments_RiskManagement_RW -Members CP343402
+
+New-ADGroup -Name G_ICAPITEC_PedroDaSilva_RW -SamAccountName G_ICAPITEC_PedroDaSilva_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PedroDaSilva_RW -ManagedBy CP362505
+Add-ADGroupMember -Identity G_ICAPITEC_PedroDaSilva_RW -Members CP362505,CP321308,CP362500,CP368867,CP368043,CP329359,CP048980,CP367585,CP367597,CP046161
+
+New-ADGroup -Name G_ICAPITEC_PeetSmit_RW -SamAccountName G_ICAPITEC_PeetSmit_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PeetSmit_RW -ManagedBy CP364233
+Add-ADGroupMember -Identity G_ICAPITEC_PeetSmit_RW -Members CT303081,CT302314
+
+New-ADGroup -Name G_ICAPITEC_PercyMoswane_RW -SamAccountName G_ICAPITEC_PercyMoswane_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PercyMoswane_RW -ManagedBy CP351617
+Add-ADGroupMember -Identity G_ICAPITEC_PercyMoswane_RW -Members CP351617,CP329081,CP319924_PRD,CP362120,CT302967,CT303306,CP351225,CT302967_INT,CP370313
+
+New-ADGroup -Name G_ICAPITEC_PerformanceandSuccessionDevelopment2022content_RW -SamAccountName G_ICAPITEC_PerformanceandSuccessionDevelopment2022content_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PerformanceandSuccessionDevelopment2022content_RW -ManagedBy CP312187
+Add-ADGroupMember -Identity G_ICAPITEC_PerformanceandSuccessionDevelopment2022content_RW -Members CP310054,CP369951
+
+New-ADGroup -Name G_ICAPITEC_PhilipPrinsloo_RW -SamAccountName G_ICAPITEC_PhilipPrinsloo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PhilipPrinsloo_RW -ManagedBy CP338402
+Add-ADGroupMember -Identity G_ICAPITEC_PhilipPrinsloo_RW -Members CP362254,CP338402,CP338402_DEV,CP338402_PRD,CT303049,CP361908
+
+New-ADGroup -Name G_ICAPITEC_Philip_Coetzee_RW -SamAccountName G_ICAPITEC_Philip_Coetzee_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Philip_Coetzee_RW -ManagedBy CP348457
+Add-ADGroupMember -Identity G_ICAPITEC_Philip_Coetzee_RW -Members CP348457,CP329244,CP350802
+
+New-ADGroup -Name G_ICAPITEC_Phumudzo_RW -SamAccountName G_ICAPITEC_Phumudzo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Phumudzo_RW -ManagedBy CP338161
+Add-ADGroupMember -Identity G_ICAPITEC_Phumudzo_RW -Members CP338161,CP340390,CP361198,CP347419
+
+New-ADGroup -Name G_ICAPITEC_PietDeV_RW -SamAccountName G_ICAPITEC_PietDeV_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PietDeV_RW -ManagedBy CP362229
+Add-ADGroupMember -Identity G_ICAPITEC_PietDeV_RW -Members CP362229,CP312923,CP350784
+
+New-ADGroup -Name G_ICAPITEC_Pieter_RW -SamAccountName G_ICAPITEC_Pieter_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Pieter_RW -ManagedBy CP323869
+Add-ADGroupMember -Identity G_ICAPITEC_Pieter_RW -Members CP323869,CP323869_PRD,CP334380,CP323869_DEV,CP323869_INT,CP364078,CP323869_QA,CP337340,CP334380_DEV,CP309775
+
+New-ADGroup -Name G_ICAPITEC_PilotDumbu_RW -SamAccountName G_ICAPITEC_PilotDumbu_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PilotDumbu_RW -ManagedBy CP332819
+Add-ADGroupMember -Identity G_ICAPITEC_PilotDumbu_RW -Members P3OPS_DEV,CP332819_DEV,CP332819_QA,CP360371,CP332819,CP346591_DEV,CP332819_PRD,CP323136,AP339081,P3Admin_DEV,CP342077,CP350870,CP350784
+
+New-ADGroup -Name G_ICAPITEC_PositionManagementFileDrop_RW -SamAccountName G_ICAPITEC_PositionManagementFileDrop_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PositionManagementFileDrop_RW -ManagedBy CP343305
+Add-ADGroupMember -Identity G_ICAPITEC_PositionManagementFileDrop_RW -Members CP361764
+
+New-ADGroup -Name G_ICAPITEC_PowerCARDPhase1Incidents_RW -SamAccountName G_ICAPITEC_PowerCARDPhase1Incidents_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PowerCARDPhase1Incidents_RW -ManagedBy CP301772
+Add-ADGroupMember -Identity G_ICAPITEC_PowerCARDPhase1Incidents_RW -Members CP362156
+
+New-ADGroup -Name G_ICAPITEC_Predelinqnotreatmentrecordings_RW -SamAccountName G_ICAPITEC_Predelinqnotreatmentrecordings_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Predelinqnotreatmentrecordings_RW -ManagedBy CP325444
+Add-ADGroupMember -Identity G_ICAPITEC_Predelinqnotreatmentrecordings_RW -Members CP329906
+
+New-ADGroup -Name G_ICAPITEC_Priscilla_RW -SamAccountName G_ICAPITEC_Priscilla_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Priscilla_RW -ManagedBy CP307994
+Add-ADGroupMember -Identity G_ICAPITEC_Priscilla_RW -Members CP307994
+
+New-ADGroup -Name G_ICAPITEC_PurposeLending-Recoveries_RW -SamAccountName G_ICAPITEC_PurposeLending-Recoveries_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_PurposeLending-Recoveries_RW -ManagedBy CP319156
+Add-ADGroupMember -Identity G_ICAPITEC_PurposeLending-Recoveries_RW -Members CP304055,CP338017
+
+New-ADGroup -Name G_ICAPITEC_QM_RW -SamAccountName G_ICAPITEC_QM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_QM_RW -ManagedBy CP302624
+Add-ADGroupMember -Identity G_ICAPITEC_QM_RW -Members CP311855,CP310947,CP311223,CP312329
+
+New-ADGroup -Name G_ICAPITEC_QMcompletioncode2023_RW -SamAccountName G_ICAPITEC_QMcompletioncode2023_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_QMcompletioncode2023_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_QMcompletioncode2023_RW -Members CP337311,CP314221
+
+New-ADGroup -Name G_ICAPITEC_QuintuszGeyser_ICapitec_RW -SamAccountName G_ICAPITEC_QuintuszGeyser_ICapitec_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_QuintuszGeyser_ICapitec_RW -ManagedBy CP368103
+Add-ADGroupMember -Identity G_ICAPITEC_QuintuszGeyser_ICapitec_RW -Members CP368103,CP344949,CP368103_DEV,ITOPS_PRD,CP368103_PRD,CP368103_QA,ITOPS_Visa_PRD,S_MC_SIM_USER
+
+New-ADGroup -Name G_ICAPITEC_RandolfDavids_RW -SamAccountName G_ICAPITEC_RandolfDavids_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RandolfDavids_RW -ManagedBy CP314131
+Add-ADGroupMember -Identity G_ICAPITEC_RandolfDavids_RW -Members S_MC_SIM_USER,CP314131_PRD,CP314131,CP321380,CP365363,CP337912,CP329363,CP339081,CP362642,CP314131_QA
+
+New-ADGroup -Name G_ICAPITEC_RaniahDamons_RW -SamAccountName G_ICAPITEC_RaniahDamons_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RaniahDamons_RW -ManagedBy CP337317
+Add-ADGroupMember -Identity G_ICAPITEC_RaniahDamons_RW -Members CP339286,CP337317,CP002570
+
+New-ADGroup -Name G_ICAPITEC_RasheeqaDavis_RW -SamAccountName G_ICAPITEC_RasheeqaDavis_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RasheeqaDavis_RW -ManagedBy CP304754
+Add-ADGroupMember -Identity G_ICAPITEC_RasheeqaDavis_RW -Members CP351870
+
+New-ADGroup -Name G_ICAPITEC_Recoveries_RW -SamAccountName G_ICAPITEC_Recoveries_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Recoveries_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Recoveries_RW -Members CP347772,CP337311,CP345488,CP327408,CP306154,CP338783,CP307648,CP311052,CP335095,CP335783,CP364732,CP307235
+
+New-ADGroup -Name G_ICAPITEC_RecoveriesDebtReview_RW -SamAccountName G_ICAPITEC_RecoveriesDebtReview_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RecoveriesDebtReview_RW -ManagedBy CP339286
+Add-ADGroupMember -Identity G_ICAPITEC_RecoveriesDebtReview_RW -Members CP340720,CP335879
+
+New-ADGroup -Name G_ICAPITEC_Rentia_RW -SamAccountName G_ICAPITEC_Rentia_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Rentia_RW -ManagedBy CP339532
+Add-ADGroupMember -Identity G_ICAPITEC_Rentia_RW -Members CP339532
+
+New-ADGroup -Name G_ICAPITEC_ReynoVanDyk_RW -SamAccountName G_ICAPITEC_ReynoVanDyk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ReynoVanDyk_RW -ManagedBy CP349272
+Add-ADGroupMember -Identity G_ICAPITEC_ReynoVanDyk_RW -Members CP338417,CP338419,CP349272,CP349272_PRD,CP329557,CP361988
+
+New-ADGroup -Name G_ICAPITEC_RhynoHendricks_RW -SamAccountName G_ICAPITEC_RhynoHendricks_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RhynoHendricks_RW -ManagedBy CP332879
+Add-ADGroupMember -Identity G_ICAPITEC_RhynoHendricks_RW -Members CP332879
+
+New-ADGroup -Name G_ICAPITEC_Riyaad_RW -SamAccountName G_ICAPITEC_Riyaad_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Riyaad_RW -ManagedBy CP364301
+Add-ADGroupMember -Identity G_ICAPITEC_Riyaad_RW -Members CP364301
+
+New-ADGroup -Name G_ICAPITEC_Robertovs_RW -SamAccountName G_ICAPITEC_Robertovs_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Robertovs_RW -ManagedBy CP324661
+Add-ADGroupMember -Identity G_ICAPITEC_Robertovs_RW -Members CP324661,CP363243,CWALLBOARDUSER152,CWALLBOARDUSER154,CWALLBOARDUSER145,CWALLBOARDUSER151,CWALLBOARDUSER036,CWALLBOARDUSER148,CWALLBOARDUSER147,CWALLBOARDUSER146,CWALLBOARDUSER150,CP309237,CWALLBOARDUSER033,CWALLBOARDUSER037,CWALLBOARDUSER149,CWALLBOARDUSER039,CWALLBOARDUSER035,CWALLBOARDUSER044,CP363243_DEV,CP363243_PRD,CP363243_SEC
+
+New-ADGroup -Name G_ICAPITEC_RobinPetersen_RW -SamAccountName G_ICAPITEC_RobinPetersen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RobinPetersen_RW -ManagedBy CP344105
+Add-ADGroupMember -Identity G_ICAPITEC_RobinPetersen_RW -Members CP344105,CP346676,QA344105,CP329563,CP360464,CP340142
+
+New-ADGroup -Name G_ICAPITEC_RodneyM_RW -SamAccountName G_ICAPITEC_RodneyM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RodneyM_RW -ManagedBy CP304519
+Add-ADGroupMember -Identity G_ICAPITEC_RodneyM_RW -Members QA304519,CP304519,QA317090,QI304519,QA301157,CP343105,CP317911,,CP335535,QA317911,CP321999,QI335535,CP317724,IntegrationUser03,QAUser03,CP338019,QI306360
+
+New-ADGroup -Name G_ICAPITEC_Romeo_RW -SamAccountName G_ICAPITEC_Romeo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Romeo_RW -ManagedBy CP335535
+Add-ADGroupMember -Identity G_ICAPITEC_Romeo_RW -Members CP335535,QA335535
+
+New-ADGroup -Name G_ICAPITEC_RonelWilkins_RW -SamAccountName G_ICAPITEC_RonelWilkins_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RonelWilkins_RW -ManagedBy CP310515
+Add-ADGroupMember -Identity G_ICAPITEC_RonelWilkins_RW -Members CP369273,CP310515,CP361851
+
+New-ADGroup -Name G_ICAPITEC_RossMcKenzie_RW -SamAccountName G_ICAPITEC_RossMcKenzie_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RossMcKenzie_RW -ManagedBy CP334679
+Add-ADGroupMember -Identity G_ICAPITEC_RossMcKenzie_RW -Members CP334679,CT302865,CP334679_PRD,CP319156,CP347373
+
+New-ADGroup -Name G_ICAPITEC_RowenGeorge_RW -SamAccountName G_ICAPITEC_RowenGeorge_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RowenGeorge_RW -ManagedBy CP350484
+Add-ADGroupMember -Identity G_ICAPITEC_RowenGeorge_RW -Members CP350484,CP362254,CP350680,CP361441,CP361438
+
+New-ADGroup -Name G_ICAPITEC_RPPAUTOMATION_RW -SamAccountName G_ICAPITEC_RPPAUTOMATION_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RPPAUTOMATION_RW -ManagedBy CP362160
+Add-ADGroupMember -Identity G_ICAPITEC_RPPAUTOMATION_RW -Members CP347812,CT303116
+
+New-ADGroup -Name G_ICAPITEC_RuaanBrink_RW -SamAccountName G_ICAPITEC_RuaanBrink_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RuaanBrink_RW -ManagedBy CP345546
+Add-ADGroupMember -Identity G_ICAPITEC_RuaanBrink_RW -Members CP345546,AP345546,CP331899_INT,CP329561,AP360635,CP341087,CP335863
+
+New-ADGroup -Name G_ICAPITEC_RuannVice_RW -SamAccountName G_ICAPITEC_RuannVice_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RuannVice_RW -ManagedBy CP313364
+Add-ADGroupMember -Identity G_ICAPITEC_RuannVice_RW -Members CP350784,CP313364,QI313364,CP313479_PRD,CP313479,CP321995,CP329563,CP360492,CP349787,CP310776,QA306504,QA313364,AP321995,CP313479_INT,CP361222
+
+New-ADGroup -Name G_ICAPITEC_RXM_RW -SamAccountName G_ICAPITEC_RXM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RXM_RW -ManagedBy CP321755
+Add-ADGroupMember -Identity G_ICAPITEC_RXM_RW -Members CP341087,AP341087
+
+New-ADGroup -Name G_ICAPITEC_RyanCoe_RW -SamAccountName G_ICAPITEC_RyanCoe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RyanCoe_RW -ManagedBy CP334380
+Add-ADGroupMember -Identity G_ICAPITEC_RyanCoe_RW -Members CP334380_DEV,CP334380,CP334380_PRD,CP344949,CP334380_QA,CP321832,CP313181_INT,CP323136,CP321832_PRD,CP334380_INT,CP367723,CP323869
+
+New-ADGroup -Name G_ICAPITEC_RyanGoliath_RW -SamAccountName G_ICAPITEC_RyanGoliath_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_RyanGoliath_RW -ManagedBy CP361733
+Add-ADGroupMember -Identity G_ICAPITEC_RyanGoliath_RW -Members CP361733,CP363266
+
+New-ADGroup -Name G_ICAPITEC_SakkieBrevis_RW -SamAccountName G_ICAPITEC_SakkieBrevis_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SakkieBrevis_RW -ManagedBy CP321832
+Add-ADGroupMember -Identity G_ICAPITEC_SakkieBrevis_RW -Members CP321832_PRD,CP321832
+
+New-ADGroup -Name G_ICAPITEC_Salmaan_Deane_RW -SamAccountName G_ICAPITEC_Salmaan_Deane_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Salmaan_Deane_RW -ManagedBy CP338448
+Add-ADGroupMember -Identity G_ICAPITEC_Salmaan_Deane_RW -Members CP365587_PRD,CP364690_QA,CP364690,CP364690_PRD,CP365587_DEV,CP365587_QA,CP365587
+
+New-ADGroup -Name G_ICAPITEC_Sam_RW -SamAccountName G_ICAPITEC_Sam_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Sam_RW -ManagedBy CP366715
+Add-ADGroupMember -Identity G_ICAPITEC_Sam_RW -Members CP366715,CP352611
+
+New-ADGroup -Name G_ICAPITEC_SanmariVivier_RW -SamAccountName G_ICAPITEC_SanmariVivier_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SanmariVivier_RW -ManagedBy CP368669
+Add-ADGroupMember -Identity G_ICAPITEC_SanmariVivier_RW -Members CP368669
+
+New-ADGroup -Name G_ICAPITEC_SantellMay_RW -SamAccountName G_ICAPITEC_SantellMay_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SantellMay_RW -ManagedBy CP342671
+Add-ADGroupMember -Identity G_ICAPITEC_SantellMay_RW -Members CP312923,CP348339,CP361951,CP326535,CP342671,CP329707,CT301227
+
+New-ADGroup -Name G_ICAPITEC_SAP-WinshuttleTemplates&Scripts_RW -SamAccountName G_ICAPITEC_SAP-WinshuttleTemplates&Scripts_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SAP-WinshuttleTemplates&Scripts_RW -ManagedBy CP342154
+Add-ADGroupMember -Identity G_ICAPITEC_SAP-WinshuttleTemplates&Scripts_RW -Members CP361317,CP342154,CP312277
+
+New-ADGroup -Name G_ICAPITEC_SAPSupport_RW -SamAccountName G_ICAPITEC_SAPSupport_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SAPSupport_RW -ManagedBy CP342154
+Add-ADGroupMember -Identity G_ICAPITEC_SAPSupport_RW -Members CP360670,CP361438
+
+New-ADGroup -Name G_ICAPITEC_SAP_BW_AUTH_RW -SamAccountName G_ICAPITEC_SAP_BW_AUTH_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SAP_BW_AUTH_RW -ManagedBy CP372163
+Add-ADGroupMember -Identity G_ICAPITEC_SAP_BW_AUTH_RW -Members CP347021,CP347020
+
+New-ADGroup -Name G_ICAPITEC_SchalkPieterse_RW -SamAccountName G_ICAPITEC_SchalkPieterse_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SchalkPieterse_RW -ManagedBy CP344748
+Add-ADGroupMember -Identity G_ICAPITEC_SchalkPieterse_RW -Members CP362254,CP362176
+
+New-ADGroup -Name G_ICAPITEC_SellerAppTools_RW -SamAccountName G_ICAPITEC_SellerAppTools_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SellerAppTools_RW -ManagedBy CP329363
+Add-ADGroupMember -Identity G_ICAPITEC_SellerAppTools_RW -Members CP362809,CP362809_DEV,CP364313,CP367641_DEV,CP334617
+
+New-ADGroup -Name G_ICAPITEC_SemKalobo_RW -SamAccountName G_ICAPITEC_SemKalobo_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SemKalobo_RW -ManagedBy CP368159
+Add-ADGroupMember -Identity G_ICAPITEC_SemKalobo_RW -Members CP368159
+
+New-ADGroup -Name G_ICAPITEC_Shadrack_RW -SamAccountName G_ICAPITEC_Shadrack_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Shadrack_RW -ManagedBy CP365165
+Add-ADGroupMember -Identity G_ICAPITEC_Shadrack_RW -Members CP365165
+
+New-ADGroup -Name G_ICAPITEC_Shamir_RW -SamAccountName G_ICAPITEC_Shamir_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Shamir_RW -ManagedBy CP363841
+Add-ADGroupMember -Identity G_ICAPITEC_Shamir_RW -Members CP363841,CP349212
+
+New-ADGroup -Name G_ICAPITEC_Shantal_RW -SamAccountName G_ICAPITEC_Shantal_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Shantal_RW -ManagedBy CP344777
+Add-ADGroupMember -Identity G_ICAPITEC_Shantal_RW -Members CP344777
+
+New-ADGroup -Name G_ICAPITEC_ShaunM_RW -SamAccountName G_ICAPITEC_ShaunM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ShaunM_RW -ManagedBy CP365365
+Add-ADGroupMember -Identity G_ICAPITEC_ShaunM_RW -Members CT302674,CT302674_DEV,CP365365,CT302674_QA,CP361559,CT302674_PRD,CP361445_DEV,CP361445,CP006568
+
+New-ADGroup -Name G_ICAPITEC_ShaunMurphy_RW -SamAccountName G_ICAPITEC_ShaunMurphy_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ShaunMurphy_RW -ManagedBy CT302674
+Add-ADGroupMember -Identity G_ICAPITEC_ShaunMurphy_RW -Members CT302674_PRD
+
+New-ADGroup -Name G_ICAPITEC_ShawnByron_RW -SamAccountName G_ICAPITEC_ShawnByron_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ShawnByron_RW -ManagedBy CP373841
+Add-ADGroupMember -Identity G_ICAPITEC_ShawnByron_RW -Members CP373841
+
+New-ADGroup -Name G_ICAPITEC_ShenazSaidHendricks_RW -SamAccountName G_ICAPITEC_ShenazSaidHendricks_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ShenazSaidHendricks_RW -ManagedBy CP361689
+Add-ADGroupMember -Identity G_ICAPITEC_ShenazSaidHendricks_RW -Members CP361689
+
+New-ADGroup -Name G_ICAPITEC_SiboSithole_RW -SamAccountName G_ICAPITEC_SiboSithole_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SiboSithole_RW -ManagedBy CP364295
+Add-ADGroupMember -Identity G_ICAPITEC_SiboSithole_RW -Members CP364295,CP321308,CP368043,CP370285,QA364295
+
+New-ADGroup -Name G_ICAPITEC_Sinazo_G_RW -SamAccountName G_ICAPITEC_Sinazo_G_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Sinazo_G_RW -ManagedBy CP368043
+Add-ADGroupMember -Identity G_ICAPITEC_Sinazo_G_RW -Members QA051583,QA022828,CP368043
+
+New-ADGroup -Name G_ICAPITEC_SinesiphoWillie_RW -SamAccountName G_ICAPITEC_SinesiphoWillie_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SinesiphoWillie_RW -ManagedBy CP048980
+Add-ADGroupMember -Identity G_ICAPITEC_SinesiphoWillie_RW -Members CP048980,CP332858,CP046161,CP367585,QA048980,QI048980,QA318543,CP001831,QA332858
+
+New-ADGroup -Name G_ICAPITEC_Siphenathi_Ndabazonke_RW -SamAccountName G_ICAPITEC_Siphenathi_Ndabazonke_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Siphenathi_Ndabazonke_RW -ManagedBy CP363905
+Add-ADGroupMember -Identity G_ICAPITEC_Siphenathi_Ndabazonke_RW -Members CP363905,QI363905,QA363905
+
+New-ADGroup -Name G_ICAPITEC_sivemaliwa_RW -SamAccountName G_ICAPITEC_sivemaliwa_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_sivemaliwa_RW -ManagedBy CP365229
+Add-ADGroupMember -Identity G_ICAPITEC_sivemaliwa_RW -Members CP365229,CP365229_PRD,S_MC_SIM_USER,CP364841_QA,CP350784_QA,CP365229_QA,ITOPS_DR
+
+New-ADGroup -Name G_ICAPITEC_SiveMazwi.IBPTEAM_RW -SamAccountName G_ICAPITEC_SiveMazwi.IBPTEAM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SiveMazwi.IBPTEAM_RW -ManagedBy CP364424
+Add-ADGroupMember -Identity G_ICAPITEC_SiveMazwi.IBPTEAM_RW -Members CP364424_PRD,CP364424,CP312152,CP364424_DEV,S_OPSMOS_DMSA
+
+New-ADGroup -Name G_ICAPITEC_Siya_RW -SamAccountName G_ICAPITEC_Siya_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Siya_RW -ManagedBy CP349652
+Add-ADGroupMember -Identity G_ICAPITEC_Siya_RW -Members CP349652,CP361934,CP319247,CP349652_DEV,CP329837,CP344368
+
+New-ADGroup -Name G_ICAPITEC_Sizwe_RW -SamAccountName G_ICAPITEC_Sizwe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Sizwe_RW -ManagedBy CP361951
+Add-ADGroupMember -Identity G_ICAPITEC_Sizwe_RW -Members CP342671,CP312923,CP361951
+
+New-ADGroup -Name G_ICAPITEC_Sizwe_Williams_RW -SamAccountName G_ICAPITEC_Sizwe_Williams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Sizwe_Williams_RW -ManagedBy CT303447
+Add-ADGroupMember -Identity G_ICAPITEC_Sizwe_Williams_RW -Members CT303444,CT303447,CT303449
+
+New-ADGroup -Name G_ICAPITEC_SOSOF_RW -SamAccountName G_ICAPITEC_SOSOF_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SOSOF_RW -ManagedBy CP035410
+Add-ADGroupMember -Identity G_ICAPITEC_SOSOF_RW -Members CP035410,CP314102,CP350342,CP361713,CP347800
+
+New-ADGroup -Name G_ICAPITEC_StagateRealtimelog_01_06_2023_RW -SamAccountName G_ICAPITEC_StagateRealtimelog_01_06_2023_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_StagateRealtimelog_01_06_2023_RW -ManagedBy CP307483
+Add-ADGroupMember -Identity G_ICAPITEC_StagateRealtimelog_01_06_2023_RW -Members CP346914,CT302967
+
+New-ADGroup -Name G_ICAPITEC_StephanJ_RW -SamAccountName G_ICAPITEC_StephanJ_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_StephanJ_RW -ManagedBy CP327589
+Add-ADGroupMember -Identity G_ICAPITEC_StephanJ_RW -Members CP327589,CP313647,CP370083,CP361908,CP363603,CP312381,CP342197,CP305182,CP003473,CP365291,CT302314,CP305717
+
+New-ADGroup -Name G_ICAPITEC_StephanusduPlessis_RW -SamAccountName G_ICAPITEC_StephanusduPlessis_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_StephanusduPlessis_RW -ManagedBy CP344368
+Add-ADGroupMember -Identity G_ICAPITEC_StephanusduPlessis_RW -Members CP344368,CP344368_INT,CP350706
+
+New-ADGroup -Name G_ICAPITEC_StevenKnoop_RW -SamAccountName G_ICAPITEC_StevenKnoop_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_StevenKnoop_RW -ManagedBy CT302865
+Add-ADGroupMember -Identity G_ICAPITEC_StevenKnoop_RW -Members CT302865
+
+New-ADGroup -Name G_ICAPITEC_Sudheer_RW -SamAccountName G_ICAPITEC_Sudheer_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Sudheer_RW -ManagedBy CT302737
+Add-ADGroupMember -Identity G_ICAPITEC_Sudheer_RW -Members CT302737,CP362163
+
+New-ADGroup -Name G_ICAPITEC_SvenBuitendag_RW -SamAccountName G_ICAPITEC_SvenBuitendag_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SvenBuitendag_RW -ManagedBy CP351455
+Add-ADGroupMember -Identity G_ICAPITEC_SvenBuitendag_RW -Members CP351455,CP342201,CP364791,CP336347
+
+New-ADGroup -Name G_ICAPITEC_SybrandJvR_RW -SamAccountName G_ICAPITEC_SybrandJvR_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SybrandJvR_RW -ManagedBy CP363767
+Add-ADGroupMember -Identity G_ICAPITEC_SybrandJvR_RW -Members CP363767,CT300743,CT301647
+
+New-ADGroup -Name G_ICAPITEC_SystemsDevelopment-SupportFunctions-SAP_RW -SamAccountName G_ICAPITEC_SystemsDevelopment-SupportFunctions-SAP_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_SystemsDevelopment-SupportFunctions-SAP_RW -ManagedBy CP346207
+Add-ADGroupMember -Identity G_ICAPITEC_SystemsDevelopment-SupportFunctions-SAP_RW -Members CP342154,CP349751,CP361438,CP317094,CP361317,CP361095,CP347096
+
+New-ADGroup -Name G_ICAPITEC_Tallyman_RW -SamAccountName G_ICAPITEC_Tallyman_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Tallyman_RW -ManagedBy CP343108
+Add-ADGroupMember -Identity G_ICAPITEC_Tallyman_RW -Members CP308997,CP336835,CP347373,CP334679,CP318750,CP341598,S_CTM_CollSys_DEV,S_CTM_CollSys_PRD
+
+New-ADGroup -Name G_ICAPITEC_TamarynWilliams_RW -SamAccountName G_ICAPITEC_TamarynWilliams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TamarynWilliams_RW -ManagedBy CP036067
+Add-ADGroupMember -Identity G_ICAPITEC_TamarynWilliams_RW -Members CP036067
+
+New-ADGroup -Name G_ICAPITEC_TechSupport_RW -SamAccountName G_ICAPITEC_TechSupport_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TechSupport_RW -ManagedBy CP328131
+Add-ADGroupMember -Identity G_ICAPITEC_TechSupport_RW -Members CP304829,CP360008,AP360008,CP319547,CP369917,CP309861,CP361667,CP012270,CP335863,CP321364,CP334216
+
+New-ADGroup -Name G_ICAPITEC_Temp_RW -SamAccountName G_ICAPITEC_Temp_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Temp_RW -ManagedBy CP329246
+Add-ADGroupMember -Identity G_ICAPITEC_Temp_RW -Members CP329246
+
+New-ADGroup -Name G_ICAPITEC_Therron_RW -SamAccountName G_ICAPITEC_Therron_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Therron_RW -ManagedBy CP360267
+Add-ADGroupMember -Identity G_ICAPITEC_Therron_RW -Members CP360267,CP362277,CP304619,CP329837
+
+New-ADGroup -Name G_ICAPITEC_TheUnknown_RW -SamAccountName G_ICAPITEC_TheUnknown_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TheUnknown_RW -ManagedBy CP352303
+Add-ADGroupMember -Identity G_ICAPITEC_TheUnknown_RW -Members CP352303,CP352264
+
+New-ADGroup -Name G_ICAPITEC_TimothyvanNiekerk_RW -SamAccountName G_ICAPITEC_TimothyvanNiekerk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TimothyvanNiekerk_RW -ManagedBy CP360272
+Add-ADGroupMember -Identity G_ICAPITEC_TimothyvanNiekerk_RW -Members CP362478,CP369327
+
+New-ADGroup -Name G_ICAPITEC_TlhogiMolwana_RW -SamAccountName G_ICAPITEC_TlhogiMolwana_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TlhogiMolwana_RW -ManagedBy CP364015
+Add-ADGroupMember -Identity G_ICAPITEC_TlhogiMolwana_RW -Members S_MAPIBOT_DEV,S_EPDMFNP,S_EPDMFNP_QA,CP331970,S_OWPAPWEB_DEV,S_OWPAPWEB_QA,CT303107
+
+New-ADGroup -Name G_ICAPITEC_tommy_RW -SamAccountName G_ICAPITEC_tommy_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_tommy_RW -ManagedBy CP352168
+Add-ADGroupMember -Identity G_ICAPITEC_tommy_RW -Members CP329244_DEV,CP329244,CP329244_QA,CP329244_INT,CP330323,CP364027
+
+New-ADGroup -Name G_ICAPITEC_TonyP_RW -SamAccountName G_ICAPITEC_TonyP_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TonyP_RW -ManagedBy CP323190
+Add-ADGroupMember -Identity G_ICAPITEC_TonyP_RW -Members CP323190,CP301949
+
+New-ADGroup -Name G_ICAPITEC_Treatmentcallsforcollections_RW -SamAccountName G_ICAPITEC_Treatmentcallsforcollections_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Treatmentcallsforcollections_RW -ManagedBy CP322312
+Add-ADGroupMember -Identity G_ICAPITEC_Treatmentcallsforcollections_RW -Members CP313931
+
+New-ADGroup -Name G_ICAPITEC_TristanGribben_RW -SamAccountName G_ICAPITEC_TristanGribben_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TristanGribben_RW -ManagedBy CP363245
+Add-ADGroupMember -Identity G_ICAPITEC_TristanGribben_RW -Members CP363245,CP370327,CP363869,CP363253,CP364843
+
+New-ADGroup -Name G_ICAPITEC_TristanLuyt_RW -SamAccountName G_ICAPITEC_TristanLuyt_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TristanLuyt_RW -ManagedBy CP368553
+Add-ADGroupMember -Identity G_ICAPITEC_TristanLuyt_RW -Members CP368553,CT302185,CP341598,CP305685,CP361989,CP007838,CP319607,CP303373,CP322407,CP362906
+
+New-ADGroup -Name G_ICAPITEC_TshepoMogagabe_RW -SamAccountName G_ICAPITEC_TshepoMogagabe_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TshepoMogagabe_RW -ManagedBy CP304619
+Add-ADGroupMember -Identity G_ICAPITEC_TshepoMogagabe_RW -Members CP304619,CP323164,CP344968
+
+New-ADGroup -Name G_ICAPITEC_TSM_RW -SamAccountName G_ICAPITEC_TSM_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TSM_RW -ManagedBy CP363225
+Add-ADGroupMember -Identity G_ICAPITEC_TSM_RW -Members CP300012,CP317657,CP324875
+
+New-ADGroup -Name G_ICAPITEC_TumeloMashego_RW -SamAccountName G_ICAPITEC_TumeloMashego_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_TumeloMashego_RW -ManagedBy CP346209
+Add-ADGroupMember -Identity G_ICAPITEC_TumeloMashego_RW -Members CP346209
+
+New-ADGroup -Name G_ICAPITEC_UAT_RW -SamAccountName G_ICAPITEC_UAT_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_UAT_RW -ManagedBy CP363286
+Add-ADGroupMember -Identity G_ICAPITEC_UAT_RW -Members CP301005,CP317423,CP313364,CP318543,CP335535,
+
+New-ADGroup -Name G_ICAPITEC_UserExcelTools_RW -SamAccountName G_ICAPITEC_UserExcelTools_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_UserExcelTools_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_UserExcelTools_RW -Members CP338417,CP338419,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV
+
+New-ADGroup -Name G_ICAPITEC_UserFiles_RW -SamAccountName G_ICAPITEC_UserFiles_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_UserFiles_RW -ManagedBy CP346589
+Add-ADGroupMember -Identity G_ICAPITEC_UserFiles_RW -Members CP307416,CP352508,CP318298,CP327544,CP318543,CP331033,CP352508_SEC,CWALLBOARDUSER011,CP363137,CP363722,CP361141,CP361141_PRD
+
+New-ADGroup -Name G_ICAPITEC_Vk_RW -SamAccountName G_ICAPITEC_Vk_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Vk_RW -ManagedBy CP362108
+Add-ADGroupMember -Identity G_ICAPITEC_Vk_RW -Members CP362108
+
+New-ADGroup -Name G_ICAPITEC_Wakor_RW -SamAccountName G_ICAPITEC_Wakor_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Wakor_RW -ManagedBy CP338406
+Add-ADGroupMember -Identity G_ICAPITEC_Wakor_RW -Members CP316576,CP338406,CP317843,CP329112,CWALLBOARDUSER027,CP328630,CP365947,CP050797,CP330672,CP049255
+
+New-ADGroup -Name G_ICAPITEC_Warwick_RW -SamAccountName G_ICAPITEC_Warwick_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Warwick_RW -ManagedBy CP362895
+Add-ADGroupMember -Identity G_ICAPITEC_Warwick_RW -Members CP362895,CP365587_DEV
+
+New-ADGroup -Name G_ICAPITEC_WaylonAdams_RW -SamAccountName G_ICAPITEC_WaylonAdams_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WaylonAdams_RW -ManagedBy CP324458
+Add-ADGroupMember -Identity G_ICAPITEC_WaylonAdams_RW -Members CP324458,CP333748,CP369689,CP308202,CP364614,CP363474,CP367405,CP371743
+
+New-ADGroup -Name G_ICAPITEC_WebsiteAdmin_RW -SamAccountName G_ICAPITEC_WebsiteAdmin_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WebsiteAdmin_RW -ManagedBy CP365959
+Add-ADGroupMember -Identity G_ICAPITEC_WebsiteAdmin_RW -Members CP343449,S_MFTW_SP_PRD,S_MFTW_SP_DEV
+
+New-ADGroup -Name G_ICAPITEC_Weekly_MyTime_Off_Report_RW -SamAccountName G_ICAPITEC_Weekly_MyTime_Off_Report_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Weekly_MyTime_Off_Report_RW -ManagedBy CP344968
+Add-ADGroupMember -Identity G_ICAPITEC_Weekly_MyTime_Off_Report_RW -Members S_DNA_REPORTING_PRD
+
+New-ADGroup -Name G_ICAPITEC_Wendall_RW -SamAccountName G_ICAPITEC_Wendall_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Wendall_RW -ManagedBy CP363838
+Add-ADGroupMember -Identity G_ICAPITEC_Wendall_RW -Members CP363838
+
+New-ADGroup -Name G_ICAPITEC_WendyBasson_RW -SamAccountName G_ICAPITEC_WendyBasson_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WendyBasson_RW -ManagedBy CP349638
+Add-ADGroupMember -Identity G_ICAPITEC_WendyBasson_RW -Members CP341001
+
+New-ADGroup -Name G_ICAPITEC_WernerClaassen_RW -SamAccountName G_ICAPITEC_WernerClaassen_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WernerClaassen_RW -ManagedBy CP362298
+Add-ADGroupMember -Identity G_ICAPITEC_WernerClaassen_RW -Members CP362298
+
+New-ADGroup -Name G_ICAPITEC_WernichSchroder_RW -SamAccountName G_ICAPITEC_WernichSchroder_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WernichSchroder_RW -ManagedBy CP361802
+Add-ADGroupMember -Identity G_ICAPITEC_WernichSchroder_RW -Members CP361802,CP361802_DEV,CWALLBOARDUSER143,CP361734,CP361802_PRD,CP363246,CP351174,CP344436,CP309717,CP324756,CP361923
+
+New-ADGroup -Name G_ICAPITEC_WikusNel_RW -SamAccountName G_ICAPITEC_WikusNel_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WikusNel_RW -ManagedBy CP305403
+Add-ADGroupMember -Identity G_ICAPITEC_WikusNel_RW -Members CP334380,CP305403,CP327329,AP321755
+
+New-ADGroup -Name G_ICAPITEC_WillemPrinsloo(IDrive)_RW -SamAccountName G_ICAPITEC_WillemPrinsloo(IDrive)_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_WillemPrinsloo(IDrive)_RW -ManagedBy CP314360
+Add-ADGroupMember -Identity G_ICAPITEC_WillemPrinsloo(IDrive)_RW -Members CP314360,CP314360_QA,CP308461,CP321380,CP314360_INT,CP301649,CP310515,CP350802,CP314360_PRD,CP339205
+
+New-ADGroup -Name G_ICAPITEC_Wilmene_RW -SamAccountName G_ICAPITEC_Wilmene_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Wilmene_RW -ManagedBy CP308950
+Add-ADGroupMember -Identity G_ICAPITEC_Wilmene_RW -Members CP348339,CP308950,CP362254,CP338418,CP329363,CP304557,CP341749,CP348567,CP310192,CP368553,CP329022,CP346496,S_DNA_REPORTING_PRD,S_DNA_REPORTING_DEV,CP317094,CP346171
+
+New-ADGroup -Name G_ICAPITEC_XolelwaMzili_RW -SamAccountName G_ICAPITEC_XolelwaMzili_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_XolelwaMzili_RW -ManagedBy CP363666
+Add-ADGroupMember -Identity G_ICAPITEC_XolelwaMzili_RW -Members CP363666,CP304907
+
+New-ADGroup -Name G_ICAPITEC_YamkelaMahlathi_RW -SamAccountName G_ICAPITEC_YamkelaMahlathi_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_YamkelaMahlathi_RW -ManagedBy CP367597
+Add-ADGroupMember -Identity G_ICAPITEC_YamkelaMahlathi_RW -Members CP367597,CP348229
+
+New-ADGroup -Name G_ICAPITEC_YvetteRensburg_RW -SamAccountName G_ICAPITEC_YvetteRensburg_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_YvetteRensburg_RW -ManagedBy CP316389
+Add-ADGroupMember -Identity G_ICAPITEC_YvetteRensburg_RW -Members CP316389,CP314863,CP361917
+
+New-ADGroup -Name G_ICAPITEC_ZanderMinnaar_RW -SamAccountName G_ICAPITEC_ZanderMinnaar_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ZanderMinnaar_RW -ManagedBy CP367893
+Add-ADGroupMember -Identity G_ICAPITEC_ZanderMinnaar_RW -Members CP367893,CP360272,CP327772
+
+New-ADGroup -Name G_ICAPITEC_zavier_RW -SamAccountName G_ICAPITEC_zavier_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_zavier_RW -ManagedBy CP320707
+Add-ADGroupMember -Identity G_ICAPITEC_zavier_RW -Members CP320707,CP308988,CP329082,CP327219,QI320707
+
+New-ADGroup -Name G_ICAPITEC_Zenobia_RW -SamAccountName G_ICAPITEC_Zenobia_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_Zenobia_RW -ManagedBy CP321355
+Add-ADGroupMember -Identity G_ICAPITEC_Zenobia_RW -Members CP312085,CP321355,CP344368,CP328498,CP313647
+
+New-ADGroup -Name G_ICAPITEC_ZimMdemka_RW -SamAccountName G_ICAPITEC_ZimMdemka_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ZimMdemka_RW -ManagedBy CP319417
+Add-ADGroupMember -Identity G_ICAPITEC_ZimMdemka_RW -Members CP319417,CP341400
+
+New-ADGroup -Name G_ICAPITEC_ZulfaSaffodien_RW -SamAccountName G_ICAPITEC_ZulfaSaffodien_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_ZulfaSaffodien_RW -ManagedBy CP338017
+Add-ADGroupMember -Identity G_ICAPITEC_ZulfaSaffodien_RW -Members CP338017,CP329124,CP310048,CP334678,CP305330,CP340010
+
+New-ADGroup -Name G_ICAPITEC_zwRedshift_RW -SamAccountName G_ICAPITEC_zwRedshift_RW -GroupCategory Security -GroupScope Global -Path OU=Groups,OU=Migrated,DC=capitecbank,DC=fin,DC=sky -Description iCapitec G_ICAPITEC_zwRedshift_RW -ManagedBy CP361160
+Add-ADGroupMember -Identity G_ICAPITEC_zwRedshift_RW -Members CT301908
+

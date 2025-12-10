@@ -1,0 +1,32 @@
+---
+- name: "Hop through Jump01 to Update DNS"
+  hosts: lab_jump
+  gather_facts: false
+
+  # The zone details is the top level DNS zone where the record is located
+  # For example: bank
+  # The record_name is only the name that resides in the top level domain.
+  # For example: host.int
+  # For example the FQDN is composed of the record_name + zone
+  # FQDN would be host.int.bank
+  # The TTL is required and specified in seconds
+  # The new_target is not a required value. This will change the A record target of the CNAME record
+  # For example: change the CNAME target of host.int.bank from host.bank.local to host1.bank.local.
+  # Rember that there is a ending . for the new_target
+  # This only works on A records
+  # If you are not using a new_target, remove the "-NewTarget {{ new_target }}" from the command
+
+  vars:
+    zone:         'bank'
+    record_name:  'dummyalias.int'
+    ttl_seconds:  '60'
+
+  tasks:
+    - name: Execute Set-DNSTTLCNAME on labadexternal via Jump01
+      ansible.windows.win_command: >
+        powershell.exe -ExecutionPolicy Bypass -File C:\scripts\Set-DNSTTLCNAME.ps1 -Zone {{ zone }} -Name {{ record_name }} -TTL {{ ttl_seconds }}
+      register: result
+
+    - name: Show the output
+      ansible.builtin.debug:
+        var: result.stdout_lines

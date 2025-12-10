@@ -1,0 +1,1 @@
+get-process teams | stop-process -Force

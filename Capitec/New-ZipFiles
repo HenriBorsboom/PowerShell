@@ -1,0 +1,87 @@
+Function New-ZipFile1 {
+    Try {
+        Add-Type -assembly 'System.IO.Compression'
+        Add-Type -assembly 'System.IO.Compression.FileSystem'
+    
+        $LastWrite = (get-date).AddMonths(-6)
+        [string]$zipFN = ('D:\OldLogs1\' + (Get-Date).ToString("yyyy-MM-dd") + '.zip')
+        $filesToZip = Get-ChildItem -LiteralPath 'C:\inetpub\logs\LogFiles\W3SVC1' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+        [System.IO.Compression.ZipArchive]$ZipFile = [System.IO.Compression.ZipFile]::Open($zipFN,([System.IO.Compression.ZipArchiveMode]::Create))
+        foreach ($fileToZip in $filesToZip) {
+            [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($ZipFile, $fileToZip.FullName, (Split-Path $fileToZip -Leaf))
+        }
+        $ZipFile.Dispose()
+        Return $True
+    }
+    Catch {
+        Return $False
+    }
+}
+Function New-ZipFile2 {
+    Try {
+        Add-Type -assembly 'System.IO.Compression'
+        Add-Type -assembly 'System.IO.Compression.FileSystem'
+    
+        $LastWrite = (get-date).AddMonths(-6)
+        [string]$zipFN = ('D:\OldLogs2\' + (Get-Date).ToString("yyyy-MM-dd") + '.zip')
+        $filesToZip = Get-ChildItem -LiteralPath 'C:\inetpub\logs\LogFiles\W3SVC2' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+        [System.IO.Compression.ZipArchive]$ZipFile = [System.IO.Compression.ZipFile]::Open($zipFN,([System.IO.Compression.ZipArchiveMode]::Create))
+        foreach ($fileToZip in $filesToZip) {
+            [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($ZipFile, $fileToZip.FullName, (Split-Path $fileToZip -Leaf))
+        }
+        $ZipFile.Dispose()
+    }
+    Catch {
+        Return $False
+    }
+}
+Function New-ZipFile3 {
+    Try {
+        Add-Type -assembly 'System.IO.Compression'
+        Add-Type -assembly 'System.IO.Compression.FileSystem'
+    
+        $LastWrite = (get-date).AddMonths(-6)
+        [string]$zipFN = ('D:\WinLogs\' + (Get-Date).ToString("yyyy-MM-dd") + '.zip')
+        $filesToZip = Get-ChildItem -LiteralPath 'C:\Windows\System32\LogFiles\HTTPERR' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+        [System.IO.Compression.ZipArchive]$ZipFile = [System.IO.Compression.ZipFile]::Open($zipFN,([System.IO.Compression.ZipArchiveMode]::Create))
+        foreach ($fileToZip in $filesToZip) {
+            [System.IO.Compression.ZipFileExtensions]::CreateEntryFromFile($ZipFile, $fileToZip.FullName, (Split-Path $fileToZip -Leaf))
+        }
+        $ZipFile.Dispose()
+    }
+    Catch {
+        Return $False
+    }
+}
+
+Function Remove-Files1 {
+    $LastWrite = (get-date).AddMonths(-6)
+    $filesToZip = Get-ChildItem -LiteralPath 'C:\inetpub\logs\LogFiles\W3SVC1' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+    foreach ($fileToZip in $filesToZip) {
+        Remove-Item $fileToZip.FullName
+    }
+}
+Function Remove-Files2 {
+    $LastWrite = (get-date).AddMonths(-6)
+    $filesToZip = Get-ChildItem -LiteralPath 'C:\inetpub\logs\LogFiles\W3SVC2' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+    foreach ($fileToZip in $filesToZip) {
+        Remove-Item $fileToZip.FullName
+    }
+}
+Function Remove-Files3 {
+    $LastWrite = (get-date).AddMonths(-6)
+    $filesToZip = Get-ChildItem -LiteralPath 'C:\Windows\System32\LogFiles\HTTPERR' -Filter "*.log*" -File | Where-Object {$_.LastWriteTime -le $LastWrite}
+
+    foreach ($fileToZip in $filesToZip) {
+        Remove-Item $fileToZip.FullName
+    }
+}
+
+If ((New-ZipFile1) -eq $true) { Remove-Files1 }
+If ((New-ZipFile2) -eq $true) { Remove-Files2 }
+If ((New-ZipFile3) -eq $true) { Remove-Files3 }

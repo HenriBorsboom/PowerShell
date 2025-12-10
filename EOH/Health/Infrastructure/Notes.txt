@@ -1,0 +1,11 @@
+[08:19] Corbin Roman
+    I beefed it up a bit with green and red.
+​[08:19] Corbin Roman
+    Maybe you can work on the search and a chart maybe
+​[08:22] Corbin Roman
+    So the work critical is a search name
+
+
+​[08:24] Corbin Roman
+    just change the firs line txt with all servers and last output line.
+[AllServers-HealthCheck.ps1] (https://eoh-my.sharepoint.com/personal/corbin_roman_eoh_com/Documents/Microsoft Teams Chat Files/AllServers-HealthCheck.ps1)

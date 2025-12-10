@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-NfsClientConfiguration</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>NfsClientConfiguration</command:noun>
+      <maml:description>
+        <maml:para>Gets configuration settings for an NFS client.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-NfsClientConfiguration cmdlet gets a configuration object for a Network File System (NFS) client. You can use the Set-NfsClientConfiguration cmdlet to change NFS client settings.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-NfsClientConfiguration</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AsJob</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+            <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+            <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+            <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimSession[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AsJob</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+          <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+          <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+          <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#root/Microsoft/Windows/NFS/MSFT_NfsClientConfig</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>------- Example 1: Get NFS client configuration settings -------</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsClientConfiguration
+Service State          : Running
+Case-sensitive Lookups : Disabled
+Default Access Mode    : 755
+Mount Type             : SOFT
+Mount Retry Attempts   : 1
+RPC Timeout (seconds)  : 8
+Read Buffer Size (KB)  : 1024
+Write Buffer Size (KB) : 1024
+Use Reserved Ports     : Enabled
+Authentication         : {sys, Krb5, Krb5i, Krb5p}
+Transport Protocol     : {TCP, UDP}</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets NFS client configuration settings on a local computer.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/get-nfsclientconfiguration?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsClientConfiguration</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-NfsClientConfiguration</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>NfsClientConfiguration</command:noun>
+      <maml:description>
+        <maml:para>Changes configuration settings for an NFS client.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-NfsClientConfiguration cmdlet changes configuration settings for a Network File System (NFS) client. You can use the Get-NfsClientConfiguration cmdlet to get a configuration object for an NFS client.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-NfsClientConfiguration</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AsJob</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+            <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+            <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+            <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Auth">
+          <maml:name>Authentication</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more authentication types that an NFS client can use to access NFS shares.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para> -- Sys (AUTH_SYS authentication) - Krb5 (Kerberos v5 authentication)</maml:para>
+            <maml:para>- Krb5i (Kerberos v5 authentication with integrity checking)</maml:para>
+            <maml:para>- Krb5p (Kerberos v5 authentication with privacy)</maml:para>
+            <maml:para>- All</maml:para>
+            <maml:para>- Default</maml:para>
+            <maml:para></maml:para>
+            <maml:para>If you specify All, Services for NFS configures Sys, Krb5, Krb5i, and Krb5p on the share. If you specify Default, Services for NFS configures Sys, Krb5, and Krb5i on the share.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">sys</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">krb5</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">krb5i</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">krb5p</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">default</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">all</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="casesensitive, csl">
+          <maml:name>CaseSensitiveLookup</maml:name>
+          <maml:description>
+            <maml:para>Specifies that the NFS client must perform case-sensitive lookups of file names for NFS shares that are mounted locally.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimSession[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Access">
+          <maml:name>DefaultAccessMode</maml:name>
+          <maml:description>
+            <maml:para>Specifies the default permission mode that an NFS client assigns for newly created files, in UNIX-style mode bits. The permissions that this property specifies are set for all new files created on mounted shares.</maml:para>
+            <maml:para>With UNIX-style mode bits (also known as the three-digit octal notation), each numeral represents a different component of the permission set: user class, group class, and "others" class.</maml:para>
+            <maml:para>Each of these digits is the sum of its component bits. As a result, specific bits add to the sum:</maml:para>
+            <maml:para>The read bit adds 4 to its total (in binary 100). The write bit adds 2 to its total (in binary 010). The execute bit adds 1 to its total (in binary 001).</maml:para>
+            <maml:para>Individual octal digit values represent the following: 0 -- no permission 1 -- x     execute 2 -- w     write 3 -- wx   write and execute 4 -- r      read 5 -- r-x   read and execute 6 -- rw    read and write 7 - rwx   read, write, and execute</maml:para>
+            <maml:para>The following are examples of UNIX-style mode bits:</maml:para>
+            <maml:para>777 = "-rwxrwxrwx" = rwx for all</maml:para>
+            <maml:para>754 = "-rwxr-xr--" = rwx for owner, r-x for group, r-- for other</maml:para>
+            <maml:para>124 = "--x-w-r--" = x for owner, w for group, r for other</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimInstance[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="retry">
+          <maml:name>MountRetryAttempts</maml:name>
+          <maml:description>
+            <maml:para>Specifies the number of retries that the NFS client performs when it is attempting a soft mount.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="mtype">
+          <maml:name>MountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of mount that the NFS client uses when it is mounting a share that an NFS server exported. Valid values are Hard and Soft.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">hard</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">soft</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="rsize">
+          <maml:name>ReadBufferSize</maml:name>
+          <maml:description>
+            <maml:para>Specifies the size of the read buffer (in kilobytes) that the NFS client uses.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>32</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="timeout, RpcTimeout">
+          <maml:name>RpcTimeoutSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies the time-out for a remote procedure call (RPC), in seconds, that the NFS client enforces for outstanding RPC calls.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>8</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="protocol">
+          <maml:name>TransportProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies the transport protocol that the NFS client uses for NFS, Network Lock Manager (NLM), Port Mapper (PMAP), or MAPSVR protocols.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para>- TCP</maml:para>
+            <maml:para>- UDP</maml:para>
+            <maml:para>- TCP+UDP</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>UseReservedPorts</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether the NFS client uses network ports less than 1024.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wsize">
+          <maml:name>WriteBufferSize</maml:name>
+          <maml:description>
+            <maml:para>Specifies the size of the write buffer (in kilobytes) that the NFS client uses.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>32</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AsJob</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+          <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+          <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+          <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Auth">
+        <maml:name>Authentication</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more authentication types that an NFS client can use to access NFS shares.</maml:para>
+          <maml:para>The acceptable values for this parameter are:</maml:para>
+          <maml:para> -- Sys (AUTH_SYS authentication) - Krb5 (Kerberos v5 authentication)</maml:para>
+          <maml:para>- Krb5i (Kerberos v5 authentication with integrity checking)</maml:para>
+          <maml:para>- Krb5p (Kerberos v5 authentication with privacy)</maml:para>
+          <maml:para>- All</maml:para>
+          <maml:para>- Default</maml:para>
+          <maml:para></maml:para>
+          <maml:para>If you specify All, Services for NFS configures Sys, Krb5, Krb5i, and Krb5p on the share. If you specify Default, Services for NFS configures Sys, Krb5, and Krb5i on the share.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="casesensitive, csl">
+        <maml:name>CaseSensitiveLookup</maml:name>
+        <maml:description>
+          <maml:para>Specifies that the NFS client must perform case-sensitive lookups of file names for NFS shares that are mounted locally.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Access">
+        <maml:name>DefaultAccessMode</maml:name>
+        <maml:description>
+          <maml:para>Specifies the default permission mode that an NFS client assigns for newly created files, in UNIX-style mode bits. The permissions that this property specifies are set for all new files created on mounted shares.</maml:para>
+          <maml:para>With UNIX-style mode bits (also known as the three-digit octal notation), each numeral represents a different component of the permission set: user class, group class, and "others" class.</maml:para>
+          <maml:para>Each of these digits is the sum of its component bits. As a result, specific bits add to the sum:</maml:para>
+          <maml:para>The read bit adds 4 to its total (in binary 100). The write bit adds 2 to its total (in binary 010). The execute bit adds 1 to its total (in binary 001).</maml:para>
+          <maml:para>Individual octal digit values represent the following: 0 -- no permission 1 -- x     execute 2 -- w     write 3 -- wx   write and execute 4 -- r      read 5 -- r-x   read and execute 6 -- rw    read and write 7 - rwx   read, write, and execute</maml:para>
+          <maml:para>The following are examples of UNIX-style mode bits:</maml:para>
+          <maml:para>777 = "-rwxrwxrwx" = rwx for all</maml:para>
+          <maml:para>754 = "-rwxr-xr--" = rwx for owner, r-x for group, r-- for other</maml:para>
+          <maml:para>124 = "--x-w-r--" = x for owner, w for group, r for other</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimInstance[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="retry">
+        <maml:name>MountRetryAttempts</maml:name>
+        <maml:description>
+          <maml:para>Specifies the number of retries that the NFS client performs when it is attempting a soft mount.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="mtype">
+        <maml:name>MountType</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of mount that the NFS client uses when it is mounting a share that an NFS server exported. Valid values are Hard and Soft.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="rsize">
+        <maml:name>ReadBufferSize</maml:name>
+        <maml:description>
+          <maml:para>Specifies the size of the read buffer (in kilobytes) that the NFS client uses.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>32</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="timeout, RpcTimeout">
+        <maml:name>RpcTimeoutSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies the time-out for a remote procedure call (RPC), in seconds, that the NFS client enforces for outstanding RPC calls.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>8</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="protocol">
+        <maml:name>TransportProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies the transport protocol that the NFS client uses for NFS, Network Lock Manager (NLM), Port Mapper (PMAP), or MAPSVR protocols.</maml:para>
+          <maml:para>The acceptable values for this parameter are:</maml:para>
+          <maml:para>- TCP</maml:para>
+          <maml:para>- UDP</maml:para>
+          <maml:para>- TCP+UDP</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>UseReservedPorts</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether the NFS client uses network ports less than 1024.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wsize">
+        <maml:name>WriteBufferSize</maml:name>
+        <maml:description>
+          <maml:para>Specifies the size of the write buffer (in kilobytes) that the NFS client uses.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>32</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#root/Microsoft/Windows/NFS/MSFT_NfsClientConfig</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-- Example 1: Modify configuration settings for an NFS client --</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsClientConfig -DefaultAccessMode 755 -ReadBufferSize 64 -WriteBufferSize 64</dev:code>
+        <dev:remarks>
+          <maml:para>This command modifies configuration settings for an NFS client on the local computer. This command sets the default permissions for newly created files to 755, and it sets the sizes of the read and write buffers to 64 kilobytes (KB).</maml:para>
+          <maml:para>The default permission of 755 sets read, write, and execute permissions (7 - rwx) for the owner, read and execute permissions (5 -- r-x) for the group, and read and execute permissions (5 -- r-x) for others.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/set-nfsclientconfiguration?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsClientConfiguration</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

@@ -1,0 +1,31 @@
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.exe.config
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.exe
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.pdb
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.xml
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\Microsoft.PowerShell.Commands.Management.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\Microsoft.PowerShell.Commands.Utility.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\Microsoft.PowerShell.ConsoleHost.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\Microsoft.PowerShell.Security.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\System.Management.Automation.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\System.Management.Automation.Resources.dll
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.ExecutePowerShellInVB.resources
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.PowerShellToVBNETCodeForm.resources
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.Resources.resources
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.vbproj.GenerateResource.Cache
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.exe
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.xml
+C:\Users\henribo\Documents\Visual Studio 2015\Projects\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.pdb
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.vbproj.AssemblyReference.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.vbproj.SuggestedBindingRedirects.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.ExecutePowerShellInVB.resources
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.PowerShellToVBNETCodeForm.resources
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell_to_VB.NET_Code.Resources.resources
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.vbproj.GenerateResource.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.vbproj.CoreCompileInputs.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.exe
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.xml
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\obj\Debug\PowerShell to VB.NET Code.pdb
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.exe.config
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.exe
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.pdb
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\PowerShell to VB.NET Code\PowerShell to VB.NET Code\bin\Debug\PowerShell to VB.NET Code.xml

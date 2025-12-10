@@ -1,0 +1,1 @@
+﻿[management.managementDateTimeConverter]::ToDateTime($Result.LastBootUpTime)

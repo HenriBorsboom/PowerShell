@@ -1,0 +1,1085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-NfsServerConfiguration</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>NfsServerConfiguration</command:noun>
+      <maml:description>
+        <maml:para>Gets configuration settings for an NFS server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-NfsServerConfiguration cmdlet gets a configuration object for a Network File System (NFS) server. You can use the Set-NfsServerConfiguration cmdlet to change NFS server settings.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-NfsServerConfiguration</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AsJob</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+            <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+            <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+            <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimSession[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AsJob</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+          <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+          <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+          <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#root/Microsoft/Windows/NFS/MSFT_NfsServerConfig</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>----------- Example 1: Get local NFS server settings -----------</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsServerConfiguration
+State                                      : Running
+LogActivity                                :
+CharacterTranslationFile                   : Not Configured
+DirectoryCacheSize                         : 128
+HideFilesBeginningInDot                    : Disabled
+EnableNFSV2                                : Enabled
+EnableNFSV3                                : Enabled
+EnableNFSV4                                : Enabled
+EnableAuthenticationRenewal                : Enabled
+AuthenticationRenewalIntervalSec           : 600
+NlmGracePeriodSec                          : 45
+MountProtocol                              : {TCP, UDP}
+NfsProtocol                                : {TCP, UDP}
+NisProtocol                                : {TCP, UDP}
+NlmProtocol                                : {TCP, UDP}
+NsmProtocol                                : {TCP, UDP}
+PortmapProtocol                            : {TCP, UDP}
+MapServerProtocol                          : {TCP, UDP}
+PreserveInheritance                        : False
+NetgroupCacheTimeoutSec                    : 30
+UnmappedUserAccount                        :
+WorldAccount                               : Everyone
+AlwaysOpenByName                           : False
+GracePeriodSec                             : 240
+LeasePeriodSec                             : 120
+OnlineTimeoutSec                           : 180</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets the configuration settings for a local NFS server.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/get-nfsserverconfiguration?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsServerConfiguration</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-NfsServerConfiguration</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>NfsServerConfiguration</command:noun>
+      <maml:description>
+        <maml:para>Changes configuration settings for an NFS server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-NfsServerConfig cmdlet changes the configuration settings for an existing Network File System (NFS) server.</maml:para>
+      <maml:para>For some changes to take effect, you must restart Services for NFS. The cmdlet prompts you to restart if necessary.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-NfsServerConfiguration</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="OpenByName">
+          <maml:name>AlwaysOpenByName</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server opens files and directories by name, instead of opening by file ID. You can enable this setting for compatibility with filter drivers that intercept requests for opening files and directories by file name, or for applications that rely on directory change notifications to work with NFS shares.</maml:para>
+            <maml:para>The default value is $False. By default, an NFS server opens files and directories by ID to improve performance.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AsJob</maml:name>
+          <maml:description>
+            <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+            <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+            <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+            <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="interval, renewauthinterval, AuthRenewalInterval, AuthenticationRenewalInterval">
+          <maml:name>AuthenticationRenewalIntervalSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies an interval, in seconds, when an NFS server renews authentication.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>600</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="translationfile">
+          <maml:name>CharacterTranslationFile</maml:name>
+          <maml:description>
+            <maml:para>Specifies a path for a file that an NFS server uses for character translation.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+          <maml:name>CimSession</maml:name>
+          <maml:description>
+            <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimSession[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="clearmapcache">
+          <maml:name>ClearMappingCache</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether to clear the mapping and netgroup cache of an NFS server.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="dircache, dcache">
+          <maml:name>DirectoryCacheSize</maml:name>
+          <maml:description>
+            <maml:para>Specifies the size of the directory cache, in kilobytes. This value is a multiple of 4.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>128</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="renewauth, EnableAuthRenewal">
+          <maml:name>EnableAuthenticationRenewal</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server renews authentication when cached credentials expire.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v2, nfsv2">
+          <maml:name>EnableNFSV2</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server can export shares via the NFS v2 protocol.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v3, nfsv3">
+          <maml:name>EnableNFSV3</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server can export shares via the NFS v3 protocol.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v4, nfsv4">
+          <maml:name>EnableNFSV4</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server can export shares via the NFS v4.1 protocol.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="nfsv4graceperiod, GracePeriod">
+          <maml:name>GracePeriodSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies a grace period, in seconds, for an NFS server. During this period, clients can reclaim file locks. The value must be at least twice the value specified in the LeasePeriodSec parameter.</maml:para>
+            <maml:para>The grace period applies to clients connected via the NFS v4.1 protocol.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="hidedotfiles, dotfileshidden">
+          <maml:name>HideFilesBeginningInDot</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server creates files that have names that begin with a dot (.) as hidden files.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+          <dev:type>
+            <maml:name>CimInstance[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Lease, LeasePeriod">
+          <maml:name>LeasePeriodSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies a lease period, in seconds, for an NFS server. The minimum value is 5. The maximum value is 300.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="audit">
+          <maml:name>LogActivity</maml:name>
+          <maml:description>
+            <maml:para>Specifies the activities that an NFS server logs for audit purposes. The acceptable values for this parameter are:</maml:para>
+            <maml:para>- Mount</maml:para>
+            <maml:para>- Unmount</maml:para>
+            <maml:para>- Read</maml:para>
+            <maml:para>- Write</maml:para>
+            <maml:para>- Create</maml:para>
+            <maml:para>- Delete</maml:para>
+            <maml:para>- Lock</maml:para>
+            <maml:para>- Unlock</maml:para>
+            <maml:para>- All</maml:para>
+            <maml:para>- None</maml:para>
+            <maml:para></maml:para>
+            <maml:para>You can specify multiple values. Specify All to log all activities or None to log none of these activities.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">mount</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">unmount</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">read</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">write</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">create</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">delete</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">lock</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">unlock</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">none</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">all</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="MapsvrProtocol">
+          <maml:name>MapServerProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the User Name Mapping server (MAPSVR) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>MountProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Mount protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="NetgroupTimeout, NetgroupCacheTimeout">
+          <maml:name>NetgroupCacheTimeoutSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies a time-out period, in seconds, for an NFS server. An NFS server enforces this time-out on entries in its netgroup cache.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>Nfsprotocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the NFS protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>NisProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Network Information System (NIS) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="lockperiod, nlmgrace, NlmGracePeriod">
+          <maml:name>NlmGracePeriodSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies a grace period, in seconds, that an NFS server enforces for the Network Lock Manager (NLM) protocol. The default value is 45.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>45</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>NlmProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the NLM protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>NsmProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Network Status Manager (NSM) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="onlinetimeout, OnlineTimeoutInSeconds">
+          <maml:name>OnlineTimeoutSec</maml:name>
+          <maml:description>
+            <maml:para>Specifies a time-out value, in seconds, for an NFS server. An NFS server waits for this length of time for a resource to come online before it processes an incoming request.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+          <dev:type>
+            <maml:name>UInt32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PassThru</maml:name>
+          <maml:description>
+            <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PortmapProtocol</maml:name>
+          <maml:description>
+            <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Portmap protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">tcp</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">udp</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Inheritance">
+          <maml:name>PreserveInheritance</maml:name>
+          <maml:description>
+            <maml:para>Specifies whether an NFS server creates inheritable access control entries (ACEs). These ACEs apply to newly created files and folders on NFS shares. The default value is $False for non-inheritable ACEs.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ThrottleLimit</maml:name>
+          <maml:description>
+            <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="UnmappedAccount">
+          <maml:name>UnmappedUserAccount</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account that an NFS server uses to represent users who have no mapping configured in the mapping store. By default, an NFS server uses NT AUTHORITY\Anonymous.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="World">
+          <maml:name>WorldAccount</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account that an NFS server uses to represent World/Other permissions on files when it uses AUTH_UNIX security. By default, the NFS server uses the BUILTIN\Everyone account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="OpenByName">
+        <maml:name>AlwaysOpenByName</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server opens files and directories by name, instead of opening by file ID. You can enable this setting for compatibility with filter drivers that intercept requests for opening files and directories by file name, or for applications that rely on directory change notifications to work with NFS shares.</maml:para>
+          <maml:para>The default value is $False. By default, an NFS server opens files and directories by ID to improve performance.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AsJob</maml:name>
+        <maml:description>
+          <maml:para>Indicates that this cmdlet runs the command as a background job on a remote computer. Use this parameter to run commands that take an extensive time to finish.</maml:para>
+          <maml:para>When you use the AsJob parameter, the command returns an object that represents the job, and then displays the command prompt. You can continue to work in the session while the job finishes. To manage the job, use the Job cmdlets. To get the job results, use the Receive-Job cmdlet.</maml:para>
+          <maml:para>The AsJob parameter resembles using the Invoke-Command cmdlet to run a Start-Job command remotely. However, with AsJob , the job is created on the local computer, even though the job runs on a remote computer, and the results of the remote job are automatically returned to the local computer.</maml:para>
+          <maml:para>For more information about Windows PowerShell background jobs, see about_Jobs (https://go.microsoft.com/fwlink/?LinkID=113251) and [about_Remote_Jobs](https://go.microsoft.com/fwlink/?LinkID=135184).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="interval, renewauthinterval, AuthRenewalInterval, AuthenticationRenewalInterval">
+        <maml:name>AuthenticationRenewalIntervalSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies an interval, in seconds, when an NFS server renews authentication.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>600</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="translationfile">
+        <maml:name>CharacterTranslationFile</maml:name>
+        <maml:description>
+          <maml:para>Specifies a path for a file that an NFS server uses for character translation.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Session">
+        <maml:name>CimSession</maml:name>
+        <maml:description>
+          <maml:para>Runs the cmdlet in a remote session or on a remote computer. Enter a computer name or a session object, such as the output of a New-CimSession (https://go.microsoft.com/fwlink/p/?LinkId=227967) or [Get-CimSession](https://go.microsoft.com/fwlink/p/?LinkId=227966)cmdlet. The default is the current session on the local computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimSession[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimSession[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="clearmapcache">
+        <maml:name>ClearMappingCache</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether to clear the mapping and netgroup cache of an NFS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="dircache, dcache">
+        <maml:name>DirectoryCacheSize</maml:name>
+        <maml:description>
+          <maml:para>Specifies the size of the directory cache, in kilobytes. This value is a multiple of 4.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>128</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="renewauth, EnableAuthRenewal">
+        <maml:name>EnableAuthenticationRenewal</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server renews authentication when cached credentials expire.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v2, nfsv2">
+        <maml:name>EnableNFSV2</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server can export shares via the NFS v2 protocol.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v3, nfsv3">
+        <maml:name>EnableNFSV3</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server can export shares via the NFS v3 protocol.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="v4, nfsv4">
+        <maml:name>EnableNFSV4</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server can export shares via the NFS v4.1 protocol.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="nfsv4graceperiod, GracePeriod">
+        <maml:name>GracePeriodSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies a grace period, in seconds, for an NFS server. During this period, clients can reclaim file locks. The value must be at least twice the value specified in the LeasePeriodSec parameter.</maml:para>
+          <maml:para>The grace period applies to clients connected via the NFS v4.1 protocol.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="hidedotfiles, dotfileshidden">
+        <maml:name>HideFilesBeginningInDot</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server creates files that have names that begin with a dot (.) as hidden files.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>Specifies the input to this cmdlet. You can use this parameter, or you can pipe the input to this cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">CimInstance[]</command:parameterValue>
+        <dev:type>
+          <maml:name>CimInstance[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Lease, LeasePeriod">
+        <maml:name>LeasePeriodSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies a lease period, in seconds, for an NFS server. The minimum value is 5. The maximum value is 300.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="audit">
+        <maml:name>LogActivity</maml:name>
+        <maml:description>
+          <maml:para>Specifies the activities that an NFS server logs for audit purposes. The acceptable values for this parameter are:</maml:para>
+          <maml:para>- Mount</maml:para>
+          <maml:para>- Unmount</maml:para>
+          <maml:para>- Read</maml:para>
+          <maml:para>- Write</maml:para>
+          <maml:para>- Create</maml:para>
+          <maml:para>- Delete</maml:para>
+          <maml:para>- Lock</maml:para>
+          <maml:para>- Unlock</maml:para>
+          <maml:para>- All</maml:para>
+          <maml:para>- None</maml:para>
+          <maml:para></maml:para>
+          <maml:para>You can specify multiple values. Specify All to log all activities or None to log none of these activities.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="MapsvrProtocol">
+        <maml:name>MapServerProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the User Name Mapping server (MAPSVR) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>MountProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Mount protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="NetgroupTimeout, NetgroupCacheTimeout">
+        <maml:name>NetgroupCacheTimeoutSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies a time-out period, in seconds, for an NFS server. An NFS server enforces this time-out on entries in its netgroup cache.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>Nfsprotocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the NFS protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>NisProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Network Information System (NIS) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="lockperiod, nlmgrace, NlmGracePeriod">
+        <maml:name>NlmGracePeriodSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies a grace period, in seconds, that an NFS server enforces for the Network Lock Manager (NLM) protocol. The default value is 45.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>45</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>NlmProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the NLM protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>NsmProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Network Status Manager (NSM) protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="onlinetimeout, OnlineTimeoutInSeconds">
+        <maml:name>OnlineTimeoutSec</maml:name>
+        <maml:description>
+          <maml:para>Specifies a time-out value, in seconds, for an NFS server. An NFS server waits for this length of time for a resource to come online before it processes an incoming request.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PassThru</maml:name>
+        <maml:description>
+          <maml:para>Returns an object representing the item with which you are working. By default, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PortmapProtocol</maml:name>
+        <maml:description>
+          <maml:para>Specifies one or more preferred underlying transport protocols that an NFS server uses for the Portmap protocol. You must specify at least one of these two values: Tcp and Udp.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="Inheritance">
+        <maml:name>PreserveInheritance</maml:name>
+        <maml:description>
+          <maml:para>Specifies whether an NFS server creates inheritable access control entries (ACEs). These ACEs apply to newly created files and folders on NFS shares. The default value is $False for non-inheritable ACEs.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ThrottleLimit</maml:name>
+        <maml:description>
+          <maml:para>Specifies the maximum number of concurrent operations that can be established to run the cmdlet. If this parameter is omitted or a value of `0` is entered, then Windows PowerShell® calculates an optimum throttle limit for the cmdlet based on the number of CIM cmdlets that are running on the computer. The throttle limit applies only to the current cmdlet, not to the session or to the computer.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="UnmappedAccount">
+        <maml:name>UnmappedUserAccount</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Windows account that an NFS server uses to represent users who have no mapping configured in the mapping store. By default, an NFS server uses NT AUTHORITY\Anonymous.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="World">
+        <maml:name>WorldAccount</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Windows account that an NFS server uses to represent World/Other permissions on files when it uses AUTH_UNIX security. By default, the NFS server uses the BUILTIN\Everyone account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.Management.Infrastructure.CimInstance#root/Microsoft/Windows/NFS/MSFT_NfsServerConfig</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>----- Example 1: Set a grace period on a local NFS server -----</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsServerConfiguration -NlmGracePeriodSec 45 -GracePeriodSec 240</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets the grace period for the NLM protocol to 45 seconds and sets the grace period for NFS v4.1 to 240 seconds on a local NFS server.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>------ Example 2: Set NFS versions on a local NFS server ------</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsServerConfiguration -EnableNfsv2 $False -EnableNfsv4 $True -EnableNfsv3 $True</dev:code>
+        <dev:remarks>
+          <maml:para>This command disables versions 2 and 3 of the NFS protocol and enables NFS v4.1 on a local NFS server.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/set-nfsserverconfiguration?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsServerConfiguration</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

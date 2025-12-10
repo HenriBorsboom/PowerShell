@@ -1,0 +1,59 @@
+##### vCollector Run Start #####
+vCollector Version: 1.9
+PowerCLI Version: 12.2.0.17531987
+InvalidCertificateAction: Ignore
+DefaultVIServerMode: Multiple
+
+Attempting to connect to server: vcsaprd01.mercantile.co.za
+Attempting to connect using SSPI 
+Reversely resolved 'vcsaprd01.mercantile.co.za' to 'vcsaprd01.mercantile.co.za'
+SSPI Kerberos: Acquired credentials for user 'SNDDOMAIN\hborsboom'
+SSPI Kerberos: Successful call to InitializeSecurityContext for target 'host/vcsaprd01.mercantile.co.za'
+Connected successfully using SSPI
+vcsaprd01.mercantile.co.za
+
+Attempting to connect to any linked vCenters
+Attempting to connect using SSPI 
+Connected successfully using SSPI
+2022/08/22 8:03:48 AM	Connect-VIServer		The server 'vcsaprd01.mercantile.co.za' is not part of a linked mode configuration.	
+vcsaprd01.mercantile.co.za
+
+
+
+##### vCollector Run Start #####
+vCollector Version: 1.9
+PowerCLI Version: 12.2.0.17531987
+InvalidCertificateAction: Ignore
+DefaultVIServerMode: Multiple
+
+Attempting to connect to server: vcsadrs01.mercantile.co.za
+Attempting to connect using SSPI 
+There was no endpoint listening at https://vcsadrs01.mercantile.co.za/sdk that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+Connect using SSPI was unsuccessful
+2022/08/22 8:05:31 AM	Connect-VIServer		Could not resolve the requested VC server.
+Additional Information: There was no endpoint listening at https://vcsadrs01.mercantile.co.za/sdk that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.	
+
+
+
+##### vCollector Run Start #####
+vCollector Version: 1.9
+PowerCLI Version: 12.2.0.17531987
+InvalidCertificateAction: Ignore
+DefaultVIServerMode: Multiple
+
+Attempting to connect to server: vcsadrs01.mercantile.co.za
+Attempting to connect using SSPI 
+Reversely resolved 'vcsadrs01.mercantile.co.za' to 'vcsadrs01.mercantile.co.za'
+SSPI Kerberos: Acquired credentials for user 'SNDDOMAIN\hborsboom'
+SSPI Kerberos: Successful call to InitializeSecurityContext for target 'host/vcsadrs01.mercantile.co.za'
+Connected successfully using SSPI
+vcsadrs01.mercantile.co.za
+
+Attempting to connect to any linked vCenters
+Attempting to connect using SSPI 
+Connected successfully using SSPI
+2022/08/22 8:08:01 AM	Connect-VIServer		The server 'vcsadrs01.mercantile.co.za' is not part of a linked mode configuration.	
+vcsadrs01.mercantile.co.za
+
+
+

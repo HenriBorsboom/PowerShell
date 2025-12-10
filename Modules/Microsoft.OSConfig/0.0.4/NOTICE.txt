@@ -1,0 +1,9 @@
+You are sending required diagnostic data.
+
+We collect diagnostic data that is required to keep the OSConfig PowerShell
+module up-to-date and performing as expected. This relates to the basic
+functioning of the OSConfig PowerShell module and doesn't include your name,
+file content, or information about apps unrelated to the OSConfig PowerShell
+module.
+
+Learn more at: https://privacy.microsoft.com/en-US/privacystatement

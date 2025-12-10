@@ -1,0 +1,3352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-NfsMappedIdentity</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>NfsMappedIdentity</command:noun>
+      <maml:description>
+        <maml:para>Gets an NFS mapped identity.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-NfsMappedIdentity cmdlet gets a Network File System (NFS) mapped identity.</maml:para>
+      <maml:para>A mapped identity associates a Windows user account or group account to a UNIX user account or group account. A user ID (UID) or group ID (GID) identifies a UNIX account namespace. These elements are associated with the corresponding elements of a Windows account namespace: a user name or a group name. By using a mapped identity, a user who is logged on to a UNIX domain can access shared resources in a Windows domain without having to log on to the Windows domain.</maml:para>
+      <maml:para>For more information about NFS, see Network File System (https://technet.microsoft.com/en-us/library/jj592688). For more information about NFS account mapping, see NFS Account Mapping Guide (https://technet.microsoft.com/en-us/library/hh509020(v=ws.10)) and [Identity Management for UNIX](https://technet.microsoft.com/en-us/library/cc772571).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a user or group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of the NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Get-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the cmdlet gets the store configuration settings from the NFS server configuration where this command is run configuration where this command is run.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para>- AD</maml:para>
+            <maml:para>- LDAP</maml:para>
+            <maml:para>- MapFiles</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP instance name of the store that NFS server uses. This can be an Active Directory domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the UID of the user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a user or group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>MapFilesPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path of the passwd and group map files from which the Get-NfsMappedIdentity cmdlet gets a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>%SystemRoot\System32\Drivers\etc\</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Get-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the cmdlet gets the store configuration settings from the NFS server configuration where this command is run configuration where this command is run.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para>- AD</maml:para>
+            <maml:para>- LDAP</maml:para>
+            <maml:para>- MapFiles</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the UID of the user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a user or group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Get-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the cmdlet gets the store configuration settings from the NFS server configuration where this command is run configuration where this command is run.</maml:para>
+            <maml:para>The acceptable values for this parameter are:</maml:para>
+            <maml:para>- AD</maml:para>
+            <maml:para>- LDAP</maml:para>
+            <maml:para>- MapFiles</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the UID of the user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+        <maml:name>AccountName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+        <maml:name>AccountType</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Windows account type of a mapped identity. Valid values are User and Group.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+        <dev:type>
+          <maml:name>AccountType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+        <maml:name>GroupIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the group identifier of a user or group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of the NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>MapFilesPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path of the passwd and group map files from which the Get-NfsMappedIdentity cmdlet gets a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>%SystemRoot\System32\Drivers\etc\</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+        <maml:name>MappingStore</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of identity mapping store from which the Get-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the cmdlet gets the store configuration settings from the NFS server configuration where this command is run configuration where this command is run.</maml:para>
+          <maml:para>The acceptable values for this parameter are:</maml:para>
+          <maml:para>- AD</maml:para>
+          <maml:para>- LDAP</maml:para>
+          <maml:para>- MapFiles</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+        <dev:type>
+          <maml:name>MappingStoreType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+        <maml:name>Server</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP instance name of the store that NFS server uses. This can be an Active Directory domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Localhost:389</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+        <maml:name>UserIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the UID of the user account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.FileServices.Management.Nfs.UserMappedIdentity, System.FileServices.Management.Nfs.GroupMappedIdentity</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Get a mapped identity for a user account by using a specified name</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsMappedIdentity -MappingStore "LDAP" -AccountType "User" -AccountName "RPatel"</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all user account mapped identities from a configured AD LDS or RFC 2307-compliant LDAP store instance. In this example, the command returns PrimaryGroup and SupplementaryGroups only when the configured mapping store is MapFiles.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Get all group account mapped identities from a specific store instance</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsMappedIdentity -MappingStore "LDAP" -AccountType "Group" -GroupName "Administrators"</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all mapped identities in the Administrator group from a configured AD LDS or RFC 2307-compliant LDAP store instance.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Get a mapped identity for a group account by using a specified Id</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsMappedIdentity -MappingStore "LDAP" -AccountType "Group" -GroupIdentifier "GID99"</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets a mapped identity for the group account that has the GID 99, from a configured AD LDS or RFC 2307-compliant LDAP store instance.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Get all user account mapped identities from a specific mapping store</maml:title>
+        <dev:code>PS C:\&gt;Get-NfsMappedIdentity -MappingStore "LDAP" -AccountType "User"</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all user account mapped identities from a configured AD LDS or RFC 2307-compliant LDAP store instance. PrimaryGroup and SupplementaryGroups are returned only when the configured mapping store is MapFiles.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 5: Get all user account mapped identities from a mapping store that is specified in the NFS Server configuration settings</maml:title>
+        <dev:code>PS C:\&gt;Get-NfsMappedIdentity -AccountType "User"</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets all user account mapped identities from a mapping store that is specified in the NFS server configuration settings.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/get-nfsmappedidentity?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>RFC-2307</maml:linkText>
+        <maml:uri>http://www.rfc-editor.org/rfc/rfc2307.txt</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-NfsNetgroup</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>NfsNetgroup</command:noun>
+      <maml:description>
+        <maml:para>Gets a netgroup.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-NfsNetgroup cmdlet gets a netgroup from a configured netgroup store that Network File System (NFS) server uses.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-NfsNetgroup</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a netgroup. If no name is specified, all netgroups in the specified or configured store are enumerated.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="ldap">
+          <maml:name>LdapServer</maml:name>
+          <maml:description>
+            <maml:para>Gets the netgroups that are configured on a specified LDAP server. The LDAP server name can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or other LDAP server.</maml:para>
+            <maml:para>If you do not specify the LdapServer parameter or a Network Information Service (NIS) server, the Get-NfsNetgroup cmdlet uses the netgroup store configuration that exists on the local NFS server.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of the netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-NfsNetgroup</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a netgroup. If no name is specified, all netgroups in the specified or configured store are enumerated.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-NfsNetgroup</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a netgroup. If no name is specified, all netgroups in the specified or configured store are enumerated.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="nis">
+          <maml:name>NisServer</maml:name>
+          <maml:description>
+            <maml:para>Specifies the host name of an NIS server that stores information about netgroups.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="domain">
+          <maml:name>NisDomain</maml:name>
+          <maml:description>
+            <maml:para>Specifies the domain of an NIS server that stores information about netgroups.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of the netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="ldap">
+        <maml:name>LdapServer</maml:name>
+        <maml:description>
+          <maml:para>Gets the netgroups that are configured on a specified LDAP server. The LDAP server name can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or other LDAP server.</maml:para>
+          <maml:para>If you do not specify the LdapServer parameter or a Network Information Service (NIS) server, the Get-NfsNetgroup cmdlet uses the netgroup store configuration that exists on the local NFS server.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+        <maml:name>NetGroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a netgroup. If no name is specified, all netgroups in the specified or configured store are enumerated.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="domain">
+        <maml:name>NisDomain</maml:name>
+        <maml:description>
+          <maml:para>Specifies the domain of an NIS server that stores information about netgroups.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="nis">
+        <maml:name>NisServer</maml:name>
+        <maml:description>
+          <maml:para>Specifies the host name of an NIS server that stores information about netgroups.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.FileServices.Powershell.Nfs.NetGroup</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>--------- Example 1: Get a netgroup from an NFS domain ---------</maml:title>
+        <dev:code>PS C:\&gt; Get-NfsNetgroup -LdapServer "Contoso.com" -NetGroupName "ExchangeServers"
+
+
+NetgroupName          : ExchangeServers
+NetgroupNamingContext : CN=mappedidentity,DC=Contoso,DC=com
+NetgroupMembers       : {}</dev:code>
+        <dev:remarks>
+          <maml:para>This command gets the netgroup that is named ExchangeServers from an NFS domain netgroup store that is named Contoso.com.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/get-nfsnetgroup?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsNetgroupStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Install-NfsMappingStore</command:name>
+      <command:verb>Install</command:verb>
+      <command:noun>NfsMappingStore</command:noun>
+      <maml:description>
+        <maml:para>Installs and initializes an AD LDS instance as an identity mapping store.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Install-NfaMappingStore cmdlet installs the Active Directory Lightweight Directory Services (AD LDS) role on a local computer. It then initializes an AD LDS instance as an identity mapping store.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Install-NfsMappingStore</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="instance">
+          <maml:name>InstanceName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name for the for the new AD LDS instance.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>NFSInstance</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="port">
+          <maml:name>LdapPort</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP port number for the new AD LDS instance.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>389</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="instance">
+        <maml:name>InstanceName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name for the for the new AD LDS instance.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>NFSInstance</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="port">
+        <maml:name>LdapPort</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP port number for the new AD LDS instance.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>389</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Install AD LDS and create an AD LDS instance as an identity mapping store</maml:title>
+        <dev:code>PS C:\&gt; Install-NfsMappingStore -InstanceName "NFSMappingStore" -LdapPort 389
+Successfully created ADLDS instance named NFSMappingStore on server NfsServer01. The instance is running on port 389 and the partition is CN=nfs,DC=nfs.</dev:code>
+        <dev:remarks>
+          <maml:para>This command installs the AD LDS role on a local computer and creates the AD LDS instance NFSMappingStore, which runs on port 389. It also creates the partition CN=nfs,DC=nfs and sets the default naming context to CN=nfs,DC=nfs.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/install-nfsmappingstore?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-NfsMappedIdentity</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>NfsMappedIdentity</command:noun>
+      <maml:description>
+        <maml:para>Creates a new NFS mapped identity.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The New-NfsMappedIdentity cmdlet creates a new Network File System (NFS) mapped identity between a UNIX user account or group account and a Windows user account or group account. If a specified user account or group account does not exist, the New-NfsMappedIdentity cmdlet can create the account, set its user ID (UID) and group ID (GID) attributes, and update user membership in the group.</maml:para>
+      <maml:para>A mapped identity associates a Windows user account or group account to a UNIX user account or group account. A UID or GID identifies a UNIX account namespace. These elements are associated with the corresponding elements of a Windows account namespace: a user name or a group name. By using a mapped identity, a user who is logged on to a UNIX domain can access shared resources in a Windows domain without having to log on to the Windows domain.</maml:para>
+      <maml:para>For more information about NFS, see Network File System Overview (https://technet.microsoft.com/en-us/library/jj592688). For more information about NFS account mapping, see NFS Account Mapping Guide (https://technet.microsoft.com/en-us/library/hh509020(v=ws.10)) and [Identity Management for UNIX](https://technet.microsoft.com/en-us/library/cc772571).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies a group identifier of a user or group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+          <maml:name>GroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies a SAMAcccount name of a group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of the identity mapping store that NFS uses. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store in which the New-NfsMappedIdentity cmdlet creates a mapped identity. When the MappingStore  is not specified, the New-NfsMappedIdentity cmdlet gets the store configuration settings from an NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:description>
+            <maml:para>Specifies a password for a user account that the New-NfsMappedIdentity cmdlet creates. If no password is specified, the cmdlet disables the new user account until a password is set.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP instance name of the store that an NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>New-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies a group identifier of a user or group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of the identity mapping store that NFS uses. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store in which the New-NfsMappedIdentity cmdlet creates a mapped identity. When the MappingStore  is not specified, the New-NfsMappedIdentity cmdlet gets the store configuration settings from an NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>Password</maml:name>
+          <maml:description>
+            <maml:para>Specifies a password for a user account that the New-NfsMappedIdentity cmdlet creates. If no password is specified, the cmdlet disables the new user account until a password is set.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+          <dev:type>
+            <maml:name>SecureString</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>PrimaryGroup</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of the group account that the cmdlet creates if no existing group account has the specified group identifier. In this case, the GroupIdentifier parameter assigns a GID to the group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP instance name of the store that an NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+          <maml:name>SupplementaryGroups</maml:name>
+          <maml:description>
+            <maml:para>Specifies a comma-separated list of group names to which the cmdlet adds a user account that the UserName parameter specifies.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier that the cmdlet assigns to the user account that the UserName parameter specifies.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+          <maml:name>UserName</maml:name>
+          <maml:description>
+            <maml:para>Specifies a SAMAcccount name of a user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+        <maml:name>GroupIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies a group identifier of a user or group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+        <maml:name>GroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies a SAMAcccount name of a group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of the identity mapping store that NFS uses. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+        <maml:name>MappingStore</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of identity mapping store in which the New-NfsMappedIdentity cmdlet creates a mapped identity. When the MappingStore  is not specified, the New-NfsMappedIdentity cmdlet gets the store configuration settings from an NFS server. Valid values are AD and LDAP.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+        <dev:type>
+          <maml:name>MappingStoreType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>Password</maml:name>
+        <maml:description>
+          <maml:para>Specifies a password for a user account that the New-NfsMappedIdentity cmdlet creates. If no password is specified, the cmdlet disables the new user account until a password is set.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">SecureString</command:parameterValue>
+        <dev:type>
+          <maml:name>SecureString</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>PrimaryGroup</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of the group account that the cmdlet creates if no existing group account has the specified group identifier. In this case, the GroupIdentifier parameter assigns a GID to the group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+        <maml:name>Server</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP instance name of the store that an NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Localhost:389</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+        <maml:name>SupplementaryGroups</maml:name>
+        <maml:description>
+          <maml:para>Specifies a comma-separated list of group names to which the cmdlet adds a user account that the UserName parameter specifies.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+        <maml:name>UserIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the user identifier that the cmdlet assigns to the user account that the UserName parameter specifies.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+        <maml:name>UserName</maml:name>
+        <maml:description>
+          <maml:para>Specifies a SAMAcccount name of a user account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Create a mapped identify for a UNIX user account and a Windows user account</maml:title>
+        <dev:code>PS C:\&gt; New-NfsMappedIdentity -MappingStore "AD" -Server "Contoso" -UserName "JBrown" -UserIdentifier 500 -GroupIdentifier 41</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a mapped identity for a UNIX user that has a UID of 500, and maps it to the Windows account name Contoso\JBrown in a Windows group that has the group identifier of 41. The command stores the mapped identity in the configured Active Directory domain of the local computer. If the user account does not already exist, the command creates it.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Create a mapped identity for a UNIX group account and a Windows group account</maml:title>
+        <dev:code>PS C:\&gt; New-NfsMappedIdentity -MappingStore "Ldap" -GroupName "Operators" -GroupIdentifier 501 -Server "LdapServer01:389" -NfsServer "NFSServer-012"</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a mapped identity for a UNIX group that has a group identifier of 501 and maps it to the Windows group account that is named Operators. The mapped identity is stored in the configured LDAP store on the computer that is named LdapServer01, that the NFS server NFSServer-012 uses. The command also creates a local group account named Operators on the NFS server NFSServer-012 if it does not already exist.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Create an identity mapping and create the user account and group account if they do not exist</maml:title>
+        <dev:code>PS C:\&gt; New-NfsMappedIdentity -MappingStore "AD" -Server "Contoso" -UserName "JCool" -UserIdentifier 500 -GroupIdentifier 501 -PrimaryGroup "Operators"</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a mapped identity for a UNIX user whose UID is 500 and maps it to the Windows account named Contoso\JCool. The mapped identity is stored in the Active Directory domain named Contoso. If the user account Contoso\JCool does not exist, the command creates the user account. If the group account Operators does not exist, the command creates the group, assigns GID 501 to the group, and adds the user account Contoso\JCool to the group.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/new-nfsmappedidentity?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>New-NfsNetgroup</command:name>
+      <command:verb>New</command:verb>
+      <command:noun>NfsNetgroup</command:noun>
+      <maml:description>
+        <maml:para>Creates a netgroup.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The New-NfsNetgroup cmdlet creates a netgroup. It can also add members to the new netgroup. The netgroup provides access to shares that Network File System (NFS) server exports.</maml:para>
+      <maml:para>You can create a netgroup in Active Directory Domain Services (AD DS), on an Active Directory Lightweight Directory Services (AD LDS) server, or on Lightweight Directory Access Protocol (LDAP) servers. If you do not specify a netgroup store, New-NfsNetgroup creates a netgroup in the netgroup store that is configured on the local computer.</maml:para>
+      <maml:para>The cmdlet creates the netgroup as a relative distinguished name in an LDAP naming context (directory partition). For example, if the specified naming context is DN=netgroups,CN=Contoso,CN=com", the distinguished name of the netgroup Contoso-PrintServices is "DN= Contoso-PrintServices ,DN=netgroups,CN=Contoso,CN=com".</maml:para>
+      <maml:para>You can group NFS client computers logically into netgroups to easily manage mount permissions for all the computers that are in the group. Because netgroups are a server-side setting, New-NfsNetgroup is not available on client operating systems.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>New-NfsNetgroup</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a new netgroup.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="add">
+          <maml:name>AddMember</maml:name>
+          <maml:description>
+            <maml:para>Specifies the host names or IP addresses of the client computers to add to a netgroup.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="ldap">
+          <maml:name>LdapServer</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server name of the new netgroup store. The LDAP server name can be a domain name, AD LDS server name, or other LDAP server name.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP naming context of the new netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="add">
+        <maml:name>AddMember</maml:name>
+        <maml:description>
+          <maml:para>Specifies the host names or IP addresses of the client computers to add to a netgroup.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP naming context of the new netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="ldap">
+        <maml:name>LdapServer</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP server name of the new netgroup store. The LDAP server name can be a domain name, AD LDS server name, or other LDAP server name.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+        <maml:name>NetGroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a new netgroup.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.FileServices.Powershell.Nfs.NetGroup</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------- Example 1: Create a netgroup and add a member --------</maml:title>
+        <dev:code>PS C:\&gt; New-NfsNetgroup -NetGroupName "Contoso-PrintServices" -AddMember "Contoso-PS02" -LdapInstanceName "Contoso.com" -LdapNamingContext "CN=MappedIdentity,DC=Contoso,DC=com"</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a netgroup that is named Contoso-PrintServices and adds one member that is named Contoso-PS02.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>---- Example 2: Create a netgroup and add multiple members ----</maml:title>
+        <dev:code>PS C:\&gt; New-NfsNetgroup -NetGroupName "AppServers" -AddMember "Contoso-APPS-11","Contoso-APPS-12" -LdapServer "Contoso.com" -LdapNamingContext "CN=netgroup,DC=Contoso,DC=com"</dev:code>
+        <dev:remarks>
+          <maml:para>This command creates a netgroup that is named AppServers and adds two members that are named Contoso-APPS-11 and Contoso-APPS-12.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/new-nfsnetgroup?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-NfsMappedIdentity</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>NfsMappedIdentity</command:noun>
+      <maml:description>
+        <maml:para>Removes a mapping between a UNIX account and a Windows account.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-NfsMappedIdentity cmdlet removes a mapped identity from a Network File System (NFS) server mapping store.</maml:para>
+      <maml:para>A mapped identity associates a Windows user account or group account to a UNIX user account or group account. A user ID (UID) or group ID (GID) identifies a UNIX account namespace. These elements are associated with the corresponding elements of a Windows account namespace: a user name or a group name. By using a mapped identity, a user who is logged on to a UNIX domain can access shared resources in a Windows domain without having to log on to the Windows domain.</maml:para>
+      <maml:para>For more information about NFS, see Network File System Overview (https://technet.microsoft.com/en-us/library/jj592688). For more information about NFS account mapping, see NFS Account Mapping Guide (https://technet.microsoft.com/en-us/library/hh509020(v=ws.10)) and [Identity Management for UNIX](https://technet.microsoft.com/en-us/library/cc772571).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+          <maml:name>GroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Remove-NfsMappedIdentity cmdlet removes a mapped identity. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server instance of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory Domain Services (AD DS) domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Remove-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Remove-NfsMappedIdentity cmdlet removes a mapped identity. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server instance of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory Domain Services (AD DS) domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier of a user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+          <maml:name>UserName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of a user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Remove-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Remove-NfsMappedIdentity cmdlet removes a mapped identity. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server instance of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory Domain Services (AD DS) domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier of a user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+        <maml:name>GroupIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+        <maml:name>GroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of the group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+        <maml:name>MappingStore</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of identity mapping store from which the Remove-NfsMappedIdentity cmdlet removes a mapped identity. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+        <dev:type>
+          <maml:name>MappingStoreType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+        <maml:name>Server</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP server instance of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Remove-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory Domain Services (AD DS) domain of the computer when MappingStore is Active Directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Localhost:389</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+        <maml:name>UserIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the user identifier of a user account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+        <maml:name>UserName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of a user account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------- Example 1: Remove identity mapping for a user --------</maml:title>
+        <dev:code>PS C:\&gt; Remove-NfsMappedIdentity -MappingStore "LDAP" -UserName "LSPolly"</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes a mapped identity that is stored in the configured AD LDS instance, on a server where this command is run, for the user account LSPolly.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>------ Example 2: Remove an identity mapping for a group ------</maml:title>
+        <dev:code>PS C:\&gt; Remove-NfsMappedIdentity -MappingStore "AD" -GroupIdentifier 22</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes a mapped identity that is stored in a configured AD DS map store and that corresponds to the group account that has the group identifier 22.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/remove-nfsmappedidentity?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-NfsNetgroup</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>NfsNetgroup</command:noun>
+      <maml:description>
+        <maml:para>Removes a netgroup.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-NfsNetgroup cmdlet removes a netgroup.</maml:para>
+      <maml:para>You can remove netgroups that are stored in Active Directory Domain Services (AD DS) or Active Directory Lightweight Directory Services (AD LDS) only. To remove a netgroup that is stored in Network Information Service (NIS), use the corresponding NIS administration tool. For more information about how to manage an NIS server, see Server for NIS Administration (https://technet.microsoft.com/en-us/library/cc753089).</maml:para>
+      <maml:para>If you do not specify a netgroup store, the Remove-NfsNetgroup cmdlet removes the netgroup from a netgroup store that is configured on the local computer.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-NfsNetgroup</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a netgroup to remove.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="ldap">
+          <maml:name>LdapServer</maml:name>
+          <maml:description>
+            <maml:para>Specifies an LDAP server name of a netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of a netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of a netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="ldap">
+        <maml:name>LdapServer</maml:name>
+        <maml:description>
+          <maml:para>Specifies an LDAP server name of a netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+        <maml:name>NetGroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a netgroup to remove.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------- Example 1: Remove an NFS netgroup --------------</maml:title>
+        <dev:code>PS C:\&gt; Remove-NfsNetgroup -NetGroupName "AppServers" -LdapInstanceName "Contoso.com"</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes an NFS netgroup that is named AppServers from a netgroup store in Contoso.com.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-- Example 2: Remove an NFS netgroup from a configured store --</maml:title>
+        <dev:code>PS C:\&gt;Remove-NfsNetgroup -NetGroupName "AppServers"</dev:code>
+        <dev:remarks>
+          <maml:para>This command removes an NFS netgroup that is named AppServers. Because the netgroup store is not specified, the cmdlet removes the netgroup from the netgroup store that is configured on the local NFS server.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/remove-nfsnetgroup?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-NfsMappedIdentity</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>NfsMappedIdentity</command:noun>
+      <maml:description>
+        <maml:para>Modifies a mapped identity.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-NfsMappedIdentity cmdlet modifies a mapped identity that is stored in the Network File System (NFS) server mapping store. The cmdlet also updates the group membership of the Windows user account to match its assigned group identifier (GID).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store in which the Set-NfsMappedIdentity cmdlet updates a mapped identity. When this parameter is not specified, the Set-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server name of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies a UID to assign to a user account that the UserName parameter specifies.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+          <maml:name>UserName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of a user account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Set-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+          <maml:name>GroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of a Windows group account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store in which the Set-NfsMappedIdentity cmdlet updates a mapped identity. When this parameter is not specified, the Set-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server name of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Localhost:389</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+        <maml:name>GroupIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="group">
+        <maml:name>GroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of a Windows group account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context (directory partition) of an NFS identity mapping store. You can use this parameter to search for mapped identities in the specified naming context.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>DefaultNamingContext</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+        <maml:name>MappingStore</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of identity mapping store in which the Set-NfsMappedIdentity cmdlet updates a mapped identity. When this parameter is not specified, the Set-NfsMappedIdentity cmdlet gets the store configuration settings from the NFS server. Valid values are AD and LDAP.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+        <dev:type>
+          <maml:name>MappingStoreType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+        <maml:name>Server</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP server name of a store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Localhost:389</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+        <maml:name>UserIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies a UID to assign to a user account that the UserName parameter specifies.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="user">
+        <maml:name>UserName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of a user account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Nothing</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Modify a mapped identity that is stored in an AD LDS instance</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsMappedIdentity -MappingStore "LDAP" -GroupName "Administrators" -GroupIdentifier 600</dev:code>
+        <dev:remarks>
+          <maml:para>This command modifies a mapped identity that is stored in a configured AD LDS instance and that corresponds to the Windows group account Administrators. The command resets the associated group identifier to 600.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Modify a mapped identity that is stored in an Active Directory domain</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsMappedIdentity -Store "AD" -Server "Contoso"-UserName "JCool" -UserIdentifier 501 -GroupIdentifier 600</dev:code>
+        <dev:remarks>
+          <maml:para>This command modifies a mapped identity that is stored in a specified Active Directory domain and that corresponds to the user account JCool. The command sets the user identifier to 501 and the group identifier to 600, and it updates the group membership of the user account JCool to make it a member of a group account that has GID 600.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Modify a mapped identity that is stored in a configured LDAP store</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsMappedIdentity -Store "LDAP" -UserName "JCool" -UserIdentifier 501 -GroupIdentifier 600 -Server "MyLdapServer:389" -LdapNamingContext "CN=NFS,DC=NFS"</dev:code>
+        <dev:remarks>
+          <maml:para>This command modifies a mapped identity that is stored in the LDAP store on a specified server that is named MyLdapServer and that corresponds to the user account Contoso\JCool. It sets the user identifier to 501 and the group identifier to 600. The command also adds the user account JCool to GID 600.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/set-nfsmappedidentity?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-NfsNetgroup</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>NfsNetgroup</command:noun>
+      <maml:description>
+        <maml:para>Modifies a netgroup.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Set-NfsNetgroup cmdlet adds or removes netgroup members. You can specify a netgroup member by its host name or IP address.</maml:para>
+      <maml:para>You can modify netgroups that are stored in Active Directory Domain Services (AD DS) or Active Directory Lightweight Directory Services (AD LDS) only. To modify a netgroup that is stored in Network Information Service (NIS), use the corresponding NIS administration tool. For more information about how to manage an NIS server, see Server for NIS Administration (https://technet.microsoft.com/en-us/library/cc753089).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-NfsNetgroup</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+          <maml:name>NetGroupName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the name of a netgroup. This parameter is mandatory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="add">
+          <maml:name>AddMember</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of host names or IP addresses of client computers to add to a netgroup.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="remove">
+          <maml:name>RemoveMember</maml:name>
+          <maml:description>
+            <maml:para>Specifies an array of host names or IP addresses of client computers to remove from a netgroup.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="ldap">
+          <maml:name>LdapServer</maml:name>
+          <maml:description>
+            <maml:para>Specifies an LDAP server name of a netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="4" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of a netgroup store.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="add">
+        <maml:name>AddMember</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of host names or IP addresses of client computers to add to a netgroup.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="4" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of a netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="3" aliases="ldap">
+        <maml:name>LdapServer</maml:name>
+        <maml:description>
+          <maml:para>Specifies an LDAP server name of a netgroup store.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="name, ngname">
+        <maml:name>NetGroupName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the name of a netgroup. This parameter is mandatory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="2" aliases="remove">
+        <maml:name>RemoveMember</maml:name>
+        <maml:description>
+          <maml:para>Specifies an array of host names or IP addresses of client computers to remove from a netgroup.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Microsoft.FileServices.Powershell.Nfs.NetGroup</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>------------ Example 1: Add a member to a netgroup ------------</maml:title>
+        <dev:code>PS C:\&gt; Set-NfsNetgroup -LdapServer "Contoso.com" -NetGroupName "AppServers" -AddMember "APPServer-08"
+NetgroupName          : AppServers
+NetgroupNamingContext : CN=mappedidentity,DC=Contoso,DC=com
+NetgroupMembers       : {appserver-08, appserver-07}</dev:code>
+        <dev:remarks>
+          <maml:para>This command adds a member that is named APPServer-08 to a netgroup that is named AppServers, in a network store that is named Contoso.com.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/set-nfsnetgroup?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsNetgroup</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-NfsMappedIdentity</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>NfsMappedIdentity</command:noun>
+      <maml:description>
+        <maml:para>Verifies that a mapped identity is correctly configured.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Test-NfsMappedIdentity cmdlet verifies a mapped identity and confirms that it is configured correctly. The Test-NfsMappedIdentity cmdlet checks a mapped identity for duplicate user identifiers (UIDs) or group identifiers (GIDs). It also validates that the user accounts are members of the correct group account according to the GIDs that are assigned to them.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are: User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+          <maml:name>LdapNamingContext</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in a specified naming context.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Test-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet obtains the store configuration settings from the NFS server configuration. Valid values are: AD, LDAP, and MapFiles.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+          <maml:name>Server</maml:name>
+          <maml:description>
+            <maml:para>Specifies the LDAP server name of the store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+          <maml:name>SupplementaryGroups</maml:name>
+          <maml:description>
+            <maml:para>Specifies a comma-separated list of group names to verify the group membership of an account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier of a UNIX user account from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Test-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are: User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>MapFilesPath</maml:name>
+          <maml:description>
+            <maml:para>Specifies the path of the passwd and group map files from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Test-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet obtains the store configuration settings from the NFS server configuration. Valid values are: AD, LDAP, and MapFiles.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+          <maml:name>SupplementaryGroups</maml:name>
+          <maml:description>
+            <maml:para>Specifies a comma-separated list of group names to verify the group membership of an account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier of a UNIX user account from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Test-NfsMappedIdentity</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+          <maml:name>AccountName</maml:name>
+          <maml:description>
+            <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+          <maml:name>AccountType</maml:name>
+          <maml:description>
+            <maml:para>Specifies the Windows account type of a mapped identity. Valid values are: User and Group.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">User</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Group</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+          <dev:type>
+            <maml:name>AccountType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+          <maml:name>GroupIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+          <maml:name>MappingStore</maml:name>
+          <maml:description>
+            <maml:para>Specifies the type of identity mapping store from which the Test-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet obtains the store configuration settings from the NFS server configuration. Valid values are: AD, LDAP, and MapFiles.</maml:para>
+          </maml:description>
+          <command:parameterValueGroup>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ad</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Ldap</command:parameterValue>
+            <command:parameterValue required="false" command:variableLength="false">Mapfiles</command:parameterValue>
+          </command:parameterValueGroup>
+          <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+          <dev:type>
+            <maml:name>MappingStoreType</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+          <maml:name>SupplementaryGroups</maml:name>
+          <maml:description>
+            <maml:para>Specifies a comma-separated list of group names to verify the group membership of an account.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+          <maml:name>UserIdentifier</maml:name>
+          <maml:description>
+            <maml:para>Specifies the user identifier of a UNIX user account from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="aname, an">
+        <maml:name>AccountName</maml:name>
+        <maml:description>
+          <maml:para>Specifies the SAMAccountName of the Windows user account or group account of a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="atype, at">
+        <maml:name>AccountType</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Windows account type of a mapped identity. Valid values are: User and Group.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">AccountType</command:parameterValue>
+        <dev:type>
+          <maml:name>AccountType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="GroupId, gid">
+        <maml:name>GroupIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the group identifier of a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="dn">
+        <maml:name>LdapNamingContext</maml:name>
+        <maml:description>
+          <maml:para>Specifies the Lightweight Directory Access Protocol (LDAP) naming context of an NFS identity mapping store. You can use this parameter to search for mapped identities in a specified naming context.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>MapFilesPath</maml:name>
+        <maml:description>
+          <maml:para>Specifies the path of the passwd and group map files from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="store">
+        <maml:name>MappingStore</maml:name>
+        <maml:description>
+          <maml:para>Specifies the type of identity mapping store from which the Test-NfsMappedIdentity cmdlet gets a mapped identity. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet obtains the store configuration settings from the NFS server configuration. Valid values are: AD, LDAP, and MapFiles.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">MappingStoreType</command:parameterValue>
+        <dev:type>
+          <maml:name>MappingStoreType</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="LdapServer, ADDomainName">
+        <maml:name>Server</maml:name>
+        <maml:description>
+          <maml:para>Specifies the LDAP server name of the store that NFS server uses. This can be a domain name, Active Directory Lightweight Directory Services (AD LDS) server name, or LDAP server name. When this parameter is not specified, the Test-NfsMappedIdentity cmdlet tries to connect to either the LDAP store on the local computer at port 389 when MappingStore is LDAP, or the Active Directory domain of the computer when MappingStore is Active Directory.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="sg">
+        <maml:name>SupplementaryGroups</maml:name>
+        <maml:description>
+          <maml:para>Specifies a comma-separated list of group names to verify the group membership of an account.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="UserId, uid">
+        <maml:name>UserIdentifier</maml:name>
+        <maml:description>
+          <maml:para>Specifies the user identifier of a UNIX user account from which the Test-NfsMappedIdentity cmdlet obtains a mapped identity.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Verify a mapped identity that is stored in a AD LDS instance</maml:title>
+        <dev:code>PS C:\&gt; Test-NfsMappedIdentity -MappingStore "LDAP" -AccountName "JCool" -AccountType "User" -Verbose
+VERBOSE: No errors found.</dev:code>
+        <dev:remarks>
+          <maml:para>This command verifies a mapped identity that is stored in a AD LDS instance on a server where this command is run..</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://learn.microsoft.com/powershell/module/nfs/test-nfsmappedidentity?view=windowsserver2022-ps&amp;wt.mc_id=ps-gethelp</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Install-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>New-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Remove-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Resolve-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappedIdentity</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Test-NfsMappingStore</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>

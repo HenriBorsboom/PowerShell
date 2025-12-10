@@ -1,0 +1,283 @@
+[CmdletBinding(SupportsShouldProcess, ConfirmImpact = 'High')]
+param(
+    $module = "dbatools"
+)
+# Which process should we be looking for?
+if ($psedition -eq 'Core') {
+    $process = "pwsh"
+} else {
+    $process = "powershell"
+}
+if (($PSVersionTable.PSVersion.Major -le 5) -or ($PSVersionTable.PSVersion.Major -gt 6 -and $PSVersionTable.OS -contains "Windows")) {
+    $isElevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+    $ise = Get-Process powershell_ise -ErrorAction SilentlyContinue
+    if ($ise) {
+        return "PowerShell ISE found in use. Please close this program before using this script."
+    }
+} else {
+    $isElevated = $null;
+    $ise = $null;
+}
+$installedVersion = Get-InstalledModule $module -AllVersions | Select-Object Version, InstalledLocation
+Write-Output "The currently installed version(s) of $module is/are: "
+$installedVersion.Version
+
+$results =
+foreach ($v in $installedVersion) {
+    if ($v.InstalledLocation -match "C:\\Users") {
+        Add-Member -Force -InputObject $v -MemberType NoteProperty -Name IsUserScope -value $true
+    } else {
+        if (-not $isElevated) {
+            Write-Output "$module version $v.Version cannot be removed without elevated session."
+        }
+        Add-Member -Force -InputObject $v -MemberType NoteProperty -Name IsUserScope -value $false
+    }
+    $v
+}
+
+$newestVersion = Find-Module $module | Select-Object Version
+Write-Output "`nThe latest version of $module in the PSGallery is: $($newestVersion.Version)"
+$olderVersions = @( )
+if ($installedVersion.Count -gt 1) {
+    $olderVersions = @($installedVersion | Where-Object { [version]$_.Version -lt [version]$newestVersion.Version })
+}
+
+if ( ($olderVersions.Count -gt 0) -and $newestVersion.Version -in $installedVersion.Version ) {
+    Write-Output "Latest version of $module found on $env:COMPUTERNAME."
+    Write-Output "Older versions of $module also found. These will be uninstalled now."
+    if ($isElevated) {
+        $processes = Get-Process $process -IncludeUserName -ErrorAction SilentlyContinue | Where-Object Id -NE $pid
+    } else {
+        $processes = Get-Process $process -ErrorAction SilentlyContinue | Where-Object Id -NE $PID
+    }
+    if ($processes.Count -gt 0) {
+        if ($Pscmdlet.ShouldProcess("$env:COMPUTERNAME", "Killing $($processes.Count) processes of powershell running")) {
+            Write-Output "Death to the following process(es): $(($processes.Id) -join ",")"
+            $processes | Stop-Process -ErrorVariable dangit -ErrorAction SilentlyContinue -Force
+            if ($dangit) {
+                Write-Warning "Not able to kill following processes: $((Get-Process $process | Where-Object Id -NE $pid).Id -join ",")"
+            }
+        }
+    }
+    if ($Pscmdlet.ShouldProcess("$env:COMPUTERNAME", "Removing old versions of $module.")) {
+        foreach ($v in $olderVersions.Version) {
+            Uninstall-Module $module -RequiredVersion $v -ErrorVariable dangit -ErrorAction SilentlyContinue -Force
+            if ($dangit) {
+                if ($dangit.Exception -like "*Administrator rights*") {
+                    Write-Warning "Elevated session is required to uninstall $module version: $v"
+                } else {
+                    Write-Warning "Unable to remove $module version [$v] due to: `n`t$($dangit.Exception)"
+                }
+            }
+        }
+    }
+    Write-Output "The End"
+} elseif ( ($olderVersions.Count -gt 0) -and $newestVersion.Version -notin $installedVersion.Version ) {
+    Write-Output "Update of $module is available"
+    Write-Output "Older versions of $module found. These will be uninstalled now."
+    if ($isElevated) {
+        $processes = Get-Process $process -ErrorAction SilentlyContinue -IncludeUserName | Where-Object Id -NE $pid
+    } else {
+        $processes = Get-Process $process -ErrorAction SilentlyContinue | Where-Object Id -NE $PID
+    }
+    if ($processes.Count -gt 0) {
+        if ($Pscmdlet.ShouldProcess("$env:COMPUTERNAME", "Killing $($processes.Count) processes of powershell running")) {
+            Write-Output "Death to the following process(es): $(($processes.Id) -join ",")"
+            $processes | Stop-Process -ErrorVariable dangit -ErrorAction SilentlyContinue -Force
+            if ($dangit) {
+                Write-Warning "Not able to kill following processes: $((Get-Process $process | Where-Object Id -NE $pid).Id -join ",")"
+            }
+        }
+    }
+    if ($Pscmdlet.ShouldProcess("$env:COMPUTERNAME", "Removing old versions of $module.")) {
+        foreach ($v in $olderVersions.Version) {
+            Uninstall-Module $module -RequiredVersion $v -ErrorVariable dangit -ErrorAction SilentlyContinue -Force
+            if ($dangit) {
+                if ($dangit.Exception -like "*Administrator rights*") {
+                    Write-Warning "Elevated session is required to uninstall $module version: $v"
+                } else {
+                    Write-Warning "Unable to remove $module version [$v] due to: `n`t$($dangit.Exception)"
+                }
+            }
+        }
+    }
+    Write-Output "Continuing to install latest release of $module"
+    Install-Module $module -Force
+    Write-Output "The End"
+} else {
+    Write-Output "No update/actions required."
+}
+
+# SIG # Begin signature block
+# MIIfrwYJKoZIhvcNAQcCoIIfoDCCH5wCAQExDzANBglghkgBZQMEAgEFADB5Bgor
+# BgEEAYI3AgEEoGswaTA0BgorBgEEAYI3AgEeMCYCAwEAAAQQH8w7YFlLCE63JNLG
+# KX7zUQIBAAIBAAIBAAIBAAIBADAxMA0GCWCGSAFlAwQCAQUABCBbC7m38uJKN0Fh
+# yce8/lpvD8KrpB4HRQCSsGB5ShHRlaCCGlQwggNZMIIC36ADAgECAhAPuKdAuRWN
+# A1FDvFnZ8EApMAoGCCqGSM49BAMDMGExCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxE
+# aWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xIDAeBgNVBAMT
+# F0RpZ2lDZXJ0IEdsb2JhbCBSb290IEczMB4XDTIxMDQyOTAwMDAwMFoXDTM2MDQy
+# ODIzNTk1OVowZDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMu
+# MTwwOgYDVQQDEzNEaWdpQ2VydCBHbG9iYWwgRzMgQ29kZSBTaWduaW5nIEVDQyBT
+# SEEzODQgMjAyMSBDQTEwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAS7tKwnpUgNolNf
+# jy6BPi9TdrgIlKKaqoqLmLWx8PwqFbu5s6UiL/1qwL3iVWhga5c0wWZTcSP8GtXK
+# IA8CQKKjSlpGo5FTK5XyA+mrptOHdi/nZJ+eNVH8w2M1eHbk+HejggFXMIIBUzAS
+# BgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdDgQWBBSbX7A2up0GrhknvcCgIsCLizh3
+# 7TAfBgNVHSMEGDAWgBSz20ik+aHF2K42QcwRY2liKbxLxjAOBgNVHQ8BAf8EBAMC
+# AYYwEwYDVR0lBAwwCgYIKwYBBQUHAwMwdgYIKwYBBQUHAQEEajBoMCQGCCsGAQUF
+# BzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQAYIKwYBBQUHMAKGNGh0dHA6
+# Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RHMy5jcnQw
+# QgYDVR0fBDswOTA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lD
+# ZXJ0R2xvYmFsUm9vdEczLmNybDAcBgNVHSAEFTATMAcGBWeBDAEDMAgGBmeBDAEE
+# ATAKBggqhkjOPQQDAwNoADBlAjB4vUmVZXEB0EZXaGUOaKncNgjB7v3UjttAZT8N
+# /5Ovwq5jhqN+y7SRWnjsBwNnB3wCMQDnnx/xB1usNMY4vLWlUM7m6jh+PnmQ5KRb
+# qwIN6Af8VqZait2zULLd8vpmdJ7QFmMwggPqMIIDcaADAgECAhAOHemwPSTVqXgv
+# ggZ4NPQsMAoGCCqGSM49BAMDMGQxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdp
+# Q2VydCwgSW5jLjE8MDoGA1UEAxMzRGlnaUNlcnQgR2xvYmFsIEczIENvZGUgU2ln
+# bmluZyBFQ0MgU0hBMzg0IDIwMjEgQ0ExMB4XDTIzMDkyMTAwMDAwMFoXDTI2MDky
+# MjIzNTk1OVowVzELMAkGA1UEBhMCVVMxETAPBgNVBAgTCFZpcmdpbmlhMQ8wDQYD
+# VQQHEwZWaWVubmExETAPBgNVBAoTCGRiYXRvb2xzMREwDwYDVQQDEwhkYmF0b29s
+# czB2MBAGByqGSM49AgEGBSuBBAAiA2IABC6YdcOODdGCkc8ZzeGbDI++qRZ9YTKK
+# qUnPv5MhjMPJp8DJ4RShm9E2ca+8d0H9jnkt+ojKZHRUypRMbJwdsa1x05OWJeMs
+# R/V7A1F2l0HCZKnHeGZSvT/ULgnXK/Y3AKOCAfMwggHvMB8GA1UdIwQYMBaAFJtf
+# sDa6nQauGSe9wKAiwIuLOHftMB0GA1UdDgQWBBQxtF8QYL4zT3LN1Hs9UW0D6354
+# KjA+BgNVHSAENzA1MDMGBmeBDAEEATApMCcGCCsGAQUFBwIBFhtodHRwOi8vd3d3
+# LmRpZ2ljZXJ0LmNvbS9DUFMwDgYDVR0PAQH/BAQDAgeAMBMGA1UdJQQMMAoGCCsG
+# AQUFBwMDMIGrBgNVHR8EgaMwgaAwTqBMoEqGSGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0
+# LmNvbS9EaWdpQ2VydEdsb2JhbEczQ29kZVNpZ25pbmdFQ0NTSEEzODQyMDIxQ0Ex
+# LmNybDBOoEygSoZIaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xv
+# YmFsRzNDb2RlU2lnbmluZ0VDQ1NIQTM4NDIwMjFDQTEuY3JsMIGOBggrBgEFBQcB
+# AQSBgTB/MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wVwYI
+# KwYBBQUHMAKGS2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEds
+# b2JhbEczQ29kZVNpZ25pbmdFQ0NTSEEzODQyMDIxQ0ExLmNydDAJBgNVHRMEAjAA
+# MAoGCCqGSM49BAMDA2cAMGQCMFfGfg/mKq3eZDf8HrYMtoFIyNtpBYjNKr3cXmTn
+# j6OYhexOpbILTlcYRItOgS+5qAIwIauBEHKYpJc0g0RuwILa0cvI1MfL4/DeVhY5
+# Iw3Q/FMrWDXnMtovGZjFRPHKD5vlMIIFjTCCBHWgAwIBAgIQDpsYjvnQLefv21Di
+# CEAYWjANBgkqhkiG9w0BAQwFADBlMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGln
+# aUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSQwIgYDVQQDExtE
+# aWdpQ2VydCBBc3N1cmVkIElEIFJvb3QgQ0EwHhcNMjIwODAxMDAwMDAwWhcNMzEx
+# MTA5MjM1OTU5WjBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5j
+# MRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBU
+# cnVzdGVkIFJvb3QgRzQwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQC/
+# 5pBzaN675F1KPDAiMGkz7MKnJS7JIT3yithZwuEppz1Yq3aaza57G4QNxDAf8xuk
+# OBbrVsaXbR2rsnnyyhHS5F/WBTxSD1Ifxp4VpX6+n6lXFllVcq9ok3DCsrp1mWpz
+# MpTREEQQLt+C8weE5nQ7bXHiLQwb7iDVySAdYyktzuxeTsiT+CFhmzTrBcZe7Fsa
+# vOvJz82sNEBfsXpm7nfISKhmV1efVFiODCu3T6cw2Vbuyntd463JT17lNecxy9qT
+# XtyOj4DatpGYQJB5w3jHtrHEtWoYOAMQjdjUN6QuBX2I9YI+EJFwq1WCQTLX2wRz
+# Km6RAXwhTNS8rhsDdV14Ztk6MUSaM0C/CNdaSaTC5qmgZ92kJ7yhTzm1EVgX9yRc
+# Ro9k98FpiHaYdj1ZXUJ2h4mXaXpI8OCiEhtmmnTK3kse5w5jrubU75KSOp493ADk
+# RSWJtppEGSt+wJS00mFt6zPZxd9LBADMfRyVw4/3IbKyEbe7f/LVjHAsQWCqsWMY
+# RJUadmJ+9oCw++hkpjPRiQfhvbfmQ6QYuKZ3AeEPlAwhHbJUKSWJbOUOUlFHdL4m
+# rLZBdd56rF+NP8m800ERElvlEFDrMcXKchYiCd98THU/Y+whX8QgUWtvsauGi0/C
+# 1kVfnSD8oR7FwI+isX4KJpn15GkvmB0t9dmpsh3lGwIDAQABo4IBOjCCATYwDwYD
+# VR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU7NfjgtJxXWRM3y5nP+e6mK4cD08wHwYD
+# VR0jBBgwFoAUReuir/SSy4IxLVGLp6chnfNtyA8wDgYDVR0PAQH/BAQDAgGGMHkG
+# CCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQu
+# Y29tMEMGCCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGln
+# aUNlcnRBc3N1cmVkSURSb290Q0EuY3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6
+# Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RDQS5jcmww
+# EQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUAA4IBAQBwoL9DXFXnOF+g
+# o3QbPbYW1/e/Vwe9mqyhhyzshV6pGrsi+IcaaVQi7aSId229GhT0E0p6Ly23OO/0
+# /4C5+KH38nLeJLxSA8hO0Cre+i1Wz/n096wwepqLsl7Uz9FDRJtDIeuWcqFItJnL
+# nU+nBgMTdydE1Od/6Fmo8L8vC6bp8jQ87PcDx4eo0kxAGTVGamlUsLihVo7spNU9
+# 6LHc/RzY9HdaXFSMb++hUD38dglohJ9vytsgjTVgHAIDyyCwrFigDkBjxZgiwbJZ
+# 9VVrzyerbHbObyMt9H5xaiNrIv8SuFQtJ37YOtnwtoeW/VvRXKwYw02fc7cBqZ9X
+# ql4o4rmUMIIGrjCCBJagAwIBAgIQBzY3tyRUfNhHrP0oZipeWzANBgkqhkiG9w0B
+# AQsFADBiMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYD
+# VQQLExB3d3cuZGlnaWNlcnQuY29tMSEwHwYDVQQDExhEaWdpQ2VydCBUcnVzdGVk
+# IFJvb3QgRzQwHhcNMjIwMzIzMDAwMDAwWhcNMzcwMzIyMjM1OTU5WjBjMQswCQYD
+# VQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xOzA5BgNVBAMTMkRpZ2lD
+# ZXJ0IFRydXN0ZWQgRzQgUlNBNDA5NiBTSEEyNTYgVGltZVN0YW1waW5nIENBMIIC
+# IjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAxoY1BkmzwT1ySVFVxyUDxPKR
+# N6mXUaHW0oPRnkyibaCwzIP5WvYRoUQVQl+kiPNo+n3znIkLf50fng8zH1ATCyZz
+# lm34V6gCff1DtITaEfFzsbPuK4CEiiIY3+vaPcQXf6sZKz5C3GeO6lE98NZW1Oco
+# LevTsbV15x8GZY2UKdPZ7Gnf2ZCHRgB720RBidx8ald68Dd5n12sy+iEZLRS8nZH
+# 92GDGd1ftFQLIWhuNyG7QKxfst5Kfc71ORJn7w6lY2zkpsUdzTYNXNXmG6jBZHRA
+# p8ByxbpOH7G1WE15/tePc5OsLDnipUjW8LAxE6lXKZYnLvWHpo9OdhVVJnCYJn+g
+# GkcgQ+NDY4B7dW4nJZCYOjgRs/b2nuY7W+yB3iIU2YIqx5K/oN7jPqJz+ucfWmyU
+# 8lKVEStYdEAoq3NDzt9KoRxrOMUp88qqlnNCaJ+2RrOdOqPVA+C/8KI8ykLcGEh/
+# FDTP0kyr75s9/g64ZCr6dSgkQe1CvwWcZklSUPRR8zZJTYsg0ixXNXkrqPNFYLwj
+# jVj33GHek/45wPmyMKVM1+mYSlg+0wOI/rOP015LdhJRk8mMDDtbiiKowSYI+RQQ
+# EgN9XyO7ZONj4KbhPvbCdLI/Hgl27KtdRnXiYKNYCQEoAA6EVO7O6V3IXjASvUae
+# tdN2udIOa5kM0jO0zbECAwEAAaOCAV0wggFZMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+# HQYDVR0OBBYEFLoW2W1NhS9zKXaaL3WMaiCPnshvMB8GA1UdIwQYMBaAFOzX44LS
+# cV1kTN8uZz/nupiuHA9PMA4GA1UdDwEB/wQEAwIBhjATBgNVHSUEDDAKBggrBgEF
+# BQcDCDB3BggrBgEFBQcBAQRrMGkwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRp
+# Z2ljZXJ0LmNvbTBBBggrBgEFBQcwAoY1aHR0cDovL2NhY2VydHMuZGlnaWNlcnQu
+# Y29tL0RpZ2lDZXJ0VHJ1c3RlZFJvb3RHNC5jcnQwQwYDVR0fBDwwOjA4oDagNIYy
+# aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0VHJ1c3RlZFJvb3RHNC5j
+# cmwwIAYDVR0gBBkwFzAIBgZngQwBBAIwCwYJYIZIAYb9bAcBMA0GCSqGSIb3DQEB
+# CwUAA4ICAQB9WY7Ak7ZvmKlEIgF+ZtbYIULhsBguEE0TzzBTzr8Y+8dQXeJLKftw
+# ig2qKWn8acHPHQfpPmDI2AvlXFvXbYf6hCAlNDFnzbYSlm/EUExiHQwIgqgWvalW
+# zxVzjQEiJc6VaT9Hd/tydBTX/6tPiix6q4XNQ1/tYLaqT5Fmniye4Iqs5f2MvGQm
+# h2ySvZ180HAKfO+ovHVPulr3qRCyXen/KFSJ8NWKcXZl2szwcqMj+sAngkSumScb
+# qyQeJsG33irr9p6xeZmBo1aGqwpFyd/EjaDnmPv7pp1yr8THwcFqcdnGE4AJxLaf
+# zYeHJLtPo0m5d2aR8XKc6UsCUqc3fpNTrDsdCEkPlM05et3/JWOZJyw9P2un8WbD
+# Qc1PtkCbISFA0LcTJM3cHXg65J6t5TRxktcma+Q4c6umAU+9Pzt4rUyt+8SVe+0K
+# XzM5h0F4ejjpnOHdI/0dKNPH+ejxmF/7K9h+8kaddSweJywm228Vex4Ziza4k9Tm
+# 8heZWcpw8De/mADfIBZPJ/tgZxahZrrdVcA6KYawmKAr7ZVBtzrVFZgxtGIJDwq9
+# gdkT/r+k0fNX2bwE+oLeMt8EifAAzV3C+dAjfwAL5HYCJtnwZXZCpimHCUcr5n8a
+# pIUP/JiW9lVUKx+A+sDyDivl1vupL0QVSucTDh3bNzgaoSv27dZ8/DCCBsIwggSq
+# oAMCAQICEAVEr/OUnQg5pr/bP1/lYRYwDQYJKoZIhvcNAQELBQAwYzELMAkGA1UE
+# BhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMTswOQYDVQQDEzJEaWdpQ2Vy
+# dCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hBMjU2IFRpbWVTdGFtcGluZyBDQTAeFw0y
+# MzA3MTQwMDAwMDBaFw0zNDEwMTMyMzU5NTlaMEgxCzAJBgNVBAYTAlVTMRcwFQYD
+# VQQKEw5EaWdpQ2VydCwgSW5jLjEgMB4GA1UEAxMXRGlnaUNlcnQgVGltZXN0YW1w
+# IDIwMjMwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCjU0WHHYOOW6w+
+# VLMj4M+f1+XS512hDgncL0ijl3o7Kpxn3GIVWMGpkxGnzaqyat0QKYoeYmNp01ic
+# NXG/OpfrlFCPHCDqx5o7L5Zm42nnaf5bw9YrIBzBl5S0pVCB8s/LB6YwaMqDQtr8
+# fwkklKSCGtpqutg7yl3eGRiF+0XqDWFsnf5xXsQGmjzwxS55DxtmUuPI1j5f2kPT
+# hPXQx/ZILV5FdZZ1/t0QoRuDwbjmUpW1R9d4KTlr4HhZl+NEK0rVlc7vCBfqgmRN
+# /yPjyobutKQhZHDr1eWg2mOzLukF7qr2JPUdvJscsrdf3/Dudn0xmWVHVZ1KJC+s
+# K5e+n+T9e3M+Mu5SNPvUu+vUoCw0m+PebmQZBzcBkQ8ctVHNqkxmg4hoYru8QRt4
+# GW3k2Q/gWEH72LEs4VGvtK0VBhTqYggT02kefGRNnQ/fztFejKqrUBXJs8q818Q7
+# aESjpTtC/XN97t0K/3k0EH6mXApYTAA+hWl1x4Nk1nXNjxJ2VqUk+tfEayG66B80
+# mC866msBsPf7Kobse1I4qZgJoXGybHGvPrhvltXhEBP+YUcKjP7wtsfVx95sJPC/
+# QoLKoHE9nJKTBLRpcCcNT7e1NtHJXwikcKPsCvERLmTgyyIryvEoEyFJUX4GZtM7
+# vvrrkTjYUQfKlLfiUKHzOtOKg8tAewIDAQABo4IBizCCAYcwDgYDVR0PAQH/BAQD
+# AgeAMAwGA1UdEwEB/wQCMAAwFgYDVR0lAQH/BAwwCgYIKwYBBQUHAwgwIAYDVR0g
+# BBkwFzAIBgZngQwBBAIwCwYJYIZIAYb9bAcBMB8GA1UdIwQYMBaAFLoW2W1NhS9z
+# KXaaL3WMaiCPnshvMB0GA1UdDgQWBBSltu8T5+/N0GSh1VapZTGj3tXjSTBaBgNV
+# HR8EUzBRME+gTaBLhklodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRU
+# cnVzdGVkRzRSU0E0MDk2U0hBMjU2VGltZVN0YW1waW5nQ0EuY3JsMIGQBggrBgEF
+# BQcBAQSBgzCBgDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+# MFgGCCsGAQUFBzAChkxodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNl
+# cnRUcnVzdGVkRzRSU0E0MDk2U0hBMjU2VGltZVN0YW1waW5nQ0EuY3J0MA0GCSqG
+# SIb3DQEBCwUAA4ICAQCBGtbeoKm1mBe8cI1PijxonNgl/8ss5M3qXSKS7IwiAqm4
+# z4Co2efjxe0mgopxLxjdTrbebNfhYJwr7e09SI64a7p8Xb3CYTdoSXej65CqEtcn
+# hfOOHpLawkA4n13IoC4leCWdKgV6hCmYtld5j9smViuw86e9NwzYmHZPVrlSwrad
+# OKmB521BXIxp0bkrxMZ7z5z6eOKTGnaiaXXTUOREEr4gDZ6pRND45Ul3CFohxbTP
+# mJUaVLq5vMFpGbrPFvKDNzRusEEm3d5al08zjdSNd311RaGlWCZqA0Xe2VC1UIyv
+# Vr1MxeFGxSjTredDAHDezJieGYkD6tSRN+9NUvPJYCHEVkft2hFLjDLDiOZY4rbb
+# PvlfsELWj+MXkdGqwFXjhr+sJyxB0JozSqg21Llyln6XeThIX8rC3D0y33XWNmda
+# ifj2p8flTzU8AL2+nCpseQHc2kTmOt44OwdeOVj0fHMxVaCAEcsUDH6uvP6k63ll
+# qmjWIso765qCNVcoFstp8jKastLYOrixRoZruhf9xHdsFWyuq69zOuhJRrfVf8y2
+# OMDY7Bz1tqG4QyzfTkx9HmhwwHcK1ALgXGC7KP845VJa1qwXIiNO9OzTF/tQa/8H
+# dx9xl0RBybhG02wyfFgvZ0dl5Rtztpn5aywGRu9BHvDwX+Db2a2QgESvgBBBijGC
+# BLEwggStAgEBMHgwZDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJ
+# bmMuMTwwOgYDVQQDEzNEaWdpQ2VydCBHbG9iYWwgRzMgQ29kZSBTaWduaW5nIEVD
+# QyBTSEEzODQgMjAyMSBDQTECEA4d6bA9JNWpeC+CBng09CwwDQYJYIZIAWUDBAIB
+# BQCggYQwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG9w0BCQMxDAYK
+# KwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIBFTAvBgkqhkiG
+# 9w0BCQQxIgQgxFo7tvuZh43sYEnNnWnmu3BLi1Yr5ON4X7iYPy96i0kwCwYHKoZI
+# zj0CAQUABGcwZQIxAKs3rF0KU6aksC0O0zuSXqf+P6AT2KXcUvlw/hHKt44FO3U4
+# OEbHi7GcTe2xQjZ3rQIwTfn2viwC96Oxpr7hh60rZ9M/QbixshCLLe848KndaHlS
+# VHRUckbgCBuP0R7AsDGFoYIDIDCCAxwGCSqGSIb3DQEJBjGCAw0wggMJAgEBMHcw
+# YzELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDkRpZ2lDZXJ0LCBJbmMuMTswOQYDVQQD
+# EzJEaWdpQ2VydCBUcnVzdGVkIEc0IFJTQTQwOTYgU0hBMjU2IFRpbWVTdGFtcGlu
+# ZyBDQQIQBUSv85SdCDmmv9s/X+VhFjANBglghkgBZQMEAgEFAKBpMBgGCSqGSIb3
+# DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI0MDEyNDIwMDQwMFow
+# LwYJKoZIhvcNAQkEMSIEILHXahCPIHBIUIEF3u5J15UFt06+OVfr9p4kp1h0zGpN
+# MA0GCSqGSIb3DQEBAQUABIICAAvqotRa+SqeKWWV0J9q3BBVSUic8TBgEdX96tQ6
+# g9+RFA8QCK91SDEymT23drBNH/XNZ53CND+Vq6g/RZH4mHmY7qdOIwdE2W3Pu0HT
+# Qr7TGCPzcc/lyj/qWbibln/1355oKr8SUsSnYQWPeMSnIKsB5VVWQKbssAs+gtfR
+# Iwi4QNHNK6Xd9nJ0A8OghIPrtOjuDRnG3kwVxIXOwh7Gu1BTI2Sv3pP+KBTlN5Qm
+# 42c/yWoDXnTdNIYmE+V3g2eibXX/CdHqsH9BSJroTkQF25OSFWktwxq/B08T84ux
+# usl5sldsFYa5tANzfXyeb2DQ3VPSUept82NBpshP+X++y3i+U1JlKnIB/mRVoPFb
+# AMNJcRVcSXXGmjItuD+TQlj/YR9GT+mKE4O1tt704m/gURWKs1gLpEX+pTzhfbDy
+# D6cJnpO0HAyLUVKB5UmYOam/mntT4LEnG5wcg/ZcJOY45/an1+Cvf3J/iCtacfsv
+# jBU8CN0L1Yidnm6k0lAAWlla+/ok4WQbEjdso4ZEuYJlQWpGHAkbZfoRgrdp0Nq/
+# TSVR8Ngwx46xeU/WskeJtankw1xGa+xIWnofLN3YyyOXFIBnYu4AIuvp8n68nWse
+# dX6ogSfN37/hQsv+PVVNaqEKwmmFl8vv1LHUF9eRelnBwAjWu/GCXkLrAboIn2yR
+# CoJw
+# SIG # End signature block

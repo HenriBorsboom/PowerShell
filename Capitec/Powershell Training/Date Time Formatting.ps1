@@ -1,0 +1,1 @@
+﻿$Result = '{0:dd-MM-yyyy HH:mm:ss}' -f (Get-ADComputer $Server -Properties LastLogonDate).LastLogonDate

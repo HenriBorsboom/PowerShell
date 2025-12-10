@@ -1,0 +1,155 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">PureStoragePowerShellToolkit.Exchange</S>
+      <Version N="Version">3.0.1</Version>
+      <S N="Type">Module</S>
+      <S N="Description">PowerShell Toolkit for Pure Storage Flasharray and Initiators.</S>
+      <S N="Author">Pure Storage</S>
+      <Obj N="CompanyName" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>barkz</S>
+          <S>mnelson-pure</S>
+        </LST>
+      </Obj>
+      <S N="Copyright">(c) 2023 Pure Storage, Inc. All rights reserved.</S>
+      <DT N="PublishedDate">2023-06-28T15:50:57+02:00</DT>
+      <Obj N="InstalledDate" RefId="2">
+        <DT>2024-01-25T07:58:32.4837676+02:00</DT>
+        <MS>
+          <Obj N="DisplayHint" RefId="3">
+            <TN RefId="2">
+              <T>Microsoft.PowerShell.Commands.DisplayHintType</T>
+              <T>System.Enum</T>
+              <T>System.ValueType</T>
+              <T>System.Object</T>
+            </TN>
+            <ToString>DateTime</ToString>
+            <I32>2</I32>
+          </Obj>
+        </MS>
+      </Obj>
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/PureStorage-OpenConnect/PowerShell-Toolkit/blob/dev/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/PureStorage-OpenConnect/PowerShell-Toolkit</URI>
+      <URI N="IconUri">https://github.com/PureStorage-OpenConnect/PowerShell-Toolkit/blob/dev/Installer/icon.ico</URI>
+      <Obj N="Tags" RefId="4">
+        <TNRef RefId="1" />
+        <LST>
+          <S>PureStorage</S>
+          <S>PowerShell</S>
+          <S>FlashArray</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="5">
+        <TN RefId="3">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Obj N="Value" RefId="6">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="6" />
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="7">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Get-Pfa2ExchangeBackup</S>
+                <S>New-Pfa2ExchangeBackup</S>
+                <S>Remove-Pfa2ExchangeBackup</S>
+                <S>Restore-Pfa2ExchangeBackup</S>
+                <S>Enter-Pfa2ExchangeBackupExposeSession</S>
+                <S>Mount-Pfa2ExchangeBackup</S>
+                <S>Dismount-Pfa2ExchangeBackup</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="6" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="6" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="8">
+              <TNRef RefId="1" />
+              <LST>
+                <S>Get-Pfa2ExchangeBackup</S>
+                <S>New-Pfa2ExchangeBackup</S>
+                <S>Remove-Pfa2ExchangeBackup</S>
+                <S>Restore-Pfa2ExchangeBackup</S>
+                <S>Enter-Pfa2ExchangeBackupExposeSession</S>
+                <S>Mount-Pfa2ExchangeBackup</S>
+                <S>Dismount-Pfa2ExchangeBackup</S>
+              </LST>
+            </Obj>
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">https://github.com/PureStorage-OpenConnect/powershell-toolkit/dev/main/CHANGELOG.md</S>
+      <Obj N="Dependencies" RefId="9">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="10">
+        <TN RefId="4">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) 2023 Pure Storage, Inc. All rights reserved.</S>
+          <S N="description">PowerShell Toolkit for Pure Storage Flasharray and Initiators.</S>
+          <S N="requireLicenseAcceptance">True</S>
+          <S N="releaseNotes">https://github.com/PureStorage-OpenConnect/powershell-toolkit/dev/main/CHANGELOG.md</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">599</S>
+          <S N="downloadCount">599</S>
+          <S N="packageSize">19824</S>
+          <S N="published">28/06/2023 03:50:57 PM +02:00</S>
+          <S N="created">28/06/2023 03:50:57 PM +02:00</S>
+          <S N="lastUpdated">24/01/2024 12:56:30 PM +02:00</S>
+          <S N="tags">PureStorage PowerShell FlashArray PSModule PSFunction_Get-Pfa2ExchangeBackup PSCommand_Get-Pfa2ExchangeBackup PSFunction_New-Pfa2ExchangeBackup PSCommand_New-Pfa2ExchangeBackup PSFunction_Remove-Pfa2ExchangeBackup PSCommand_Remove-Pfa2ExchangeBackup PSFunction_Restore-Pfa2ExchangeBackup PSCommand_Restore-Pfa2ExchangeBackup PSFunction_Enter-Pfa2ExchangeBackupExposeSession PSCommand_Enter-Pfa2ExchangeBackupExposeSession PSFunction_Mount-Pfa2ExchangeBackup PSCommand_Mount-Pfa2ExchangeBackup PSFunction_Dismount-Pfa2ExchangeBackup PSCommand_Dismount-Pfa2ExchangeBackup PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2024-01-24T12:56:30Z</S>
+          <S N="NormalizedVersion">3.0.1</S>
+          <S N="Authors">Pure Storage</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">PureStoragePowerShellToolkit.Exchange.nuspec|LICENSE|PureStoragePowerShellToolkit.Exchange.format.ps1xml|PureStoragePowerShellToolkit.Exchange.psm1|PureStoragePowerShellToolkit.Exchange.types.ps1xml|PureStoragePowerShellToolkit.Exchange.psd1</S>
+          <S N="GUID">3dee8d25-a73a-4566-bffd-7c116e58d148</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="CompanyName">Pure Storage, Inc.</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\Modules\PureStoragePowerShellToolkit.Exchange\3.0.1</S>
+    </MS>
+  </Obj>
+</Objs>

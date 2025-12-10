@@ -1,0 +1,7 @@
+# Connect to NGINXIBTST02 server using a password
+open sss192.168.101.40 -username=root -password=&&v%p@dd!nGT0nB3@r
+cd /etc/nginx/conf.d
+get * C:\Users\HBorsboom\Documents\Nginx\NGINXIBTST02\
+close
+exit
+

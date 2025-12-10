@@ -1,0 +1,206 @@
+Param (
+    [Parameter(Mandatory=$false, Position=1)]
+    [Switch] $Simple, `
+    [Parameter(Mandatory=$false, Position=1)]
+    [Switch] $Mail)
+Function Split-String {
+    Param (
+        [Parameter(Mandatory=$True, Position=1)]
+        [String] $VMMUserID)
+    $Separator = "_"
+    $Option = [System.StringSplitOptions]::RemoveEmptyEntries
+    $IDSplit = $VMMUserID.Split($Separator,2, $Option)
+    $SQLUserID = $IDSplit[0]
+    Return $SQLUserID
+}
+Function Query-SQL {
+    Param (
+        [Parameter(Mandatory=$True, Position=1)]
+        [String] $Query)
+
+    $DataSource = "NRAZUREDBSQ107\NRAZUREDBSQ107"
+    $Database = "Microsoft.MgmtSvc.Store"
+    $ConnectionString = "Server=NRAZUREDBSQ107\NRAZUREDBSQ107;Database=Microsoft.MgmtSvc.Store;Integrated Security=True;"
+    $Connection = New-Object System.Data.SqlClient.SqlConnection
+    $Connection.ConnectionString = $ConnectionString
+    $Connection.Open()
+    $Command = $Connection.CreateCommand()
+    Try {
+        $Command.CommandText = $Query
+        $Result = $Command.ExecuteReader()
+        $Table = New-Object “System.Data.DataTable”
+        $Table.Load($Result)
+        Return $Table
+    }
+    Catch { Return $null }
+}
+Function Count-TenantVMs {
+    Param (
+        [Parameter(Mandatory=$True,Position=1)]
+        [Object] $VMs, `
+        [Parameter(Mandatory=$True,Position=2)]
+        [String] $UserRoleIDGUID)
+    
+    $TotalVMs    = @()
+    $TotalVMCPU  = 0
+    $TotalVMRAM  = 0
+    $TotalVMDisk = 0
+
+    ForEach ($VM in $VMs) {
+        If ($VM.UserRole.ID -eq $UserRole.ID.Guid) { 
+            $TotalVMs   = $TotalVMs + $VM
+            $TotalVMCPU = $TotalVMCPU + $VM.CPUCount
+            $TotalVMRAM = $TotalVMRAM + [Math]::Round($VM.Memory/1024)
+            ForEach ($Disk in $VM.VirtualHardDisks) {
+                $TotalVMDisk = $TotalVMDisk + [Math]::Round($Disk.Size/1024/1024/1024)
+            }
+        }
+    }
+    
+    $TenantVMResults = New-Object PSObject
+    $TenantVMResults | Add-Member -MemberType NoteProperty -Name "TotalVMs"    -Value $TotalVMs
+    $TenantVMResults | Add-Member -MemberType NoteProperty -Name "TotalVMCPU"  -Value $TotalVMCPU
+    $TenantVMResults | Add-Member -MemberType NoteProperty -Name "TotalVMRAM"  -Value $TotalVMRAM
+    $TenantVMResults | Add-Member -MemberType NoteProperty -Name "TotalVMDisk" -Value $TotalVMDisk
+    
+    Return $TenantVMResults
+}
+Function Delete-TempFiles {
+    Del c:\temp\tenants.csv   -ErrorAction SilentlyContinue
+    Del C:\temp\tenantvms\*.* -ErrorAction SilentlyContinue
+    Del C:\Temp\Tenants.htm   -ErrorAction SilentlyContinue
+}
+Function Get-TimeStampOutputFile {
+    Param (
+        [Parameter(Mandatory=$true, Position=1)]
+        [String] $TargetLocation, `
+        [Parameter(Mandatory=$true, Position=2)]
+        [String] $Extension, `
+        [Parameter(Mandatory=$false, Position=3)]
+        [Switch] $VariableName, `
+        [Parameter(Mandatory=$false, Position=4)]
+        [String] $Name)
+
+    Switch ($VariableName) {
+        $True  { $OutputFile = $TargetLocation + "\" + $Name + " - " + $([DateTime]::Now.ToString('dd-MM-yyyy')) + "." + $Extension }
+        $False { $OutputFile = $TargetLocation + $([DateTime]::Now.ToString('dd-MM-yyyy')) + $Extension }
+    }
+    Return $OutputFile
+}
+Function Send-Report {
+    Param (
+        [Parameter(Mandatory=$true, Position=1)]
+        [String[]] $To, `
+        [Parameter(Mandatory=$true, Position=2)]
+        [String]   $From, `
+        [Parameter(Mandatory=$true, Position=3)]
+        [String]   $Subject, `
+        [Parameter(Mandatory=$false,Position=4)]
+        [String[]] $Body, `
+        [Parameter(Mandatory=$false,Position=54)]
+        [String[]] $Attachments)
+        
+    $SMTPServer = "10.10.16.146"
+    $Message = New-Object System.Net.Mail.MailMessage # ($From, $To)
+    $Message.From = $From
+    ForEach ($EmailRecipient in $To) { $Message.To.Add($EmailRecipient) }
+    $Message.Subject = $Subject
+    $Message.IsBodyHTML = $true
+    $Message.Body = $Body
+    ForEach ($Attachment in $Attachments) { $Message.Attachments.Add($Attachment) }
+        
+    $SMTP = New-Object Net.Mail.SmtpClient($smtpServer)
+    $SMTP.Send($Message)
+}
+Function Generate-TenantReport {
+    Param (
+        [Parameter(Mandatory=$True ,Position=1)]
+        [Object[]] $VirtualMachines, `
+        [Parameter(Mandatory=$True ,Position=2)]
+        [Object[]] $UserRoles, `
+        [Parameter(Mandatory=$false,Position=3)]
+        [Switch] $Simple, `
+        [Parameter(Mandatory=$false,Position=4)]
+        [Switch] $Launch, `
+        [Parameter(Mandatory=$true, Position=5)]
+        [String] $HTMLFile)
+
+    $HTMLHeader="<style>                                               
+    BODY{font-family: Arial; font-size: 8pt;}                                              
+    H1{font-size: 16px;}                                               
+    H2{font-size: 14px;}                                               
+    H3{font-size: 12px;}                                               
+    TABLE{border: 1px solid black; border-collapse: collapse; font-size: 8pt;}                                         
+    TH{border: 1px solid black; background: #dddddd; padding: 5px; color: #000000;}                                           
+    TD{border: 1px solid black; padding: 5px; }                                            
+    td.pass{background: #7FFF00;}                                             
+    td.warn{background: #FFE600;}                                             
+    td.fail{background: #FF0000; color: #ffffff;}                                          
+    </style>"
+    $HTMLBody = "<H2>Windows Azure Pack Tenants</H2>"
+    $TotalTenants = @()
+    ForEach ($UserRole in $UserRoles) {
+        If ($UserRole.UserRoleProfile -eq "TenantAdmin") {
+            $TotalVMResults =     Count-TenantVMs -VMs $VMs -UserRoleIDGUID $UserRole.ID.Guid
+            $VMMUserID =          Split-String -VMMUserID $UserRole.Name
+            $WAPUserEmail =      (Query-SQL -Query "Select ID,Name,Email from mp.Users Where Name LIKE '%$VMMUserID%'").Email
+            $WAPUserID =         (Query-SQL -Query "Select ID,Name,Email from mp.Users Where Name LIKE '%$VMMUserID%'").ID
+            $WAPSubscriptionID = (Query-SQL -Query "Select ID,SubscriptionID,SubScriptionName,UserID From mp.Subscriptions Where UserId = '$WAPUserID'").ID
+            $WAPCoAdmins =        Query-SQL -Query "Select Username from mp.SubscriptionCoAdmins where SubscriptionId = '$WAPSubscriptionID'"
+            $WAPCoAdminsCount =   $WAPCoAdmins.Username.Count
+            $WAPCoAdminUsers =    $WAPCoAdmins.Username
+            $Tenants =            New-Object PSObject -Property @{
+                "Cloud Name"    = $UserRole.Cloud.Name;
+                "Username"     = $UserRole.Name;
+                "User ID"       = $UserRole.ID.Guid;
+                "VM Count"      = $TotalVMResults.TotalVMs.Count;
+                "VM CPU"        = $TotalVMResults.TotalVMCPU;
+                "VM RAM (GB)"        = $TotalVMResults.TotalVMRAM;
+                "VM Disk (GB)"       = $TotalVMResults.TotalVMDisk;
+                "Co Admin"      = $WAPCoAdminUsers -join ';'
+                "Co Admin Count" = $WAPCoAdminsCount;
+                "Odin Email"    = $WAPUserEmail;
+            }
+        }
+        $TotalTenants = $TotalTenants + $Tenants
+    }
+    Switch ($Simple) {
+        $True  { $TotalTenants = $TotalTenants | Sort "Cloud Name" | Select "Odin Email","Co Admin","VM Count","VM CPU","VM RAM (GB)","VM Disk (GB)","Cloud Name"}
+        $False { $TotalTenants = $TotalTenants | Sort "Cloud Name" | Select "Odin Email","Co Admin Count","Co Admin","VM Count","VM CPU","VM RAM (GB)","VM Disk (GB)","Cloud Name","Username","User ID" }
+    }
+    $HTMLOutputFile = $TotalTenants | ConvertTo-HTML -head $HTMLHeader -Body $HTMLBody
+    $HTMLOutputFile | Out-File $HTMLFile
+    Switch ($Launch) { $True { Invoke-Expression $HTMLFile } }
+    Return $HTMLOutputFile
+}
+
+Clear-Host
+
+$HTMLFile = Get-TimeStampOutputFile -TargetLocation "C:\Temp\TenantReports" -Extension "HTML" -VariableName -Name "Tenants"
+$Date = $([DateTime]::Now.ToString('dd-MM-yyyy'))
+
+Write-Host "Retrieving Virtual Machines from Virtual Machine Manager - " -NoNewline
+    $VMs = Get-SCVirtualMachine -All
+Write-Host "Complete" -ForegroundColor Green
+Write-Host "Retrieving User Roles from Virtual Machine Manager - " -NoNewline
+    $UserRoles = Get-SCUserRole
+Write-Host "Complete" -ForegroundColor Green
+
+
+Switch ($Simple) {
+    $True  { $TenantReport = Generate-TenantReport -Simple -VirtualMachines $VMs -UserRoles $UserRoles -HTMLFile $HTMLFile }
+    $False { $TenantReport = Generate-TenantReport -VirtualMachines $VMs -UserRoles $UserRoles -HTMLFile $HTMLFile }
+}
+Switch ($Mail) { 
+    $True  { 
+        $EmailRecipients = @(
+            "henri.borsboom@company.com", `
+            "darrel.wright@company.com", `
+            "henk.roux@company.com", `
+            "andre.mills@company.com", `
+            "jorge.esilva@company.com")
+        $EmailAttachments = @(
+            $HTMLFile)
+        Send-Report -To $EmailRecipients -From "reports@domain1.local" -Subject "WAP Tenant Report - $Date" -Body $TenantReport -Attachments $EmailAttachments
+    } 
+}

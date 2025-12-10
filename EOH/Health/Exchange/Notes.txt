@@ -1,0 +1,2 @@
+[08:18] Drikus Visser
+    Morning Henri, in the .zip file there is a dir called Test-ExchangeServerHealth, extract die zip file to c:\scripts on an exchange server and run from exchange powershell or windows powershell 

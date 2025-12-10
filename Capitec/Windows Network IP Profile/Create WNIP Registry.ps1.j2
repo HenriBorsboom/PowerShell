@@ -1,0 +1,73 @@
+# 'HKEY_LOCAL_MACHINE\SOFTWARE\WNIP
+$ErrorActionPreference = 'Stop'
+
+# Create Registry folder structure
+If (-not (Test-Path HKLM:\Software\WNIP)) {
+    New-Item HKLM:\Software\WNIP -ItemType Directory
+}
+If (-not (Test-Path HKLM:\Software\WNIP\BLIS)) {
+    New-Item HKLM:\Software\WNIP\BLIS -ItemType Directory
+}
+If (-not (Test-Path HKLM:\Software\WNIP\BFTC)) {
+    New-Item HKLM:\Software\WNIP\BFTC -ItemType Directory
+}
+
+# Create BLIS IP configuration
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'IP'
+    Set-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'IP' -Value {{ blis_ip }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'IP' -Value {{ blis_ip }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'SubnetMask'
+    Set-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'SubnetMask' -Value {{ blis_subnet }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'SubnetMask' -Value {{ blis_subnet }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'Gateway'
+    Set-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'Gateway' -Value {{ blis_gateway }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'Gateway' -Value {{ blis_gateway }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'DNS'
+    Set-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'DNS' -Value {{ blis_dns }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BLIS -Name 'DNS' -Value {{ blis_dns }} -PropertyType String
+}
+
+# Create BFTC IP configuration
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'IP'
+    Set-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'IP' -Value {{ bftc_ip }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'IP' -Value {{ bftc_ip }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'SubnetMask'
+    Set-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'SubnetMask' -Value {{ bftc_subnet }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'SubnetMask' -Value {{ bftc_subnet }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'Gateway'
+    Set-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'Gateway' -Value {{ bftc_gateway }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'Gateway' -Value {{ bftc_gateway }} -PropertyType String
+}
+Try {
+    Get-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'DNS'
+    Set-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'DNS' -Value {{ bftc_dns }}
+}
+Catch {
+    New-ItemProperty HKLM:\Software\WNIP\BFTC -Name 'DNS' -Value {{ bftc_dns }} -PropertyType String
+}

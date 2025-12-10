@@ -1,0 +1,150 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">Microsoft.OSConfig</S>
+      <S N="Version">0.0.4-preview</S>
+      <Obj N="Type" RefId="1">
+        <TN RefId="1">
+          <T>Microsoft.PowerShell.PSResourceGet.UtilClasses.ResourceType</T>
+          <T>System.Enum</T>
+          <T>System.ValueType</T>
+          <T>System.Object</T>
+        </TN>
+        <ToString>Module</ToString>
+        <I32>1</I32>
+      </Obj>
+      <S N="Description">OSConfig for PowerShell is a module designed to help administrators manage desired configuration for the Windows operating system.</S>
+      <S N="Author">Microsoft Corporation</S>
+      <S N="CompanyName">Microsoft Corporation</S>
+      <S N="Copyright">Microsoft Corporation. All rights reserved.</S>
+      <DT N="PublishedDate">2024-03-12T19:07:41.45</DT>
+      <DT N="InstalledDate">2024-04-09T14:54:41.5540896+02:00</DT>
+      <B N="IsPrerelease">true</B>
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://raw.githubusercontent.com/microsoft/repo-templates/main/shared/LICENSE</URI>
+      <Nil N="ProjectUri" />
+      <URI N="IconUri">https://raw.githubusercontent.com/Azure/vscode-osconfig/main/images/osconfig-300.png</URI>
+      <Obj N="Tags" RefId="2">
+        <TN RefId="2">
+          <T>System.String[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>PSModule</S>
+          <S>PSCmdlet_Get-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Get-OSConfigScenarioDefinition</S>
+          <S>PSCmdlet_Get-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Get-OSConfigDesiredConfiguration</S>
+          <S>PSCmdlet_Install-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Install-OSConfigScenarioDefinition</S>
+          <S>PSCmdlet_Remove-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Remove-OSConfigDesiredConfiguration</S>
+          <S>PSCmdlet_Set-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Set-OSConfigDesiredConfiguration</S>
+          <S>PSCmdlet_Uninstall-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Uninstall-OSConfigScenarioDefinition</S>
+          <S>PSIncludes_Cmdlet</S>
+          <S>PSFunction_Get-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Get-OSConfigDesiredConfiguration</S>
+          <S>PSFunction_Get-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Get-OSConfigScenarioDefinition</S>
+          <S>PSFunction_Install-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Install-OSConfigScenarioDefinition</S>
+          <S>PSFunction_Remove-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Remove-OSConfigDesiredConfiguration</S>
+          <S>PSFunction_Set-OSConfigDesiredConfiguration</S>
+          <S>PSCommand_Set-OSConfigDesiredConfiguration</S>
+          <S>PSFunction_Uninstall-OSConfigScenarioDefinition</S>
+          <S>PSCommand_Uninstall-OSConfigScenarioDefinition</S>
+          <S>PSIncludes_Function</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="3">
+        <TN RefId="3">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">Function</S>
+            <Nil N="Value" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Nil N="Value" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="4">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-OSConfigScenarioDefinition</S>
+                <S>Get-OSConfigDesiredConfiguration</S>
+                <S>Install-OSConfigScenarioDefinition</S>
+                <S>Remove-OSConfigDesiredConfiguration</S>
+                <S>Set-OSConfigDesiredConfiguration</S>
+                <S>Uninstall-OSConfigScenarioDefinition</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-OSConfigScenarioDefinition</S>
+                <S>Get-OSConfigDesiredConfiguration</S>
+                <S>Install-OSConfigScenarioDefinition</S>
+                <S>Remove-OSConfigDesiredConfiguration</S>
+                <S>Set-OSConfigDesiredConfiguration</S>
+                <S>Uninstall-OSConfigScenarioDefinition</S>
+                <S>Get-OSConfigDesiredConfiguration</S>
+                <S>Get-OSConfigScenarioDefinition</S>
+                <S>Install-OSConfigScenarioDefinition</S>
+                <S>Remove-OSConfigDesiredConfiguration</S>
+                <S>Set-OSConfigDesiredConfiguration</S>
+                <S>Uninstall-OSConfigScenarioDefinition</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Nil N="Value" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Obj N="Value" RefId="6">
+              <TNRef RefId="2" />
+              <LST />
+            </Obj>
+          </En>
+        </DCT>
+      </Obj>
+      <S N="PowerShellGetFormatVersion"></S>
+      <S N="ReleaseNotes"></S>
+      <Obj N="Dependencies" RefId="7">
+        <TN RefId="4">
+          <T>Microsoft.PowerShell.PSResourceGet.UtilClasses.Dependency[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <Obj N="AdditionalMetadata" RefId="8">
+        <TNRef RefId="0" />
+        <MS>
+          <S N="NormalizedVersion">0.0.4-preview</S>
+          <S N="IsPrerelease">True</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\Modules</S>
+    </MS>
+  </Obj>
+</Objs>

@@ -1,0 +1,9 @@
+# Connect to NGINXAPTST01 server using a password
+open 10.10.161.15 -username=root -password=&&v%p@dd!nGT0nB3@r
+cd /etc/nginx/conf.d
+get * C:\Users\HBorsboom\Documents\Nginx\NGINXAPTST01\
+close
+exit
+
+
+

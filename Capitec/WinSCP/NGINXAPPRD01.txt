@@ -1,0 +1,6 @@
+# Connect to NGINXAPPRD01 server using a password
+open 10.10.160.53 -username=root -password=&&v%p@dd!nGT0nB3@r
+cd /etc/nginx/conf.d
+get * C:\Users\HBorsboom\Documents\Nginx\NGINXAPPRD01\
+close
+exit

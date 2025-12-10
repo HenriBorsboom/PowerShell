@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.4 Chrome/138.0.7204.97 Electron/37.2.1 Safari/537.36" version="28.0.4">
+  <diagram name="Page-1" id="822b0af5-4adb-64df-f703-e8dfc1f81529">
+    <mxGraphModel dx="325" dy="811" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11j8Esc2_wuRgqWxMCcf-1" target="11j8Esc2_wuRgqWxMCcf-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-1" value="Domain Controller" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.directory_server;" vertex="1" parent="1">
+          <mxGeometry x="1618" width="65" height="88.5" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11j8Esc2_wuRgqWxMCcf-10" target="11j8Esc2_wuRgqWxMCcf-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-2" value="Ansible" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.radius_server;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="380" width="75.5" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-3" value="Jump" style="verticalLabelPosition=bottom;sketch=0;aspect=fixed;html=1;verticalAlign=top;strokeColor=none;align=center;outlineConnect=0;shape=mxgraph.citrix.provisioning_server;" vertex="1" parent="1">
+          <mxGeometry x="1612.5" y="382" width="76" height="87" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11j8Esc2_wuRgqWxMCcf-2" target="11j8Esc2_wuRgqWxMCcf-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1326" y="424" as="sourcePoint" />
+            <mxPoint x="1613" y="426" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-10" value="WinRM HTTPS&lt;div&gt;Service Account&lt;/div&gt;" style="html=1;whiteSpace=wrap;container=1;recursiveResize=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="390.5" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-11" value="" style="triangle;html=1;whiteSpace=wrap;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-10">
+          <mxGeometry x="20" y="20" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-13" value="JEA&lt;div&gt;Set-TTLDNSA&lt;/div&gt;&lt;div&gt;Set-TTLDNSCNAME&lt;/div&gt;" style="label;whiteSpace=wrap;html=1;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+          <mxGeometry x="1560.5" y="140" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11j8Esc2_wuRgqWxMCcf-15" target="11j8Esc2_wuRgqWxMCcf-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="11j8Esc2_wuRgqWxMCcf-15" target="11j8Esc2_wuRgqWxMCcf-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-15" value="&lt;div&gt;Set-TTLDNSA&lt;/div&gt;&lt;div&gt;Set-TTLDNSCname&lt;/div&gt;" style="html=1;whiteSpace=wrap;container=1;recursiveResize=0;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="260" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-16" value="" style="triangle;html=1;whiteSpace=wrap;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-15">
+          <mxGeometry x="20" y="20" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-20" value="Jump Config" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1510.75" y="500" width="279.5" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-21" value="Loca Administrator" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-20">
+          <mxGeometry y="26" width="279.5" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-22" value="Locked down so no log on locally" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-20">
+          <mxGeometry y="52" width="279.5" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-23" value="Script only accessible to service account" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-20">
+          <mxGeometry y="78" width="279.5" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-24" value="Domain controller" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="10" width="420" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-25" value="JEA PSSession configured for DNS Delegation module" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-24">
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-26" value="Custom DNS Delegation module exposing only two functions" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-24">
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="11j8Esc2_wuRgqWxMCcf-27" value="Service account only has Execute permission" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="11j8Esc2_wuRgqWxMCcf-24">
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

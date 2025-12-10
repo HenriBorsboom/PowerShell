@@ -1,0 +1,7 @@
+# Connect to NGINXPRD02 server using a password
+open 192.168.101.36 -username=root -password=&&v%p@dd!nGT0nB3@r
+cd /etc/nginx/conf.d
+get * C:\Users\HBorsboom\Documents\Nginx\NGINXPRD02\
+close
+exit
+

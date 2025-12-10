@@ -1,0 +1,9 @@
+@{
+  GUID             = '1efadda0-838e-4739-9ab0-795cd0aff6b6'
+  Author           = 'Henri'
+  CompanyName      = 'Capitec Bank Ltd'
+  ModuleVersion    = '1.0.0.1'
+  VisibleFunctions = @('Set-DnsTtlA','Set-DnsTtlCNAME')
+  ModulesToImport  = @('DnsServer','DnsDelegation'
+  )
+}

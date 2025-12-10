@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<Settings>
+    <EmailSettings>
+        <SMTPServer>smtp.exchangeserverpro.net</SMTPServer>
+        <SMTPPort>25</SMTPPort>
+        <MailFrom>exchangeserver@exchangeserverpro.net</MailFrom>
+        <MailTo>administrator@exchangeserverpro.net</MailTo>
+    </EmailSettings>
+    <OtherSettings>
+        <Setting1></Setting1>
+        <Setting2></Setting2>
+    </OtherSettings>
+</Settings>

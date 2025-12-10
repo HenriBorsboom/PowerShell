@@ -1,0 +1,9 @@
+krb5-user needs to be installed on ansible control host
+    sudo apt install krb5-user -y
+
+Update environment variable for the proxy and exclusions
+    sudo vi /etc/environment
+    HTTP_PROXY=http://zproxy.cloud.capinet:9480
+    HTTPS_PROXY=http://zproxy.cloud.capinet:9480
+    FTP_PROXY=http://zproxy.cloud.capinet:9480
+    NO_PROXY=127.0.0.1,localhost,jumpuname.ansible.local

@@ -1,0 +1,60 @@
+$ErrorActionPreference = 'Stop'
+
+Function Remove-NTFSInheritance {
+    Param (
+        [Parameter(Mandatory=$False, Position=1)]
+        [String] $TopSource = '',
+        [Parameter(Mandatory=$False, Position=2)]
+        [Boolean] $LoggingEnabled = $False
+    )
+
+    If ($TopSource = '') {
+        $TopSource = (Get-Location).Path
+    }
+
+    Write-Output ('Getting folders under ' + $TopSource)
+    $SubSource = Get-ChildItem $TopSource
+    Write-Output ($SubSource.Count.ToString() + ' found')
+
+    Switch ($LoggingEnabled) {
+        $True {
+            $SuccessFile = 'C:\Temp\Henri\iCapitec_Success.csv'
+            ("""Fullname"";""State""") | Out-File $SuccessFile -Encoding ascii
+            $ErrorFile = 'C:\Temp\Henri\iCapitec_Errors.csv'
+            ("""Fullname"";""Error""") | Out-File $ErrorFile -Encoding ascii
+        }
+    }
+
+    For ($i = 0; $i -lt $SubSource.Count; $i ++) {
+        Write-Output ($i.ToString() + '/' + $SubSource.Count.ToString() + ' - Getting ACL from ' + $SubSource[$i].FullName)
+        Try {
+            $ACL = Get-Acl -Path $SubSource[$i].FullName
+            $ACL.SetAccessRuleProtection($true,$true)
+            Write-Host ('|- Disabling inheritance and converting to explicit - ') -NoNewline
+            Set-Acl -Path $SubSource[$i].FullName -AclObject $ACL
+            Write-Host ('Complete')
+            Switch ($LoggingEnabled) {
+                $True {
+                    ("""" + $SubSource[$i].FullName + """;""Complete""") | Out-File $SuccessFile -Encoding ascii -Append
+                }
+                False {
+                    Write-Output ('Complete')
+                }
+            }
+            
+        }
+        Catch {
+            Switch ($LoggingEnabled) {
+                $True {
+                    ("""" + $SubSource[$i].FullName + """;""" + $_ + """") | Out-File $ErrorFile -Encoding ascii -Append
+                }
+                False {
+                    Write-Output ($_)
+                }
+            }
+        }
+    }
+}
+
+#Remove-NTFSInheritance -TopSource 'D:\myICapitec\iCapitec'
+Remove-NTFSInheritance

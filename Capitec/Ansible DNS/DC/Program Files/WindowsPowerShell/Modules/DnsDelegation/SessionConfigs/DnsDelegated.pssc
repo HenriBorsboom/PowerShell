@@ -1,0 +1,12 @@
+@{
+  SchemaVersion             = '2.0.0.0'
+  SessionType               = 'RestrictedRemoteServer'
+  RunAsVirtualAccount       = $true
+  RunAsVirtualAccountGroups = 'DNSAdmins'
+  LanguageMode              = 'ConstrainedLanguage'
+  RoleDefinitions = @{
+    's_draas_dns_prod@ANSIBLE.LOCAL' = @{
+      RoleCapabilities = 'DnsDelegated'
+    }
+  }
+}

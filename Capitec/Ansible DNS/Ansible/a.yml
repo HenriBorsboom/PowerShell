@@ -1,0 +1,25 @@
+---
+- name: "Hop through Jump01 to Update DNS"
+  hosts: lab_jump
+  gather_facts: no
+
+  # The zone details is the top level DNS zone where the record is located
+  # The record_name is only the name that resides in the top level domain.
+  # For example the FQDN is composed of the record_name + zone
+  # The TTL is required and specified in seconds
+  # This only works on A records
+
+  vars:
+    zone:         'bank.local'
+    record_name:  'mydummyhost'
+    ttl_seconds:  '60'
+
+  tasks:
+    - name: Execute Set-DNSTTLA on labadexternal via Jump01
+      ansible.windows.win_command: >
+        powershell.exe -NoProfile -ExecutionPolicy Bypass -File C:\scripts\Set-DNSTTLA.ps1 -Zone {{ zone }} -Name {{ record_name }} -TTL {{ ttl_seconds }}
+      register: result
+
+    - name: Show the output
+      ansible.builtin.debug:
+        var: result.stdout_lines

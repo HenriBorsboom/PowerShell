@@ -1,0 +1,1 @@
+ForEach ($Cluster in (Get-Cluster -Domain domain2.local)) { $BlockCacheSize = (Get-Cluster -Name $Cluster.Name).BlockCacheSize; Write-Host $Cluster "-" $BlockCacheSize}

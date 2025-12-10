@@ -1,0 +1,41 @@
+v4.1.1
+Reworked Write-Log function to write logs in CMTrace format
+
+
+v4.1.0
+Replaced transcripting with logging to a log file
+Reworked the Get-VMAlarms and Get-VMSnapshot functions to create null array if none are found
+Reworded Start-* functions to remove Start-vCenter*
+Added C:\iOCO Tools\Scripts\Keys folder to folder structure
+Added .key extension to Encrypted Password file
+Changed logging file extension from .TXT to .LOG
+
+v4.0.2
+Moved MailFile in ConfigFile to Sources instead of EmailSetup
+Renamed RT-Full-Module_v4.0.1.ps1 to RT-Single_v4.ps1
+Renamed Run-RTReports-Multiple_v4.ps1 to RT-Multi_v4.ps1
+
+v4.0.1
+Changed working directory from C:\iOCO to C:\iOCO Tools\
+Changed Config file for new working directory
+Changed EmailSetup in Config File to include additional TO addresses
+
+Made corrections to Get-VMsRunning to count Warning and Critical VMs correctly
+Added new function to delete old transcripts
+Added configuration for how long transcripts should be kept for
+Updated all hardcoded paths to new location
+Added Debugging Switch to parameters to disable sending of mails
+*Fixed issue where Standalone Hyper-V hosts couldn't be targeted remotely
+Added Mail Password file to Config File
+
+* This requires adding iOCORT to Hyper-V Administrators Group and Distributed COM Users Group
+* This also requires adding Distributed COM Users to DCOMCNFG for Launch and Activation Limits
+* This also requires adding Distributed COM Users to WINMGMT Permissions with Enable Account, Remote, 
+and Execute
+
+v4.0.0
+Optimized all most all functions
+Reworked how credentials are stored and used
+Added XML Config file to simplify tweaking and deployments
+Sorted VMs/Hosts/Datastores in ascending manner
+Added transcripting for debugging

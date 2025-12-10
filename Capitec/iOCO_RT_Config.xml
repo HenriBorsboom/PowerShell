@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<Settings>
+	<Sources>
+		<ReportFolder>C:\iOCO Tools\</ReportFolder>
+		<ScriptFolder>C:\iOCO Tools\Scripts\</ScriptFolder>
+		<ImageFolder>C:\iOCO Tools\Images\</ImageFolder>
+		<OldReportFolder>C:\iOCO Tools\Old Reports\</OldReportFolder>
+		<LogFolder>C:\iOCO Tools\Logs\</LogFolder>
+		<MailFile>C:\iOCO Tools\Scripts\Keys\Mail.key</MailFile>
+	</Sources>
+	<Alarms>
+		<AlarmDateRangeInDays>1</AlarmDateRangeInDays>
+		<DatastoreWarningRange>10</DatastoreWarningRange>
+		<DatastoreCriticalRange>5</DatastoreCriticalRange>
+	</Alarms>
+	<VMExclusions>
+		<Exclusion>*Pending_Decom*</Exclusion>
+        <Exclusion>*_Clone*</Exclusion>
+        <Exclusion>*Do not power on*</Exclusion>
+	</VMExclusions>
+	<Snapshots>
+		<AllowedSnapshotAge>3</AllowedSnapshotAge>
+	</Snapshots>
+	<EmailSetup>
+		<SMTPServer>emlprd01.mercantile.co.za</SMTPServer>
+		<To>hborsboom@mercantile.co.za</To>
+		<To>aluckan@mercantile.co.za</To>
+	        <To>tawandamasawi@capitecbank.co.za</To>
+		<From>posvcprd01@mercantile.co.za</From>
+		<DebugAddress>hborsboom@mercantile.co.za</DebugAddress>
+	</EmailSetup>
+	<OldFiles>
+		<KeepReportsFor>1</KeepReportsFor>
+		<KeepLogsFor>1</KeepLogsFor>
+	</OldFiles>
+</Settings>

@@ -1,0 +1,29 @@
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Preview.exe.config
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Preview.exe
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Preview.pdb
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Preview.xml
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Microsoft.PowerShell.Commands.Management.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Microsoft.PowerShell.Commands.Utility.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Microsoft.PowerShell.ConsoleHost.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\Microsoft.PowerShell.Security.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\System.Management.Automation.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\bin\Debug\System.Management.Automation.Resources.dll
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.Form1.resources
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.Resources.resources
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.vbproj.GenerateResource.Cache
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.exe
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.xml
+c:\users\henribo\documents\visual studio 2015\Projects\Preview\Preview\obj\Debug\Preview.pdb
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\bin\Debug\Preview.exe.config
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\bin\Debug\Preview.exe
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\bin\Debug\Preview.pdb
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\bin\Debug\Preview.xml
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.vbproj.AssemblyReference.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.vbproj.SuggestedBindingRedirects.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.Form1.resources
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.Resources.resources
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.vbproj.GenerateResource.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.vbproj.CoreCompileInputs.cache
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.exe
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.xml
+C:\Users\CP364327\OneDrive - Capitec Bank Ltd\Documents\PowerShell\PowerShell GUI Applications\Preview\Preview\obj\Debug\Preview.pdb

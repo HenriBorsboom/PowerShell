@@ -1,0 +1,1 @@
+While ($True) { (get-process powershell -IncludeUserName | where username -like "*$env:username").Count; Start-Sleep -Seconds 1 }

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Settings>
+	<Alarms>
+		<AlarmDateRangeInDays>1</AlarmDateRangeInDays>
+		<DatastoreWarningRange>20</DatastoreWarningRange>
+		<DatastoreCriticalRange>10></DatastoreCriticalRange>
+	</Alarms>
+	<VMExclusions>
+		<Exclusion1>*do not power*</Exclusion1>
+		<Exclusion2>*_clone*'</Exclusion2>
+		<Exclusion3>*leave offline*'</Exclusion3>
+		<Exclusion4>*do not delete*'</Exclusion4>
+		<Exclusion5>*or power on*'</Exclusion5>
+		<Exclusion6>*template*'</Exclusion6>
+		<Exclusion7>*[DR]*</Exclusion7>
+		<Exclusion8>*not power on*'</Exclusion8>
+	</VMExclusions>
+	<Snapshots>
+		<AllowedSnapshotAge>7</AllowedSnapshotAge>
+	</Snapshots>
+	<EmailSetup>
+		<SMTPServer>za-smtp-outbound-1.mimecast.co.za</SMTPServer>
+		<To>mscloud@eoh.com</To>
+		<From>eohrt_vm_storage@eoh.com</From>
+		<MailPassword>v3Rystr0nGP@ssword2019</MailPassword>
+	</EmailSetup>
+	<OldReports>
+		<KeepReportsFor>1</KeepReportsFor>
+	</OldReports>
+</Settings>

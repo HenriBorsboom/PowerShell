@@ -1,0 +1,1 @@
+get-process outlook | stop-process -Force

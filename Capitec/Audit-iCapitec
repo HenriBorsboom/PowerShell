@@ -1,0 +1,25 @@
+$Properties = @()
+$Properties += ,('Folder')
+$Properties += ,('LockDownGroup')
+$Properties += ,('FolderOwnerSamAccount')
+$Properties += ,('FolderOwnerName')
+$Properties += ,('FolderOwnerEnabled')
+$Properties += ,('FolderOwnerManager')
+$Properties += ,('FolderOwnerSeniorManager')
+$Properties += ,('SAMAccountName')
+$Properties += ,('Name')
+$Properties += ,('Enabled')
+$Properties += ,('Manager')
+$Properties += ,('SeniorManager')
+$Properties += ,('Index')
+
+$File = 'C:\temp\Henri\iCapitec_Audit.CSV'
+
+$Properties -join ',' | Out-File $File -Encoding ascii
+Write-Host ('Getting Directories - ') -NoNewline
+$Dirs = Get-ChildItem -Directory
+For ($i = 0; $i -lt $Dirs.Count; $i ++) {
+    Write-Host (($i + 1).ToString() + '/' + $Dirs.Count.ToString() + ' Processing ' + $Dirs[$i].Name)
+    $Details = C:\temp\henri\AuditFolders.ps1 -Path $Dirs[$i].Name
+    $Details | Select-Object $Properties | Export-Csv $File -Encoding ascii -Append
+}

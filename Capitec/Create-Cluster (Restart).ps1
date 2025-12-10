@@ -1,0 +1,1031 @@
+Param(
+    [Parameter(Mandatory=$false)]
+    [string]$node01,
+    [Parameter(Mandatory=$false)]
+    [string]$node02,
+    [Parameter(Mandatory=$false)]
+    [ValidateLength(5,15)]
+    [string]$CNO,
+    [Parameter(Mandatory=$false)]
+    [ValidateLength(5,15)]
+    [string]$VCO,
+    [Parameter(Mandatory=$false)]
+    [ValidateLength(5,15)]
+    [string]$VCO1,
+    [Parameter(Mandatory=$false)]
+    [ValidateSet('DEV','INT','QA','PRD', 'DR', 'ESIG')]
+    [string]$SDLC,
+    [Parameter(Mandatory=$false)]
+    [ValidateSet('BLV', 'STB','NP','PRD','DR', 'BFTC')]
+    [string]$Location,
+    [Parameter(Mandatory=$false)]
+    [string]$ClientSeceret,
+	[Parameter(Mandatory=$false)]
+    [Int]$Start,	
+	[Parameter(Mandatory=$false)]
+    [Int]$End,
+    [Parameter(Mandatory=$false)]
+    [ValidateSet('FullRun','RestartTestConnectivity', 'RestartHarden','RestartIPAM','RestartCluster','RestartVCO')]
+    [string]$Restart='FullRun'
+)
+
+#--------------------------------------
+#              Functions
+#--------------------------------------
+
+Function ValidateInputs {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$node01,
+        [Parameter(Mandatory=$true)]
+        [string]$node02,
+        [Parameter(Mandatory=$true)]
+        [ValidateLength(5,15)]
+        [string]$CNO,
+        [Parameter(Mandatory=$true)]
+        [ValidateLength(5,15)]
+        [string]$VCO,
+        [Parameter(Mandatory=$false)]
+        [ValidateLength(5,15)]
+        [string]$VCO1,
+        [Parameter(Mandatory=$true)]
+        [ValidateSet('DEV','INT','QA','PRD','DR', 'ESIG')]
+        [string]$SDLC,
+        [Parameter(Mandatory=$true)]
+        [ValidateSet('BLV', 'STB','NP','PRD','DR', 'BFTC')]
+        [string]$Location,
+        [Parameter(Mandatory=$true)]
+        [string]$ClientSeceret
+    )
+    
+    Write-Host "Validating Node 01: " -NoNewline
+    If (Test-Connection $node01 -Count 2 -Quiet) {
+        Write-Host "Online" -ForegroundColor Green
+    }
+    Else {
+        Write-Host "Offline" -ForegroundColor Red
+        Exit
+    }
+
+    Write-Host "Validating Node 02: " -NoNewline
+    If (Test-Connection $node02 -Count 2 -Quiet) {
+        Write-Host "Online" -ForegroundColor Green
+    }
+    Else {
+        Write-Host "Offline" -ForegroundColor Red
+        Exit
+    }
+    
+    Write-Host "Validating CNO: " -NoNewline
+    If ((ValidateADObject -ADObject $CNO) -eq $True) {
+        Write-Host "CNO Available" -ForegroundColor Green
+    }
+    Else {
+        Write-Host "CNO in use" -ForegroundColor Red
+    }
+    
+    Write-Host "Validating VCO 1: " -NoNewline
+    If ((ValidateADObject -ADObject $VCO) -eq $True) {
+        Write-Host "VCO 1 Available" -ForegroundColor Green
+    }
+    Else {
+        Write-Host "VCO 1 in use" -ForegroundColor Red
+    }
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        Write-Host "Validating VCO 2: " -NoNewline
+        If ((ValidateADObject -ADObject $VCO1) -eq $True) {
+            Write-Host "VCO 2 Available" -ForegroundColor Green
+        }
+        Else {
+            Write-Host "VCO 2 in use" -ForegroundColor Red
+        }
+    }
+}
+Function ValidateADObject {
+    Param (
+        [Parameter(Mandatory=$True, Position=1)]
+        [String] $ADObject
+    )
+    Import-module "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\ActiveDirectory.psd1"
+    Try {
+        $ComputerObject = Get-ADComputer $ADObject
+        If ($null -ne $ComputerObject) {
+            Return $False
+        }
+    }
+    Catch {
+        If ($_.Exception.Message -eq 'The operation returned because the timeout limit was exceeded.') {
+            Try {
+                $ComputerObject = Get-ADComputer $CNO
+                If ($null -ne $ComputerObject) {
+                    Return $False
+                }
+            }
+            Catch {
+                Return $True
+            }
+        }
+        Else {
+            Return $True
+        }
+    }
+}
+Function CheckGroupMembership {
+    Param ($node,$Location)
+    
+    Switch ($Location) {
+        "BLV"  {$LocalDC = "CBDC01.capitecbank.fin.sky"}
+        "STB"  {$LocalDC = "CBDC03.capitecbank.fin.sky"}
+        "NP"   {$LocalDC = "CBDC001.capitecbank.fin.sky"}
+        "PRD"  {$LocalDC = "CBDC002.capitecbank.fin.sky"}
+        "DR"   {$LocalDC = "CBDC002.capitecbank.fin.sky"}
+        "BFTC" {$LocalDC = "CBBFTCDC001.capitecbank.fin.sky"}
+    }
+
+    $strFilter = "(&(objectCategory=Computer)(Name=$node))"
+    $objSearcher = [adsisearcher]([adsi]"LDAP://$LocalDC")
+    $objSearcher.Filter = $strFilter
+    $objPath = $objSearcher.FindOne()
+    $objComputer = $objPath.GetDirectoryEntry()
+    $info = $objComputer.memberOf
+    $info | ForEach-Object{
+    if($_ -like '*ClusterSvc-Enabled*')
+    {
+        object = $_
+        return 99,$_
+    }}
+}
+Function CreateCredentials {
+    param($SDLC)
+    switch($SDLC)
+    {
+        'dev' {
+            $username = 'svc_scvmm_action_dev'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+        'int' {
+            $username = 'svc_scvmm_action_dev'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+        'qa' {
+            $username = 'svc_scvmm_action_dev'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+        'prd' {
+            $username = 'svc_scvmm_action'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+        'dr' {
+            $username = 'svc_scvmm_action'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+        'esig' {
+            $username = 'svc_esig_scvmm'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $vmmaction = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString
+            $username = 'svc_orchestrator'
+            $password = read-host -Prompt "Enter the password from 1Password for $username"
+            $pass = ConvertTo-SecureString -AsPlainText $Password -Force
+            $SecureString = $pass
+            $scorch = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $Username,$SecureString}
+    }
+    return $vmmaction,$scorch
+}
+Function HardenServer {
+    param (
+        $scorch,
+        $node,
+        $SDLC,
+        $Location,
+        $ClientSeceret
+    )
+
+    If ($SDLC -eq 'DEV' -or $SDLC -eq 'INT' -or $SDLC -eq 'QA') {
+        $Location = 'NP'
+    }
+    ElseIf ($SDLC -eq 'PRD' -or $SDLC -eq 'DR' -or $SDLC -eq 'ESIG') {
+        $Location = 'PRD'
+    }
+
+    $IDP = 'https://idp-prod.int.capinet/auth/realms/PROD/protocol/openid-connect/token'
+    $ClientID = "SecurityServices"
+ 
+    $headers = @{
+        "content-type" = "application/x-www-form-urlencoded"
+        "Authorization" = ("Basic", [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(($ClientID+":"+$ClientSeceret))) -join " ")
+    }
+
+    $creds = @{
+        username = $scorch.username
+        password = $scorch.GetNetworkCredential().password
+        grant_type = "password"
+    }
+
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+    $response = Invoke-RestMethod $IDP -Method Post -Body $creds -Headers $headers
+    $token = $response.access_token
+
+    $secure = $false
+    $SQLServer = $false
+    $Cluster = $true
+    $servername = $node
+             
+    If ( $Secure -eq $true )     { [int] $Secure = 1 }
+    If ( $Secure -eq $false )    { [int] $Secure = 0 }
+    If ( $SQLServer -eq $true )  { [int] $SQLServer = 1 }
+    If ( $SQLServer -eq $false ) { [int] $SQLServer = 0 }
+    If ( $Cluster -eq $true )    { [int] $Cluster = 1 }
+    If ( $Cluster -eq $false )   { [int] $Cluster = 0 }
+    
+    $hash = @{scpritFriendlyName = "HardenServer";
+        scriptParameters = @{
+        Servername=$Servername
+        Location = $Location
+        Secure = $Secure
+        SQLServer = $SQLServer
+        Cluster = $Cluster
+        SDLC = $SDLC
+        SMUserName = $env:Username
+        LogID = '99999999'}
+        scriptTimeout = 240000
+    }
+
+    $JSON = $hash | convertto-json
+
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+    $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+    $headers.Add("Authorization", $("bearer $token"))
+
+    $result = Invoke-RestMethod -Uri "https://cbsecpsapi.int.capinet/api/ScriptExecutionAPI/run/script" -Headers $headers -Method POST -ContentType "application/json" -Body $JSON
+    return $result.exitcode
+}
+Function RetreiveIPAMClusterIP {
+    param(
+        $node01,
+        $CNO,
+        $scorch, 
+        $Start, 
+        $End
+    )
+
+    $IPAddress = (Test-Connection -count 1 -ComputerName $Node01).IPV4Address.IPAddressToString
+    $FreeIP = Invoke-Command -ComputerName CBSTBIPAM01 -Credential $Scorch -ArgumentList $IPAddress,$CNO, $Start, $End -ScriptBlock {
+        param (
+            $IPAddress,
+            $CNO, 
+            $Start,
+            $End
+        )
+
+        $NetworkInfo = $IPAddress.split('.')[0] + '.' + $IPAddress.split('.')[1] + '.' + $IPAddress.split('.')[2]
+        If (($null -eq $Start -or $Start -ne '') -and ($null -eq $end -or $End -ne '')) {
+            $StartNetwork = ($NetworkInfo + '.1')
+            $EndNetwork = ($NetworkInfo + '.254')
+        }
+        Else {
+            $StartNetwork = ($NetworkInfo + '.' + $Start.ToString())
+            $EndNetwork = ($NetworkInfo + '.' + $End.ToString())
+        }
+        $FreeIP = Get-IpamRange -StartIPAddress $StartNetwork -EndIPAddress $EndNetwork | Find-IpamFreeAddress -NumAddress 125 -TestReachability | Where-Object {$_."PingStatus" -eq "Noreply"} | Where-Object {$_."DnsRecordStatus" -eq "NotFound"} | Select-Object -expandproperty IPAddress | Select-Object -first 1
+        Add-IpamAddress -IpAddress $FreeIP -ManagedByService IPAM -Description $CNO
+        return $FreeIP
+    } -ErrorAction stop
+    return $FreeIP
+}
+Function InstallFailoverCluster {
+    param($node)
+    invoke-command -computername $node -scriptblock -Credential $vmmaction {
+    $null = (gwmi win32_process | Where-Object{$_.name -like '*tiworker*'}).terminate()
+    if((Get-WindowsFeature -name RSAT-Clustering).installstate -ne 'installed')
+    {
+        Start-Sleep -s 5
+        install-windowsfeature -Name RSAT-Clustering -IncludeManagementTools
+    }}
+}
+Function CreateClusterJob {
+    param (
+        $CNO,
+        $Node01,
+        $Node02,
+        $ClusterIP,
+        $vmmaction
+    )
+
+    $PasswordAction = $vmmaction.GetNetworkCredential().password
+    $UserAction = $vmmaction.GetNetworkCredential().username
+    $UserAction = ($UserAction -split "/")[0]
+
+    invoke-command -computername $Node01 -argumentlist $CNO,$Node01,$Node02,$ClusterIP,$PasswordAction,$UserAction -Credential $vmmaction -scriptblock {
+        param(
+            $CNO,
+            $Node01,
+            $Node02,
+            $ClusterIP,
+            $PasswordAction,
+            $UserAction
+        )
+
+        if(test-path c:\temp\cluster.ps1) {
+            remove-item c:\temp\cluster.ps1
+        }
+
+        if(test-path c:\temp\cluserout.txt) {
+            remove-item c:\temp\cluserout.txt
+        }
+
+        if(get-scheduledtask -taskname ClusterCreate) {
+            get-scheduledtask -taskname ClusterCreate | unregister-scheduledtask -confirm:$false
+        }
+
+        $command = "New-Cluster -Name $CNO -Node $Node01,$Node02 -StaticAddress $ClusterIP -NoStorage | out-file c:\temp\cluserout.txt -append"
+        'invoke-expression -command ' + '"' + $command + '"' | out-file c:\temp\cluster.ps1 -Encoding ASCII -append
+
+        Set-ItemProperty -Path HKLM:SYSTEM\CurrentControlSet\Control\Lsa -Name disabledomaincreds -Value 0 -Force
+        [string] $timescheduleforcluster = get-date -Format HH:mm (get-date).Addhours(1)
+        get-ItemProperty -Path HKLM:SYSTEM\CurrentControlSet\Control\Lsa -Name disabledomaincreds
+        SCHTASKS /Create /TN ClusterCreate /SC ONCE /TR 'powershell -command c:\temp\cluster.ps1' /ST $timescheduleforcluster /RL HIGHEST /RU capitecbank\$UserAction /RP $PasswordAction
+        While (!(get-scheduledtask ClusterCreate)) {
+            Start-Sleep -seconds 5
+            write-host "Waiting for task [ClusterCreate] to be created..." -ForegroundColor Green
+        }
+    } 
+}
+Function RestartServer {
+    Param (
+        $node
+    )
+
+    start-job -name "Restarting node $node" -ArgumentList $node -ScriptBlock { 
+        param (
+            $node
+        )
+        Start-Sleep -seconds 10
+        Restart-Computer -ComputerName $node -Force
+    }
+
+    While ((Test-NetConnection -computername $node).PingSucceeded -eq 'true') {
+        write-host "Shutting down node $node"
+        Start-Sleep -seconds 1
+    }
+
+    While ((Test-NetConnection -computername $node).PingSucceeded -ne 'true') {
+        write-host "Starting up node $node"
+        Start-Sleep -seconds 1
+    }
+
+    While (!(invoke-Command -ComputerName $node -ScriptBlock {hostname} -Credential $vmmaction)) {
+        write-host "Waiting for WMI response on node $node"
+        Start-Sleep -seconds 1
+    }
+}
+Function PreStageVCO {
+    param([Parameter(Mandatory=$true)]
+        [string]$VCO,
+        [Parameter(Mandatory=$true)]
+        [string]$CNO,
+        [Parameter(Mandatory=$true)]
+        [string]$Location,
+        $vmmaction
+    )
+
+    Try{
+        Import-module "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\ActiveDirectory.psd1"
+        switch ($Location) {
+            "BLV"  { $LocalDC = "CBDC01.capitecbank.fin.sky"}
+            "STB"  { $LocalDC = "CBDC03.capitecbank.fin.sky"}
+            "NP"   { $LocalDC = "CBDC001.capitecbank.fin.sky"}
+            "PRD"  { $LocalDC = "CBDC002.capitecbank.fin.sky"}
+            "DR"   { $LocalDC = "CBDC002.capitecbank.fin.sky"}
+            "BFTC" { $LocalDC = "CBBFTCDC001.capitecbank.fin.sky"}
+        }
+    $pattrn = @"
+^CN=(.+?)(?:(?<!\\),|$)
+"@
+        $dn =  Get-ADComputer $CNO -Server $LocalDC
+        $OU = $($dn.DistinguishedName) -replace ($pattrn)
+        #$OU
+        New-ADComputer -Name $VCO -Description "Failover cluster virtual network name account" -Path $OU -Credential $vmmaction -Server $LocalDC
+        Write-Output "VCO created successfully"} 
+    Catch {
+        $errormessage = $_.exception.message
+        Write-Error $errormessage -ErrorAction Stop
+    }
+}
+Function SetVCOACL {
+    param(
+        $CNO,
+        $VCO,
+        $Location,
+        $vmmaction
+    )
+
+    Import-module "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\ActiveDirectory\ActiveDirectory.psd1"
+    switch ($Location) {
+        "BLV"  { $LocalDC = "CBDC01.capitecbank.fin.sky" }
+        "STB"  { $LocalDC = "CBDC03.capitecbank.fin.sky" }
+        "NP"   { $LocalDC = "CBDC001.capitecbank.fin.sky" }
+        "PRD"  { $LocalDC = "CBDC002.capitecbank.fin.sky" }
+        "DR"   { $LocalDC = "CBDC002.capitecbank.fin.sky" }
+        "BFTC" { $LocalDC = "CBBFTCDC001.capitecbank.fin.sky" }
+    }
+
+    If ( Get-PSDrive -name AD -ErrorAction SilentlyContinue ) { Remove-PSDrive AD -ErrorAction SilentlyContinue }
+    New-PSDrive -Name AD -PSProvider ActiveDirectory -Root "" -server $LocalDC -Credential $vmmaction
+    $VCO = Get-ADComputer $VCO -Server $LocalDC -Credential $vmmaction
+    write-output $VCO
+    $CNO = Get-ADComputer $CNO -Server $LocalDC -Credential $vmmaction
+    write-output $CNO
+    $VCODistinguishedName = $VCO.DistinguishedName  # input AD computer distinguishedname
+    $VCOacl = Get-Acl "AD:\$VCODistinguishedName"
+    Write-Output $VCOacl
+    $SID = [System.Security.Principal.SecurityIdentifier] $CNO.SID
+    $identity = [System.Security.Principal.IdentityReference] $SID
+    $adRights = [System.DirectoryServices.ActiveDirectoryRights] "GenericAll"
+    $type = [System.Security.AccessControl.AccessControlType] "Allow"
+    $inheritanceType = [System.DirectoryServices.ActiveDirectorySecurityInheritance] "None"
+    $ace = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $identity,$adRights,$type,$inheritanceType
+    write-output $ace
+    $VCOacl.AddAccessRule($ace)
+    Set-Acl -path "AD:\$VCODistinguishedName" -AclObject $VCOacl -ErrorAction Stop
+    Write-Output "$ClusterCNO has been granted Full control over $ClusterVCO "
+}
+Function Test-WMIConnectivity {
+    Try {
+        Get-WmiObject -Class Win32_OperatingSystem -ComputerName $node01 -ErrorAction stop
+        write-host "Your account has access to node $node01" -ForegroundColor green}
+    Catch { 
+        Write-Error "Your account does not have access to node $node01" -ErrorAction stop
+    }
+    
+    Try {
+        Get-WmiObject -Class Win32_Operatingsystem -ComputerName $node02 -ErrorAction stop
+        write-host "Your account has access to node $node02" -ForegroundColor green}
+    Catch {
+        write-Error "Your account does not have access to node $node02" -ErrorAction stop
+    }
+    
+    Try {
+        Get-WmiObject -Class Win32_Operatingsystem -ComputerName cbstbipam01 -Credential $scorch -ErrorAction stop
+        write-host "The Scorch account access granted to CBSTBIPAM01" -ForegroundColor green}
+    Catch {
+        write-Error "The Scorch account could not access CBSTBIPAM01" -ErrorAction stop
+    }
+    
+    Try {
+        Get-WmiObject -Class Win32_Operatingsystem -ComputerName $node01 -Credential $vmmaction -ErrorAction stop
+        write-host "The VMMAction account access granted to $node01" -ForegroundColor green}
+    Catch {
+        write-Error "The VMMAction account could not access $node01" -ErrorAction stop
+    }
+    
+    Try {
+        Get-WmiObject -Class Win32_Operatingsystem -ComputerName $node02 -Credential $vmmaction -ErrorAction stop
+        write-host "The VMMAction account access granted to $node02" -ForegroundColor green}
+    Catch {
+        write-Error "The VMMAction account could not access $node02" -ErrorAction stop
+    }
+}
+Function Set-HardenServer {
+    $result = HardenServer -scorch $scorch -node $node01 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret
+    if ($result -ne 0) {
+        write-error "Hardening failed on node $node01" -ErrorAction stop
+        exit 1
+    }
+    invoke-command -ComputerName $node01 -ScriptBlock {gpupdate /force} -Credential $vmmaction
+    $groupcheck = CheckGroupMembership -node $node01 -Location $location
+    $checkresult = $groupcheck[0]
+    $clustergroup = $groupcheck[1]
+    If ($checkresult -ne 99) {
+        write-error "Groups missing on $node01 after hardening" -ErrorAction stop
+        EXIT 1
+    }
+    Else {
+        write-host "Server $node01 added successfully to $clustergroup" -ForegroundColor Green
+    }
+
+
+    $result = HardenServer -scorch $scorch -node $node02 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret
+    If ($result -ne 0) {
+        write-error "Hardening failed on node $node02" -ErrorAction stop
+        exit 1
+    }
+    invoke-command -ComputerName $node02 -ScriptBlock {gpupdate /force} -Credential $vmmaction
+
+    $groupcheck = CheckGroupMembership -node $node02 -Location $location
+    $checkresult = $groupcheck[0]
+    $clustergroup = $groupcheck[1]
+    If ($checkresult -ne 99) {
+        write-error "Groups missing on $node02 after hardening" -ErrorAction stop
+        EXIT 1
+    }
+    Else {
+        write-host "Server $node02 added successfully to $clustergroup" -ForegroundColor Green
+    }
+}
+Function Get-IPAM {
+	Param (
+		[Parameter(Mandatory=$false)]
+		[Int] $Start,
+		[Parameter(Mandatory=$false)]
+		[Int] $End)
+    If ($null -ne $Start -or $Start -ne "") {
+        $FreeIP = RetreiveIPAMClusterIP -node01 $node01 -CNO $CNO -scorch $scorch -Start $Start -End $End
+    }
+    Else {
+        $FreeIP = RetreiveIPAMClusterIP -node01 $node01 -CNO $CNO -scorch $scorch
+    }
+    $ClusterIP = $FreeIP.IPAddressToString
+    If (!($ClusterIP)) {
+        write-error "no cluster ip could be allocated" -ErrorAction stop
+        exit 1
+    }
+    write-host "ClusterIP: $ClusterIP" -ForegroundColor Green
+    Return $FreeIP
+}
+Function New-Cluster {
+    Param (
+        [Parameter(Mandatory=$True, Position=1)]
+        [String] $ClusterIP
+    )
+    While (((invoke-command -ComputerName $node01 -ScriptBlock {test-path c:\temp\clusteout.txt} -Credential $vmmaction) -eq $false) -and ((invoke-command -ComputerName $node01 -Credential $vmmaction -ScriptBlock {(get-content c:\temp\cluserout.txt).length -eq 0}))) {
+        CreateClusterJob -CNO $CNO -Node01 $node01 -Node02 $node02 -ClusterIP $ClusterIP -vmmaction $vmmaction
+
+        invoke-command -computername $node01 -scriptblock {Clear-ClusterNode -Force} -Credential $vmmaction
+        invoke-command -computername $node02 -scriptblock {Clear-ClusterNode -force} -Credential $vmmaction
+        
+        For ($x = 100; $x -gt 0; $x --) {
+            write-host "Waiting for a further $x seconds to update cluster config..."
+            Start-Sleep -seconds 1
+        }
+        invoke-command -computername $node01 -Credential $vmmaction -scriptblock {Set-ItemProperty -Path HKLM:SYSTEM\CurrentControlSet\Control\Lsa -Name disabledomaincreds -Value 0 -Force}
+        invoke-command -computername $node01 -Credential $vmmaction -scriptblock {start-scheduledtask ClusterCreate}
+        invoke-command -computername $node01 -Credential $vmmaction -scriptblock {
+            While ((get-scheduledtask -taskname ClusterCreate | ForEach-Object{$_.state}) -ne 'ready') {
+                write-host "Waiting for cluster to be created" -ForegroundColor Green
+                Start-Sleep -seconds 30
+            }
+        }
+    }
+
+    For ($x = 100; $x -gt 0; $x --) {
+        write-host "Giving some time to register DNS..$x seconds"
+        Start-Sleep -seconds 1
+    }
+}
+
+Function FullRun {
+    #--------------------------------------
+    #              Pre Warning
+    #--------------------------------------
+    Write-Warning "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    Write-Warning "!!!  Please install Failover Clustering before continuing  !!!"
+    Write-Warning "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    Read-Host "Press Enter if the role is installed"
+
+    #--------------------------------------
+    #              Input Variables
+    #--------------------------------------
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: FullRun                                        ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $MultiIP       = Read-Host -Prompt "Are multiple IP addresses required [Y/n]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $Start         = Read-Host -Prompt "Please provide the Start IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $End           = Read-Host -Prompt "Please provide the End IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        If ($MultiIP.ToString().ToLower() -eq 'y') {
+            Write-Host "Please reserve the addresses in IPAM manually" -ForegroundColor Red -BackgroundColor Yellow
+            $IP1 = Read-Host -Prompt "Please provide the IP address for node 1"
+            $IP2 = Read-Host -Prompt "Please provide the IP address for node 2"
+            $FreeIP = $IP1,$IP2 -join ','
+        }
+        Else {
+            $FreeIP = Get-IPAM -Start $Start -End $End
+        }
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    #$ActionAccount = $vmmaction.UserName
+
+    Test-WMIConnectivity
+    Set-HardenServer
+    RestartServer -node $node01
+    RestartServer -node $node02
+    
+    New-Cluster -ClusterIP $FreeIP
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: FullRun - Complete                             ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Function RestartTestConnectivity {
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartTestConnectivity                        ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $MultiIP       = Read-Host -Prompt "Are multiple IP addresses required [Y/n]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $Start         = Read-Host -Prompt "Please provide the Start IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $End           = Read-Host -Prompt "Please provide the End IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        If ($MultiIP.ToString().ToLower() -eq 'y') {
+            Write-Host "Please reserve the addresses in IPAM manually" -ForegroundColor Red -BackgroundColor Yellow
+            $IP1 = Read-Host -Prompt "Please provide the IP address for node 1"
+            $IP2 = Read-Host -Prompt "Please provide the IP address for node 2"
+            $FreeIP = $IP1,$IP2 -join ','
+        }
+        Else {
+            $FreeIP = Get-IPAM -Start $Start -End $End
+        }
+
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    #$ActionAccount = $vmmaction.UserName
+
+    Test-WMIConnectivity
+    Set-HardenServer
+    RestartServer -node $node01
+    RestartServer -node $node02
+    New-Cluster -ClusterIP $FreeIP
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartTestConnectivity Complete               ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Function RestartHarden {
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartHarden                                  ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $MultiIP       = Read-Host -Prompt "Are multiple IP addresses required [Y/n]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $Start         = Read-Host -Prompt "Please provide the Start IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $End           = Read-Host -Prompt "Please provide the End IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        If ($MultiIP.ToString().ToLower() -eq 'y') {
+            Write-Host "Please reserve the addresses in IPAM manually" -ForegroundColor Red -BackgroundColor Yellow
+            $IP1 = Read-Host -Prompt "Please provide the IP address for node 1"
+            $IP2 = Read-Host -Prompt "Please provide the IP address for node 2"
+            $FreeIP = $IP1,$IP2 -join ','
+        }
+        Else {
+            $FreeIP = Get-IPAM -Start $Start -End $End
+        }
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    #$ActionAccount = $vmmaction.UserName
+
+    Set-HardenServer
+    RestartServer -node $node01
+    RestartServer -node $node02
+    New-Cluster -ClusterIP $FreeIP
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartHarden Complete                         ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Function RestartIPAM {
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartIPAM                                    ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $MultiIP       = Read-Host -Prompt "Are multiple IP addresses required [Y/n]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $Start         = Read-Host -Prompt "Please provide the Start IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $End           = Read-Host -Prompt "Please provide the End IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        If ($MultiIP.ToString().ToLower() -eq 'y') {
+            Write-Host "Please reserve the addresses in IPAM manually" -ForegroundColor Red -BackgroundColor Yellow
+            $IP1 = Read-Host -Prompt "Please provide the IP address for node 1"
+            $IP2 = Read-Host -Prompt "Please provide the IP address for node 2"
+            $FreeIP = $IP1,$IP2 -join ','
+        }
+        Else {
+            $FreeIP = Get-IPAM -Start $Start -End $End
+        }
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    #$ActionAccount = $vmmaction.UserName
+
+    New-Cluster -ClusterIP $FreeIP
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartIPAM Complete                           ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Function RestartCluster {
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartCluster                                 ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $MultiIP       = Read-Host -Prompt "Are multiple IP addresses required [Y/n]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $Start         = Read-Host -Prompt "Please provide the Start IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $End           = Read-Host -Prompt "Please provide the End IP of the subnet (Only the last Octet. Leave blank if /24 CIDR range)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        If ($MultiIP.ToString().ToLower() -eq 'y') {
+            Write-Host "Please reserve the addresses in IPAM manually" -ForegroundColor Red -BackgroundColor Yellow
+            $IP1 = Read-Host -Prompt "Please provide the IP address for node 1"
+            $IP2 = Read-Host -Prompt "Please provide the IP address for node 2"
+            $FreeIP = $IP1,$IP2 -join ','
+        }
+        Else {
+            $FreeIP = Get-IPAM -Start $Start -End $End
+        }
+
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    #$ActionAccount = $vmmaction.UserName
+    If ($null -eq $FreeIP -or $FreeIP -eq '') {
+        $FreeIP = Get-IPAM -Start $Start -End $End
+    }
+    New-Cluster -ClusterIP $FreeIP
+
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartCluster Complete                        ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Function RestartVCO {
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartVCO                                     ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    If ($node01 -eq '' -or $null -eq $node01) {
+        $node01        = Read-host -Prompt "Please provide the first node name [Not FQDN]"
+        $node02        = Read-Host -Prompt "Please provide the second node name [Not FQDN]"
+        $CNO           = Read-Host -Prompt "Please provide the cluster name object [CNO]"
+        $VCO           = Read-Host -Prompt "Please provide the virtual computer name object 1 [VCO]"
+        $VCO1          = Read-Host -Prompt "Please provide the virtual computer name object 2 [VCO] (Leave empty if not required)"
+        $SDLC          = Read-Host -Prompt "Please provide SDLC [DEV/INT/QA/PRD/DR/ESIG]"
+        $Location      = Read-Host -Prompt "Please provide Location [BLV/STB/NP/PRD/DR/BFTC]"
+        $ClientSeceret = Read-Host -Prompt "Please enter the production clientID (SecurityServices) password to retrieve token from IDP"
+
+        #--------------------------------------
+        #              Runtime
+        #--------------------------------------
+
+        Try {
+            If ($null -eq $VCO1 -or $VCO1 -ne "") {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -VCO1 $VCO1 -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+            Else {
+                ValidateInputs -node01 $node01 -node02 $node02 -CNO $CNO -VCO $VCO -SDLC $SDLC -Location $Location -ClientSeceret $ClientSeceret -ErrorAction stop
+            }
+        }
+        Catch{
+            $error[0].Exception
+            write-error "Please review the error and modify parameters" -ErrorAction stop
+        }
+    }
+
+    $vmmaction,$scorch = CreateCredentials -SDLC $SDLC
+    If ($null -eq $VCO1 -or $VCO1 -ne "") {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+        PreStageVCO -VCO $VCO1 -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO1 -Location $Location -vmmaction $vmmaction
+    }
+    Else {
+        PreStageVCO -VCO $VCO -CNO $CNO -Location $Location -vmmaction $vmmaction
+        SetVCOACL -CNO $CNO -VCO $VCO -Location $Location -vmmaction $vmmaction
+    }
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+    Write-Host "---  Phase: RestartVCO Complete                            ---" -ForegroundColor Green
+    Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+}
+Switch ($Restart) {
+    'FullRun' {
+        FullRun
+    }
+    'RestartTestConnectivity' {
+        RestartTestConnectivity
+    }
+    'RestartHarden' {
+        RestartHarden
+    }
+    'RestartIPAM' {
+        RestartIPAM
+    }
+    'RestartCluster' {
+        RestartCluster
+    }
+    'RestartVCO' {
+        RestartVCO
+    }
+	Default {
+		FullRun
+	}
+}
+Write-Host "--------------------------------------------------------------" -ForegroundColor Green
+Write-Host "---  Phase: Create-Cluster Complete                        ---" -ForegroundColor Green
+Write-Host "--------------------------------------------------------------" -ForegroundColor Green

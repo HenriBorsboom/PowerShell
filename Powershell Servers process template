@@ -1,0 +1,45 @@
+$ErrorActionPreference = 'Stop'
+Clear-Host
+$Servers = @()
+$Servers += ,('')
+
+$Report = @()
+$Errors = @()
+Write-Output ("")
+Write-Output ("")
+Write-Output ("")
+Write-Output ("")
+Write-Output ("")
+Write-Output ("")
+Write-Output ("")
+For ($i = 0; $i -lt $Servers.Count; $i ++) {
+	Write-Progress -PercentComplete ($i / $Servers.Count * 100) -Activity "Getting Data"
+    Try {
+		Write-Output (($i + 1).tostring() + '/' + $Servers.Count.Tostring() + ' - Processing ' + $Servers[$i] + ' - ') -NoNewline
+        If (Test-Connection $Servers[$i] -Count 2 -Quiet) {
+            $Value = (Get-WmiObject -class Win32_OperatingSystem -Property Lastbootuptime -ComputerName $Servers[$i]).Lastbootuptime
+            $Report += ,(New-Object -TypeName PSObject -Property @{
+                Server = $Servers[$i]
+                Value = $Value
+            })
+            Write-Host 'Complete' -ForegroundColor Green
+        }
+        Else {
+            Write-Host 'Offline' -ForegroundColor Red
+            $Errors += ,(New-Object -TypeName PSObject -Property @{
+                Server = $Servers[$i]
+                Error = 'Offline'
+            })
+        }
+    }
+    Catch {
+        Write-Host $_ -ForegroundColor Red
+        $Errors += ,(New-Object -TypeName PSObject -Property @{
+                Server = $Servers[$i]
+                Error = $_
+            })
+    }
+}
+
+$Report | Out-GridView
+$Errors | Out-GridView

@@ -1,0 +1,28 @@
+For the Ansible DNS runbooks to work successfully in a LAB environment, the following needs to be setup.
+
+1. Domain Controller
+Copy the files under DC\Program Files to the Domain controller under C:\Program Files
+Create a ServiceAccounts OU in AD
+Run the Setup-DNSServiceAccount.ps1 file to create the service account
+Run the Setup.ps1 file to register the JEA session, assign Read + Execute permissions on the service account, and setup winrm to listen on HTTPS
+Create a bank.local DNS zone with mydummyhost A record
+Create a bank DNS zone and an int domain under bank. Create a CNAME record called dummyalias that points to mydummyhost.bank.local
+
+2. Jump server
+Add the service account as local admin
+Copy the Scripts folder under Jump to C:\Scripts
+Run Setup-WinRM-HTTPS.ps1 to set WinRM to listen on HTTPS
+gpedit.msc
+    Computer Configuration/Windows Settings/Security Settings/Local Policies/user Rights Assignment
+        Deny log on as a batch job
+        Deny log on as a service
+        Deny log on locally
+        Deny log on through Remote Desktop Service
+
+3. Ansible
+Install krb5-user and ansible
+    sudo apt clean && sudo apt update -y && sudo apt upgrade -y && apt install ansible krb5-user -y
+Create the playbooks folder on the server
+    mkdir ~/playbooks/
+Copy the yml files to ~/playbooks/
+    scp ./Ansible/*.yml slash@192.168.101.117:/home/slash/playbooks

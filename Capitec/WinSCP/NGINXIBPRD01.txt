@@ -1,0 +1,7 @@
+# Connect to NGINXIBPRD01 server using a password
+open 192.168.101.31 -username=root -password=&&v%p@dd!nGT0nB3@r
+cd /etc/nginx/conf.d
+get * C:\Users\HBorsboom\Documents\Nginx\NGINXIBPRD01\
+close
+exit
+
