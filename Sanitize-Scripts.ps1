@@ -154,12 +154,14 @@ function Process-File {
                 $script:FilesModified++
                 $script:TotalReplacements++
                 Write-ColorOutput "  ✓ Modified: $(Split-Path $FilePath -Leaf)" -Color Green
-            } else {
+            }
+            else {
                 Write-ColorOutput "  [WhatIf] Would modify: $(Split-Path $FilePath -Leaf)" -Color Yellow
             }
         }
         
-    } catch {
+    }
+    catch {
         Write-ColorOutput "  ✗ Error processing $(Split-Path $FilePath -Leaf): $($_.Exception.Message)" -Color Red
     }
 }
